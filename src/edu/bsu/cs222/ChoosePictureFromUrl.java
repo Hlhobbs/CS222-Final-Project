@@ -1,21 +1,21 @@
 package edu.bsu.cs222;
 
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
-
+import javafx.scene.image.Image;
 public class ChoosePictureFromUrl {
 
 
-    public BufferedImage getpicture()
+    public Image getpicture()
     {
-        BufferedImage image = null;
+        Image image = null;
         try {
             URL imageUrl = new URL("https://upload.wikimedia.org/wikipedia/en/a/a9/Example.jpg");
             InputStream in = imageUrl.openStream();
-            image = ImageIO.read(in);
+            createImage newimage = new createImage(in);
+            image = newimage.returnImage();
             in.close();
         }
         catch (IOException ioe) {

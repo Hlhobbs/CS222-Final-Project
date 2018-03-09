@@ -4,10 +4,8 @@ package edu.bsu.cs222;
 import org.junit.jupiter.api.Test;
 
 
-
+import javafx.scene.image.Image;
 import java.util.List;
-import java.awt.*;
-import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -44,7 +42,7 @@ public class Tests {
         ScanPictureForColors scanPictureForColors = new ScanPictureForColors();
         ChoosePictureFromUrl choosePictureFromUrl = new ChoosePictureFromUrl();
         List<Pixel> listofpixels = new ArrayList<>();
-        BufferedImage image = choosePictureFromUrl.getpicture();
+        Image image = choosePictureFromUrl.getpicture();
         listofpixels = scanPictureForColors.ScanPixelsforColors(image);
         assertNotNull(listofpixels);
 
@@ -55,7 +53,7 @@ public class Tests {
         ScanPictureForColors scanPictureForColors = new ScanPictureForColors();
         ChoosePictureFromUrl choosePictureFromUrl = new ChoosePictureFromUrl();
         List<Pixel> listofpixels = new ArrayList<>();
-        BufferedImage image = choosePictureFromUrl.getpicture();
+        Image image = choosePictureFromUrl.getpicture();
         listofpixels = scanPictureForColors.ScanPixelsforColors(image);
         assertNotNull(listofpixels.get(1).getGreenValue());
 
