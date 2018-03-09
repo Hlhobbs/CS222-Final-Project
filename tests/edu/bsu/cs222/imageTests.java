@@ -26,11 +26,7 @@ public class imageTests extends Application {
         Image testWithURL = urlCreateImage.returnImage();
         ImageView urlImageView = new ImageView(testWithURL);
 
-
-        filePicker filePicker = new filePicker();
-        InputStream inputStream = filePicker.getInputStream();
-        createImage fileCreateImage = new createImage(inputStream);
-        Image testWithFile = fileCreateImage.returnImage();
+        Image testWithFile = testWithURL;
         ImageView fileImageView = new ImageView(testWithFile);
 
         StackPane manualPane = new StackPane();
