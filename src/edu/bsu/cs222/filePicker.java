@@ -7,20 +7,21 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
-import java.awt.*;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 
-public class filePickerTests extends Application {
+public class filePicker extends Application {
+
+    InputStream inputStream = null;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        primaryStage.setTitle("filePickerTests");
+        primaryStage.setTitle("File Picker");
 
         FileChooser testFileChooser = new FileChooser();
-        testFileChooser.setTitle("Test File Chooser");
+        testFileChooser.setTitle("File Chooser");
         testFileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif")
         );
@@ -28,20 +29,13 @@ public class filePickerTests extends Application {
         File chosenTestFile = testFileChooser.showOpenDialog(null);
 
         if (chosenTestFile != null) {
-            InputStream inputStream = new FileInputStream(chosenTestFile);
-            createImage image = new createImage(inputStream);
-            Image createdImage = image.returnImage();
-            javafx.scene.image.ImageView imageView = new javafx.scene.image.ImageView(createdImage);
-
-            StackPane Pane = new StackPane();
-            Pane.getChildren().add(imageView);
-
-            Scene scene = new Scene(Pane);
-            primaryStage.setScene(scene);
-            primaryStage.show();
-
+            inputStream = new FileInputStream(chosenTestFile);
+        } else {
+            System.out.println("Null inputStream");
         }
-
     }
 
+    public InputStream getInputStream() {
+        return inputStream;
+    }
 }
