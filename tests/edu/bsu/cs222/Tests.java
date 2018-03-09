@@ -17,16 +17,16 @@ public class Tests {
     @Test
     public void testChoosePictureFromFile()
     {
-        ChoosePictureFromFile pictureFromFile = new ChoosePictureFromFile();
-        Image readPicture = pictureFromFile.getpicture();
+        ChoosePicture pictureFromFile = new ChoosePicture();
+        Image readPicture = pictureFromFile.getPictureFromFile();
         assertNotNull(readPicture);
     }
 
     @Test
     public void testChoosePictureFromUrl()
     {
-        ChoosePictureFromUrl pictureFromUrl = new ChoosePictureFromUrl();
-        Image readPicture = pictureFromUrl.getpicture();
+        ChoosePicture pictureFromUrl = new ChoosePicture();
+        Image readPicture = pictureFromUrl.getPictureFromUrl();
         assertNotNull(readPicture);
     }
 
@@ -40,9 +40,9 @@ public class Tests {
     @Test
     public void testScanPictureForColors() {
         ScanPictureForColors scanPictureForColors = new ScanPictureForColors();
-        ChoosePictureFromUrl choosePictureFromUrl = new ChoosePictureFromUrl();
+        ChoosePicture choosePictureFromUrl = new ChoosePicture();
         List<Pixel> listofpixels = new ArrayList<>();
-        Image image = choosePictureFromUrl.getpicture();
+        Image image = choosePictureFromUrl.getPictureFromUrl();
         listofpixels = scanPictureForColors.ScanPixelsforColors(image);
         assertNotNull(listofpixels);
 
@@ -51,9 +51,9 @@ public class Tests {
     @Test
     public void testScanPictureForColorsGreen() {
         ScanPictureForColors scanPictureForColors = new ScanPictureForColors();
-        ChoosePictureFromUrl choosePictureFromUrl = new ChoosePictureFromUrl();
+        ChoosePicture choosePictureFromUrl = new ChoosePicture();
         List<Pixel> listofpixels = new ArrayList<>();
-        Image image = choosePictureFromUrl.getpicture();
+        Image image = choosePictureFromUrl.getPictureFromUrl();
         listofpixels = scanPictureForColors.ScanPixelsforColors(image);
         assertNotNull(listofpixels.get(1).getGreenValue());
 
