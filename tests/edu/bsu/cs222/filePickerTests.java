@@ -14,8 +14,6 @@ import java.io.InputStream;
 
 public class filePickerTests extends Application {
 
-    private Desktop desktop = Desktop.getDesktop();
-
     @Override
     public void start(Stage primaryStage) throws Exception {
 
