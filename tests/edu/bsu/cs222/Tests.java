@@ -3,6 +3,8 @@ package edu.bsu.cs222;
 
 import org.junit.jupiter.api.Test;
 import java.awt.*;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 
@@ -22,6 +24,13 @@ public class Tests {
         ChoosePictureFromUrl pictureFromUrl = new ChoosePictureFromUrl();
         Image readPicture = pictureFromUrl.getpicture();
         assertNotNull(readPicture);
+    }
+
+    @Test
+    public void testPixel() {
+        Pixel pixel = new Pixel();
+        pixel.setAlphaValue(12);
+        assertEquals(12, pixel.getAlphaValue());
     }
 
 }
