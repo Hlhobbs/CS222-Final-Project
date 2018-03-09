@@ -14,6 +14,7 @@ import java.util.Scanner;
 public class imageTests extends Application {
 
     @Override
+    //Enter a 1,2, or 3 into the terminal to test manually, from a url, or from a file path respectively
     public void start(Stage primaryStage) throws Exception {
 
         primaryStage.setTitle("Test");
