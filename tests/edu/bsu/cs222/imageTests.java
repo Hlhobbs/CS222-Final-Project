@@ -9,6 +9,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
+import java.io.InputStream;
 import java.util.Scanner;
 
 public class imageTests extends Application {
@@ -25,7 +26,11 @@ public class imageTests extends Application {
         Image testWithURL = urlCreateImage.returnImage();
         ImageView urlImageView = new ImageView(testWithURL);
 
-        Image testWithFile = urlCreateImage.returnImage();
+
+        filePicker filePicker = new filePicker();
+        InputStream inputStream = filePicker.getInputStream();
+        createImage fileCreateImage = new createImage(inputStream);
+        Image testWithFile = fileCreateImage.returnImage();
         ImageView fileImageView = new ImageView(testWithFile);
 
         StackPane manualPane = new StackPane();
