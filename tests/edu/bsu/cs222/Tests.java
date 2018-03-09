@@ -2,6 +2,11 @@ package edu.bsu.cs222;
 
 
 import org.junit.jupiter.api.Test;
+
+
+import javafx.*;
+
+
 import java.awt.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
