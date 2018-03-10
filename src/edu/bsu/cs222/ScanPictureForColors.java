@@ -1,5 +1,7 @@
 package edu.bsu.cs222;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.image.Image;
 import javafx.scene.image.PixelReader;
 import java.util.ArrayList;
@@ -9,9 +11,9 @@ public class ScanPictureForColors {
 
 
 
-    public List<Pixel> ScanPixelsforColors(Image image) {
+    public ObservableList<Pixel> ScanPixelsforColors(Image image) {
 
-        List<Pixel> listofscannedpixels = new ArrayList<>();
+        ObservableList<Pixel> listofscannedpixels = FXCollections.observableArrayList();
 
         double w = image.getWidth();
         double h = image.getHeight();
