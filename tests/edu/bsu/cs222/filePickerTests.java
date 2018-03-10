@@ -7,7 +7,6 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
-import java.awt.*;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
@@ -29,7 +28,7 @@ public class filePickerTests extends Application {
 
         if (chosenTestFile != null) {
             InputStream inputStream = new FileInputStream(chosenTestFile);
-            createImage image = new createImage(inputStream);
+            CreateImage image = new CreateImage(inputStream);
             Image createdImage = image.returnImage();
             javafx.scene.image.ImageView imageView = new javafx.scene.image.ImageView(createdImage);
 

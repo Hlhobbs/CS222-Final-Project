@@ -1,15 +1,12 @@
 package edu.bsu.cs222;
 
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 
 import javafx.scene.image.Image;
-import javafx.scene.image.PixelReader;
+
 public class ChoosePicture {
 
     public Image getPictureFromFile()
@@ -32,7 +29,7 @@ public class ChoosePicture {
         try {
             URL imageUrl = new URL("https://upload.wikimedia.org/wikipedia/en/a/a9/Example.jpg");
             InputStream in = imageUrl.openStream();
-            createImage newimage = new createImage(in);
+            CreateImage newimage = new CreateImage(in);
             image = newimage.returnImage();
             in.close();
         }

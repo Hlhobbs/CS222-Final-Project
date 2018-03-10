@@ -1,15 +1,12 @@
 package edu.bsu.cs222;
 
 import javafx.application.Application;
-import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
-import java.io.InputStream;
 import java.util.Scanner;
 
 public class imageTests extends Application {
@@ -22,7 +19,7 @@ public class imageTests extends Application {
         Image testManually = new Image("https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/USS_Lexington_%28CV-2%29_leaving_San_Diego_on_14_October_1941_%2880-G-416362%29.jpg/640px-USS_Lexington_%28CV-2%29_leaving_San_Diego_on_14_October_1941_%2880-G-416362%29.jpg");
         ImageView manualImageView = new ImageView(testManually);
 
-        createImage urlCreateImage = new createImage("https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/USS_Lexington_%28CV-2%29_leaving_San_Diego_on_14_October_1941_%2880-G-416362%29.jpg/640px-USS_Lexington_%28CV-2%29_leaving_San_Diego_on_14_October_1941_%2880-G-416362%29.jpg");
+        CreateImage urlCreateImage = new CreateImage("https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/USS_Lexington_%28CV-2%29_leaving_San_Diego_on_14_October_1941_%2880-G-416362%29.jpg/640px-USS_Lexington_%28CV-2%29_leaving_San_Diego_on_14_October_1941_%2880-G-416362%29.jpg");
         Image testWithURL = urlCreateImage.returnImage();
         ImageView urlImageView = new ImageView(testWithURL);
 

@@ -25,7 +25,7 @@ public class scanTests extends Application {
         File chosenTestFile = testFileChooser.showOpenDialog(null);
 
         InputStream inputStream = new FileInputStream(chosenTestFile);
-        createImage image = new createImage(inputStream);
+        CreateImage image = new CreateImage(inputStream);
         Image createdImage = image.returnImage();
         javafx.scene.image.ImageView imageView = new javafx.scene.image.ImageView(createdImage);
 

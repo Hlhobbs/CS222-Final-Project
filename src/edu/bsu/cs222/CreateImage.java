@@ -4,15 +4,15 @@ import javafx.scene.image.Image;
 
 import java.io.InputStream;
 
-public class createImage {
+public class CreateImage {
 
     Image image;
 
-    public createImage(InputStream InputPath) {
+    public CreateImage(InputStream InputPath) {
         image = new Image(InputPath);
     }
 
-    public createImage(String StringPath) {
+    public CreateImage(String StringPath) {
         image = new Image(StringPath);
     }
 
