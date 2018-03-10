@@ -26,12 +26,12 @@ public class ScanPictureForColors {
                 datapixel.setyCoordinate(i);
 
                 PixelReader pixelReader =image.getPixelReader();
-                int picturepixel = pixelReader.getArgb(j,i);
+                int picturePixel = pixelReader.getArgb(j,i);
 
-                datapixel.setAlphaValue( (picturepixel >> 24) & 0xff);
-                datapixel.setRedValue( (picturepixel >> 16) & 0xff );
-                datapixel.setGreenValue( (picturepixel >> 8) & 0xff);
-                datapixel.setBlueValue( (picturepixel) & 0xff);
+                datapixel.setAlphaValue( (picturePixel >> 24) & 0xff);
+                datapixel.setRedValue( (picturePixel >> 16) & 0xff );
+                datapixel.setGreenValue( (picturePixel >> 8) & 0xff);
+                datapixel.setBlueValue( (picturePixel) & 0xff);
                 listofscannedpixels.add(datapixel);
                 ;
 
