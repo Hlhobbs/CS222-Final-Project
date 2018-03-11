@@ -1,6 +1,8 @@
 package edu.bsu.cs222;
 
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import org.junit.jupiter.api.Test;
 
 
@@ -41,7 +43,9 @@ public class Tests {
     public void testScanPictureForColors() {
         ScanPictureForColors scanPictureForColors = new ScanPictureForColors();
         ChoosePicture choosePictureFromUrl = new ChoosePicture();
-        List<Pixel> listofpixels = new ArrayList<>();
+
+        ObservableList<Pixel> listofpixels = FXCollections.observableArrayList();
+
         Image image = choosePictureFromUrl.getPictureFromUrl();
         listofpixels = scanPictureForColors.ScanPixelsforColors(image);
         assertNotNull(listofpixels);
@@ -52,9 +56,12 @@ public class Tests {
     public void testScanPictureForColorsGreen() {
         ScanPictureForColors scanPictureForColors = new ScanPictureForColors();
         ChoosePicture choosePictureFromUrl = new ChoosePicture();
-        List<Pixel> listofpixels = new ArrayList<>();
+
+        ObservableList<Pixel> listofpixels = FXCollections.observableArrayList();
         Image image = choosePictureFromUrl.getPictureFromUrl();
+
         listofpixels = scanPictureForColors.ScanPixelsforColors(image);
+
         assertNotNull(listofpixels.get(1).getGreenValue());
 
     }

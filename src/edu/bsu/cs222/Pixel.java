@@ -1,63 +1,54 @@
 package edu.bsu.cs222;
 
 public class Pixel {
-    private int xCoordinate;
 
+    private int xCoordinate;
     private int yCoordinate;
 
-    private int redValue;
-
-    private int greenValue;
-
-    private int blueValue;
-
-    private int alphaValue;
+    private double redValue;
+    private double greenValue;
+    private double blueValue;
+    private double alphaValue;
 
     public int getxCoordinate() {
         return xCoordinate;
+    }
+    public int getyCoordinate() {
+        return yCoordinate;
     }
 
     public void setxCoordinate(int xCoordinate) {
         this.xCoordinate = xCoordinate;
     }
-
-    public int getyCoordinate() {
-        return yCoordinate;
-    }
-
     public void setyCoordinate(int yCoordinate) {
         this.yCoordinate = yCoordinate;
     }
 
-    public int getRedValue() {
+
+    public double getRedValue() {
         return redValue;
     }
-
-    public void setRedValue(int redValue) {
-        this.redValue = redValue;
-    }
-
-    public int getGreenValue() {
+    public double getGreenValue() {
         return greenValue;
     }
-
-    public void setGreenValue(int greenValue) {
-        this.greenValue = greenValue;
-    }
-
-    public int getBlueValue() {
+    public double getBlueValue() {
         return blueValue;
     }
 
-    public void setBlueValue(int blueValue) {
+    public void setRedValue(double redValue) {
+        this.redValue = redValue;
+    }
+    public void setGreenValue(double greenValue) {
+        this.greenValue = greenValue;
+    }
+    public void setBlueValue(double blueValue) {
         this.blueValue = blueValue;
     }
 
-    public int getAlphaValue() {
+    public double getAlphaValue() {
         return alphaValue;
     }
-
-    public void setAlphaValue(int alphaValue) {
+    public void setAlphaValue(double alphaValue) {
         this.alphaValue = alphaValue;
     }
 }

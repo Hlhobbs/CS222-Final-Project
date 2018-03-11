@@ -10,19 +10,20 @@ public class imageFromHexValue {
     private double red;
     private double green;
     private double blue;
-    private double opacity = 1;
+    private double alpha;
 
     private int defaultW = 10;
     private int defaultH = 10;
 
-    public Image imageFromHexValue(double r, double g, double b) {
+    public Image imageFromHexValue(Pixel pixel) {
 
-        red = r;
-        green = g;
-        blue = b;
+        red = pixel.getRedValue();
+        green = pixel.getGreenValue();
+        blue = pixel.getBlueValue();
+        alpha = pixel.getAlphaValue();
 
 
-        Color color = new Color(r,g,b, opacity);
+        Color color = new Color(red,green,blue,alpha);
 
         WritableImage wImage = new WritableImage(defaultW,defaultH);
         PixelWriter pixelWriter = wImage.getPixelWriter();
