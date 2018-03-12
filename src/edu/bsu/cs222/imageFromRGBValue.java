@@ -5,7 +5,7 @@ import javafx.scene.image.PixelWriter;
 import javafx.scene.image.WritableImage;
 import javafx.scene.paint.Color;
 
-public class imageFromHexValue {
+public class imageFromRGBValue {
 
     private double red;
     private double green;
@@ -15,7 +15,7 @@ public class imageFromHexValue {
     private int defaultW = 10;
     private int defaultH = 10;
 
-    public Image imageFromHexValue(Pixel pixel) {
+    public Image imageFromRGBValue(Pixel pixel) {
 
         red = pixel.getRedValue();
         green = pixel.getGreenValue();

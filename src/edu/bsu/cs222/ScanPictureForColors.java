@@ -17,6 +17,7 @@ public class ScanPictureForColors {
 
         double w = image.getWidth();
         double h = image.getHeight();
+        imageFromRGBValue color = new imageFromRGBValue();
 
         for (int i = 0; i < h; i++) {
             for (int j = 0; j < w; j++) {
@@ -32,8 +33,10 @@ public class ScanPictureForColors {
                 datapixel.setRedValue( (picturePixel >> 16) & 0xff );
                 datapixel.setGreenValue( (picturePixel >> 8) & 0xff);
                 datapixel.setBlueValue( (picturePixel) & 0xff);
+
+                datapixel.setColor(color.imageFromRGBValue(datapixel));
+
                 listofscannedpixels.add(datapixel);
-                ;
 
             }
         }

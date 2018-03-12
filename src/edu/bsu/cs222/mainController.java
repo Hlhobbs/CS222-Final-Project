@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class mainController {
@@ -13,17 +14,17 @@ public class mainController {
 
     public void start(Stage primaryStage) {
         //Color Column
-        TableColumn<Pixel, Pixel> colorColumn = new TableColumn<>("Color");
+        TableColumn<Pixel, Image> colorColumn = new TableColumn<>("Color");
         colorColumn.setCellValueFactory(new PropertyValueFactory<>("color"));
 
         //Hex Column
-        TableColumn<Pixel, Pixel> hexColumn = new TableColumn<>("Hex Value");
+        TableColumn<Pixel, String> hexColumn = new TableColumn<>("Hex Value");
         hexColumn.setCellValueFactory(new PropertyValueFactory<>("hex"));
 
         //Sets up Table
         table = new TableView<>();
         //Needs ObservableList with data to populate aka getData()
-        //table.setItems(ObservableList);
+        //table.setItems();
         table.getColumns().addAll(colorColumn, hexColumn);
     }
 
