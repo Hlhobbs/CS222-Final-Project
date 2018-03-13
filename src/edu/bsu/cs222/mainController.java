@@ -12,6 +12,7 @@ public class mainController {
 
     TableView<Pixel> table;
 
+    //start
     public void start(Stage primaryStage) {
         //Color Column
         TableColumn<Pixel, Image> colorColumn = new TableColumn<>("Color");
