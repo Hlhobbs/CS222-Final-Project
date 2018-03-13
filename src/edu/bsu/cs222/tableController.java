@@ -1,5 +1,6 @@
 package edu.bsu.cs222;
 
+import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -15,25 +16,27 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class tableController implements Initializable {
+public class tableController extends Application {
 
-    @FXML private TableView tableView;
-    List<String> hexString;
-    List<ImageView> imageList;
+    private TableView tableView;
+    private ObservableList<Display> displays;
 
+    public void setParameters(ObservableList<Display> DList) {
+        this.displays = DList;
+    }
 
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-
+    @Override
+    public void start(Stage primaryStage) throws Exception {
         ObservableList<Display> list = FXCollections.observableArrayList();
 
         /**
-        for (int i = 0; i < hexString.size(); i++) {
-            list.get(i).setHex(hexString.get(i));
-            list.get(i).setImage(imageList.get(i));
-        }
+         for (int i = 0; i < hexString.size(); i++) {
+         list.get(i).setHex(hexString.get(i));
+         list.get(i).setImage(imageList.get(i));
+         }
          **/
         Image imageView =new Image("https://upload.wikimedia.org/wikipedia/commons/2/26/Pyeongchang_Olympic_Stadium_at_day_for_2018_Winter_Paralympics_opening_ceremony_-_5.jpg");
-        Display d1 = new Display(imageView, "Hex");
+        Display d1 = new Display();
 
         list.add(d1);
 
@@ -47,15 +50,5 @@ public class tableController implements Initializable {
         tableView.getColumns().add(hexColumn);
         tableView.getColumns().add(imageColumn);
         tableView.setItems(list);
-    }
-
-    public void setParameters(List<String> sList, List<Image> iList) {
-        this.hexString = sList;
-        for (int j = 0; j < iList.size(); j++) {
-            Image image = iList.get(j);
-            ImageView imageView = new ImageView();
-            imageView.setImage(image);
-            this.imageList.add(imageView);
-        }
     }
 }

@@ -11,17 +11,25 @@ public class Display implements Serializable {
     Image image;
     SimpleStringProperty hex = new SimpleStringProperty();
 
-    public Display(Image img, String hString){
-        this.image = img;
-        hex.set(hString);
+    public Display(){
     }
 
     public Image getImage(){
         return image;
     }
 
+    public void setImage(Image i) {
+        this.image = i;
+    }
+
     public SimpleStringProperty getHex(){
         return hex;
     }
+
+    public void setHex(SimpleStringProperty s) {
+        this.hex = s;
+    }
+
+
 
 }

@@ -15,62 +15,30 @@ import javafx.stage.Stage;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
+import java.util.Scanner;
 import java.util.logging.Logger;
 
 public class Controller {
 
-    TableView<Pixel> table;
-
-    private Desktop desktop = Desktop.getDesktop();
-
-
-    public void start(Stage primaryStage) {
-
-        //Color Column
-        TableColumn<Pixel, Image> colorColumn = new TableColumn<>("Color");
-        colorColumn.setCellValueFactory(new PropertyValueFactory<>("color"));
-
-        //Hex Column
-        TableColumn<Pixel, String> hexColumn = new TableColumn<>("Hex Value");
-        hexColumn.setCellValueFactory(new PropertyValueFactory<>("hex"));
-
-        //Sets up Table
-        table = new TableView<>();
-        //Needs ObservableList with data to populate
-
-        table.getColumns().addAll(colorColumn, hexColumn);
-
-        //fileChooser selects an image from computer's memory and returns it
-        final FileChooser fileChooser = new FileChooser();
-
-        fileChooser.setTitle("Choose an image!");
-        fileChooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif")
-        );
-
-        final Button openButton = new Button("Open a Picture...");
-
-        openButton.setOnAction(
-                new EventHandler<ActionEvent>() {
-                    @Override
-                    public void handle(final ActionEvent e) {
-                        File file = fileChooser.showOpenDialog(primaryStage);
-                        if (file != null) {
-                            openFile(file);
-                        }
-                    }
-                });
+    private Scanner scanner = new Scanner(System.in);;
+    private String InputType = "";
 
 
-
+    public void Controller() {
     }
 
-    private void openFile(File file) {
-        try {
-            desktop.open(file);
-        } catch (IOException ex) {
-            ex.printStackTrace();
+    public String getInputType() {
+        System.out.println("Enter URL or File to choose where to locate image");
+        String tempString = scanner.nextLine();
+        this.InputType = tempString;
+        return InputType;
+    }
+
+    public Image createImage(String inputType) {
+        Image image = null;
+        if (inputType == "URL") {
+            return (image = new ChooseUrl().getPictureFromUrl());
         }
+        return image;
     }
-
 }
