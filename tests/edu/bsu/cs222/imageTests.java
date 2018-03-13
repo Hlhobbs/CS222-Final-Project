@@ -13,7 +13,7 @@ public class imageTests extends Application {
 
     @Override
     //Enter a 1,2, or 3 into the terminal to test manually, from a url, or from a file path respectively
-    public void start(Stage primaryStage) throws Exception {
+    public void start(Stage primaryStage) {
 
         primaryStage.setTitle("Test");
         Image testManually = new Image("https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/USS_Lexington_%28CV-2%29_leaving_San_Diego_on_14_October_1941_%2880-G-416362%29.jpg/640px-USS_Lexington_%28CV-2%29_leaving_San_Diego_on_14_October_1941_%2880-G-416362%29.jpg");
@@ -23,8 +23,7 @@ public class imageTests extends Application {
         Image testWithURL = urlCreateImage.returnImage();
         ImageView urlImageView = new ImageView(testWithURL);
 
-        Image testWithFile = testWithURL;
-        ImageView fileImageView = new ImageView(testWithFile);
+        ImageView fileImageView = new ImageView(testWithURL);
 
         StackPane manualPane = new StackPane();
         manualPane.getChildren().add(manualImageView);

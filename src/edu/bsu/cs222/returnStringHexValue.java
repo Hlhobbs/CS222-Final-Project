@@ -3,6 +3,9 @@ package edu.bsu.cs222;
 
 public class returnStringHexValue {
 
+    public returnStringHexValue() {
+    }
+
     public String returnStringHexValue(Pixel pixel)
     {
 

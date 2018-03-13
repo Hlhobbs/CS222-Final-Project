@@ -4,14 +4,12 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.image.Image;
 import javafx.scene.image.PixelReader;
-import java.util.ArrayList;
-import java.util.List;
 
 public class ScanPictureForColors {
 
 
 
-    public ObservableList<Pixel> ScanPixelsforColors(Image image) {
+    public ObservableList<Pixel> ScanPixelsForColors(Image image) {
 
         ObservableList<Pixel> ScannedPixels = FXCollections.observableArrayList();
 
@@ -22,8 +20,8 @@ public class ScanPictureForColors {
             for (int j = 0; j < w; j++) {
 
                 Pixel datapixel = new Pixel();
-                datapixel.setxCoordinate(j);
-                datapixel.setyCoordinate(i);
+                datapixel.setX_Coordinate(j);
+                datapixel.setY_Coordinate(i);
 
                 PixelReader pixelReader =image.getPixelReader();
                 int picturePixel = pixelReader.getArgb(j,i);

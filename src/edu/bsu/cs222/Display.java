@@ -5,28 +5,31 @@ import javafx.scene.image.Image;
 
 import java.io.Serializable;
 
-class Display implements Serializable {
+public class Display implements Serializable {
 
-    public Display() {
+    Image image;
+    private SimpleStringProperty hex = new SimpleStringProperty();
+
+    //Data type which hold data to be displayed within out tableView
+    Display(){
     }
 
-    private Image image;
-    private SimpleStringProperty simpleHex = new SimpleStringProperty();
-
-    public Image getImage() {
+    public Image getImage(){
         return image;
     }
 
-    public void setImage(Image image) {
-        this.image = image;
+    public void setImage(Image i) {
+        this.image = i;
     }
 
-    public SimpleStringProperty getSimpleHex() {
-        return simpleHex;
+    public SimpleStringProperty getHex(){
+        return hex;
     }
 
-    public SimpleStringProperty setSimpleHex(String hex) {
-        this.simpleHex.set(hex);
-        return this.simpleHex;
+    public void setHex(SimpleStringProperty s) {
+        this.hex = s;
     }
+
+
+
 }

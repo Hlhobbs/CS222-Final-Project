@@ -12,10 +12,13 @@ public class imageFromRGBValue {
     private double blue;
     private double alpha;
 
+    //Sets default size for images to be contained within the table
     private int defaultWidth = 10;
     private int defaultHeight = 10;
 
-    public Image imageFromRGBValue(Pixel pixel) {
+    private Image returnImage;
+
+    public imageFromRGBValue(Pixel pixel) {
 
         red = pixel.getRedValue();
         green = pixel.getGreenValue();
@@ -34,7 +37,10 @@ public class imageFromRGBValue {
             }
         }
 
-        Image returnImage = wImage;
+        this.returnImage = wImage;
+    }
+
+    public Image returnImage() {
         return returnImage;
     }
 }
