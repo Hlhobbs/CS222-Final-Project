@@ -12,6 +12,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
@@ -49,5 +51,16 @@ public class controllerTest extends Application {
                 return param.getValue().getHex();
             }
         });
+
+        HBox parent = new HBox();
+        VBox vBox = new VBox();
+        TableView<Display> tableView = new TableView<Display>();
+        tableView.getColumns().addAll(DisplayCol, stringCol);
+        vBox.getChildren().add(tableView);
+        parent.getChildren().addAll(vBox);
+
+        primaryStage.setScene(new Scene(parent));
+        primaryStage.show();
+
     }
 }
