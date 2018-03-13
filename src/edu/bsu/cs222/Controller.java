@@ -38,9 +38,13 @@ public class Controller {
         //table.setItems();
         table.getColumns().addAll(colorColumn, hexColumn);
 
-        primaryStage.setTitle("File Chooser Sample");
 
         final FileChooser fileChooser = new FileChooser();
+
+        fileChooser.setTitle("Choose an image!");
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif")
+        );
 
         final Button openButton = new Button("Open a Picture...");
 
