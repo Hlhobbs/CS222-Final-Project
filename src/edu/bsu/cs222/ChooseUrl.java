@@ -8,19 +8,11 @@ import javafx.scene.image.Image;
 
 public class ChooseUrl {
 
-    public  Image getPictureFromUrl()
-    {
+    public Image getPictureFromUrl(String s) throws IOException {
         Image image = null;
-        try {
-            URL imageUrl = new URL("https://upload.wikimedia.org/wikipedia/en/a/a9/Example.jpg");
-            InputStream input = imageUrl.openStream();
-            CreateImage newimage = new CreateImage(input);
-            image = newimage.returnImage();
-            input.close();
-        }
-        catch (IOException ioe) {
-            //log the error
-        }
+        CreateImage newimage = new CreateImage(s);
+        image = newimage.returnImage();
+
         return image;
     }
 }

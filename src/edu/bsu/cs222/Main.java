@@ -24,15 +24,14 @@ import java.util.ArrayList;
 public class Main extends Application{
 
     @Override
-    public void start(Stage primaryStage) throws FileNotFoundException {
+    public void start(Stage primaryStage) throws Exception {
         Controller controller = new Controller();
         String inputType = controller.getInputType();
         ImageView imageView = null;
-        Image image = controller.createImage(inputType);
 
         //Choose an image file from the users computer system
         //File choosing has to be done in the main thread according to Java
-        if (image == null) {
+        if (inputType == "File") {
             FileChooser testFileChooser = new FileChooser();
             testFileChooser.setTitle("Test File Chooser");
             testFileChooser.getExtensionFilters().addAll(
@@ -47,10 +46,18 @@ public class Main extends Application{
                 Image createdImage = createImage.returnImage();
 
                 //Both lines are necessary else throws an exception
-                javafx.scene.image.ImageView tempImageView = new javafx.scene.image.ImageView(createdImage);;
+                javafx.scene.image.ImageView tempImageView = new javafx.scene.image.ImageView(createdImage);
                 imageView = tempImageView;
             }
-        } else { imageView.setImage(image); }
+        } else {
+            String url = controller.imageURL();
+            CreateImage createImage = new CreateImage(url);
+            Image createdImage = createImage.returnImage();
+
+            //Both lines are necessary else throws an exception
+            javafx.scene.image.ImageView tempImageView = new javafx.scene.image.ImageView(createdImage);
+            imageView = tempImageView;
+        }
 
         DisplayPicture displayPicture = new DisplayPicture(imageView);
         displayPicture.picture();
@@ -60,24 +67,23 @@ public class Main extends Application{
 
         ObservableList<Pixel> pixelList = scanPictureForColors.ScanPixelsforColors(forColors);
         ObservableList<String> HexValues = FXCollections.observableArrayList();
+        ObservableList<Display> displays = FXCollections.observableArrayList();
 
-        deleteRepeatColors deleteRepeatColors = new deleteRepeatColors();
 
         for (int i = 0; i < pixelList.size(); i++) {
             String hex = new returnStringHexValue().returnStringHexValue(pixelList.get(i));
             HexValues.add(i,hex);
-        }
-
-        ObservableList<Display> displays = FXCollections.observableArrayList();
-
-        for (int j = 0; j < HexValues.size(); j++) {
             SimpleStringProperty simpleStringProperty = new SimpleStringProperty();
-            simpleStringProperty.setValue(HexValues.get(j));
-            displays.get(j).setHex(simpleStringProperty);
+            simpleStringProperty.setValue(HexValues.get(i));
+            Display display = new Display();
+            display.setHex(simpleStringProperty);
+            displays.add(i,display);
         }
 
         tableController tableController = new tableController();
         tableController.setParameters(displays);
+        Stage stage = new Stage();
+        tableController.start(stage);
 
 
 

@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.util.Scanner;
 import java.util.logging.Logger;
 
@@ -34,11 +35,10 @@ public class Controller {
         return InputType;
     }
 
-    public Image createImage(String inputType) {
-        Image image = null;
-        if (inputType == "URL") {
-            return (image = new ChooseUrl().getPictureFromUrl());
-        }
-        return image;
+    public String imageURL() throws IOException {
+            System.out.println("Enter the exact URL of an image");
+            String url = scanner.nextLine();
+
+            return url;
     }
 }
