@@ -3,15 +3,12 @@ package edu.bsu.cs222;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import org.junit.jupiter.api.Test;
+import org.junit.Assert;
 
 
 import javafx.scene.image.Image;
-import java.util.List;
-import java.util.ArrayList;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 
 public class Tests {
@@ -21,7 +18,7 @@ public class Tests {
     {
         ChoosePicture pictureFromFile = new ChoosePicture();
         Image readPicture = pictureFromFile.getPictureFromFile();
-        assertNotNull(readPicture);
+        Assert.assertNotNull(readPicture);
     }
 
     @Test
@@ -29,14 +26,14 @@ public class Tests {
     {
         ChoosePicture pictureFromUrl = new ChoosePicture();
         Image readPicture = pictureFromUrl.getPictureFromUrl();
-        assertNotNull(readPicture);
+        Assert.assertNotNull(readPicture);
     }
 
     @Test
     public void testPixel() {
         Pixel pixel = new Pixel();
         pixel.setAlphaValue(12);
-        assertEquals(12, pixel.getAlphaValue());
+        Assert.assertEquals(12, pixel.getAlphaValue());
     }
 
     @Test
@@ -48,7 +45,7 @@ public class Tests {
 
         Image image = choosePictureFromUrl.getPictureFromUrl();
         listofpixels = scanPictureForColors.ScanPixelsforColors(image);
-        assertNotNull(listofpixels);
+        Assert.assertNotNull(listofpixels);
 
     }
 
@@ -62,7 +59,7 @@ public class Tests {
 
         listofpixels = scanPictureForColors.ScanPixelsforColors(image);
 
-        assertNotNull(listofpixels.get(1).getGreenValue());
+        Assert.assertNotNull(listofpixels.get(1).getGreenValue());
 
     }
 
