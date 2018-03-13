@@ -12,8 +12,8 @@ public class imageFromRGBValue {
     private double blue;
     private double alpha;
 
-    private int defaultW = 10;
-    private int defaultH = 10;
+    private int defaultWidth = 10;
+    private int defaultHeight = 10;
 
     public Image imageFromRGBValue(Pixel pixel) {
 
@@ -25,11 +25,11 @@ public class imageFromRGBValue {
 
         Color color = new Color(red,green,blue,alpha);
 
-        WritableImage wImage = new WritableImage(defaultW,defaultH);
+        WritableImage wImage = new WritableImage(defaultWidth,defaultHeight);
         PixelWriter pixelWriter = wImage.getPixelWriter();
 
-        for (int y = 0; y < defaultW; y++) {
-            for ( int x = 0; x < defaultH; x++) {
+        for (int y = 0; y < defaultWidth; y++) {
+            for ( int x = 0; x < defaultHeight; x++) {
                 pixelWriter.setColor(x,y,color);
             }
         }

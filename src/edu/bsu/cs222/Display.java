@@ -17,7 +17,8 @@ public class Display {
     }
 
     public ObservableValue<String> getHex(){
-        return this.hex;
+        return ;
     }
 
 }
+ 

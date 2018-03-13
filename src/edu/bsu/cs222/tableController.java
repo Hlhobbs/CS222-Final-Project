@@ -21,7 +21,7 @@ public class tableController implements Initializable {
     List<String> hexString;
     List<ImageView> imageList;
 
-    //start
+
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         ObservableList<Display> list = FXCollections.observableArrayList();
