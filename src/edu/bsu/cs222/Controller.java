@@ -8,7 +8,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
-public class mainController {
+public class Controller {
 
     TableView<Pixel> table;
 

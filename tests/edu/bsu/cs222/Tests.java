@@ -33,7 +33,7 @@ public class Tests {
     public void testPixel() {
         Pixel pixel = new Pixel();
         pixel.setAlphaValue(12);
-        Assert.assertEquals(12, pixel.getAlphaValue());
+        Assert.assertEquals(12, pixel.getAlphaValue(), 0);
     }
 
     @Test
