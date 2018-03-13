@@ -3,10 +3,8 @@ package edu.bsu.cs222;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import org.junit.Assert;
-
-
 import javafx.scene.image.Image;
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -15,14 +13,14 @@ import java.io.IOException;
 public class Tests {
 
     @Test
-    public void testChoosePictureFromFile() throws IOException {
+    public void testChoosePictureFromFile() {
         ChooseUrl pictureFromFile = new ChooseUrl();
         Image readPicture = pictureFromFile.getPictureFromUrl("https://en.wikipedia.org/wiki/Main_Page#/media/File:Pyeongchang_Olympic_Stadium_at_day_for_2018_Winter_Paralympics_opening_ceremony_-_5.jpg");
         Assert.assertNotNull(readPicture);
     }
 
     @Test
-    public void testChoosePictureFromUrl() throws IOException {
+    public void testChoosePictureFromUrl() {
         ChooseUrl pictureFromUrl = new ChooseUrl();
         Image readPicture = pictureFromUrl.getPictureFromUrl("https://en.wikipedia.org/wiki/Main_Page#/media/File:Pyeongchang_Olympic_Stadium_at_day_for_2018_Winter_Paralympics_opening_ceremony_-_5.jpg");
         Assert.assertNotNull(readPicture);
@@ -36,29 +34,29 @@ public class Tests {
     }
 
     @Test
-    public void testScanPictureForColors() throws IOException {
+    public void testScanPictureForColors() {
         ScanPictureForColors scanPictureForColors = new ScanPictureForColors();
         ChooseUrl choosePictureFromUrl = new ChooseUrl();
 
-        ObservableList<Pixel> listofpixels = FXCollections.observableArrayList();
+        ObservableList<Pixel> listOfPixels;
 
         Image image = choosePictureFromUrl.getPictureFromUrl("https://en.wikipedia.org/wiki/Main_Page#/media/File:Pyeongchang_Olympic_Stadium_at_day_for_2018_Winter_Paralympics_opening_ceremony_-_5.jpg");
-        listofpixels = scanPictureForColors.ScanPixelsforColors(image);
-        Assert.assertNotNull(listofpixels);
+        listOfPixels = scanPictureForColors.ScanPixelsForColors(image);
+        Assert.assertNotNull(listOfPixels);
 
     }
 
     @Test
-    public void testScanPictureForColorsGreen() throws IOException {
+    public void testScanPictureForColorsGreen() {
         ScanPictureForColors scanPictureForColors = new ScanPictureForColors();
         ChooseUrl choosePictureFromUrl = new ChooseUrl();
 
-        ObservableList<Pixel> listofpixels = FXCollections.observableArrayList();
+        ObservableList<Pixel> listOfPixels;
         Image image = choosePictureFromUrl.getPictureFromUrl("https://en.wikipedia.org/wiki/Main_Page#/media/File:Pyeongchang_Olympic_Stadium_at_day_for_2018_Winter_Paralympics_opening_ceremony_-_5.jpg");
 
-        listofpixels = scanPictureForColors.ScanPixelsforColors(image);
+        listOfPixels = scanPictureForColors.ScanPixelsForColors(image);
 
-        Assert.assertNotNull(listofpixels.get(1).getGreenValue());
+        Assert.assertNotNull(listOfPixels.get(1).getGreenValue());
 
     }
 

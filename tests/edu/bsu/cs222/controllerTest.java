@@ -2,9 +2,6 @@ package edu.bsu.cs222;
 
 import javafx.application.Application;
 import javafx.beans.value.ObservableValue;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
@@ -17,19 +14,18 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
-import java.net.URL;
-import java.util.List;
-
 public class controllerTest extends Application {
 
     private TableColumn<Display, Image> DisplayCol;
 
+    //Should not pass/work at all, this portion of our project is still in development
     @Override
-    public void start(Stage primaryStage) throws Exception {
+    public void start(Stage primaryStage) {
         DisplayCol.setCellFactory(param -> {
                 final ImageView imageview = new ImageView();
                 imageview.setFitHeight(50);
                 imageview.setFitWidth(50);
+
 
                 TableCell<Display, Image> cell = new TableCell<Display, Image>() {
                     public void updateItem(Image item, boolean empty) {
@@ -38,23 +34,20 @@ public class controllerTest extends Application {
                         }
                     }
                 };
-                // Attach the imageview to the cell
+                // Attach the imageView to the cell
                 cell.setGraphic(imageview);
                 return cell;
             });
-            DisplayCol.setCellValueFactory(new PropertyValueFactory<Display, Image>("image"));
+            DisplayCol.setCellValueFactory(new PropertyValueFactory<>("image"));
 
-        TableColumn<Display, String> stringCol = new TableColumn<Display, String>("hex");
-        stringCol.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Display, String>, ObservableValue<String>>() {
-            @Override
-            public ObservableValue<String> call(TableColumn.CellDataFeatures<Display, String> param) {
-                return param.getValue().getHex();
-            }
-        });
+        TableColumn<Display, String> stringCol = new TableColumn<>("hex");
+
+        stringCol.setCellValueFactory(param -> param.getValue().getHex());
 
         HBox parent = new HBox();
         VBox vBox = new VBox();
-        TableView<Display> tableView = new TableView<Display>();
+        TableView<Display> tableView = new TableView<>();
+        //noinspection unchecked
         tableView.getColumns().addAll(DisplayCol, stringCol);
         vBox.getChildren().add(tableView);
         parent.getChildren().addAll(vBox);

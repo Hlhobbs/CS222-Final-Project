@@ -4,6 +4,7 @@ import javafx.scene.image.Image;
 
 public class Pixel {
 
+    //Will be used in future iterations
     private int xCoordinate;
     private int yCoordinate;
 
@@ -11,20 +12,11 @@ public class Pixel {
     private double greenValue;
     private double blueValue;
     private double alphaValue;
-    private Image color;
-    private Pixel hex;
 
-    public int getxCoordinate() {
-        return xCoordinate;
-    }
-    public int getyCoordinate() {
-        return yCoordinate;
-    }
-
-    public void setxCoordinate(int xCoordinate) {
+    public void setX_Coordinate(int xCoordinate) {
         this.xCoordinate = xCoordinate;
     }
-    public void setyCoordinate(int yCoordinate) {
+    public void setY_Coordinate(int yCoordinate) {
         this.yCoordinate = yCoordinate;
     }
 
@@ -54,21 +46,5 @@ public class Pixel {
     }
     public void setAlphaValue(double alphaValue) {
         this.alphaValue = alphaValue;
-    }
-
-    public Image getColor() {
-        return color;
-    }
-
-    public void setColor(Image color) {
-        this.color = color;
-    }
-
-    public Pixel getHex() {
-        return hex;
-    }
-
-    public void setHex(Pixel hex) {
-        this.hex = hex;
     }
 }

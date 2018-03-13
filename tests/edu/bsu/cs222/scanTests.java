@@ -37,7 +37,7 @@ public class scanTests extends Application {
         primaryStage.show();
 
         ScanPictureForColors scanPictureForColors = new ScanPictureForColors();
-        List<Pixel> list = scanPictureForColors.ScanPixelsforColors(createdImage);
+        List<Pixel> list = scanPictureForColors.ScanPixelsForColors(createdImage);
         List<Image>  imageList;
 
     }

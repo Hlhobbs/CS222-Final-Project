@@ -1,17 +1,17 @@
 package edu.bsu.cs222;
 
 import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.value.ObservableValue;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 
 import java.io.Serializable;
 
 public class Display implements Serializable {
-    Image image;
-    SimpleStringProperty hex = new SimpleStringProperty();
 
-    public Display(){
+    Image image;
+    private SimpleStringProperty hex = new SimpleStringProperty();
+
+    //Data type which hold data to be displayed within out tableView
+    Display(){
     }
 
     public Image getImage(){
