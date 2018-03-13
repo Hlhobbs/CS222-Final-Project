@@ -1,6 +1,5 @@
 package edu.bsu.cs222;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
@@ -8,20 +7,6 @@ import java.net.URL;
 import javafx.scene.image.Image;
 
 public class ChoosePicture {
-
-    public Image getPictureFromFile()
-    {
-        Image image = null;
-        try
-        {
-            java.io.FileInputStream pathToFile = new FileInputStream("D:\\google.jpg");
-            image = new Image(pathToFile);
-        }
-        catch (IOException ex) {
-            ex.printStackTrace();
-        }
-        return image;
-    }
 
     public  Image getPictureFromUrl()
     {
