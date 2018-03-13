@@ -6,11 +6,14 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
@@ -18,35 +21,28 @@ import java.net.URL;
 import java.util.List;
 
 public class controllerTest extends Application {
+
+    private TableColumn<Display, Image> DisplayCol;
+
     @Override
     public void start(Stage primaryStage) throws Exception {
+        DisplayCol.setCellFactory(param -> {
+                final ImageView imageview = new ImageView();
+                imageview.setFitHeight(50);
+                imageview.setFitWidth(50);
 
-
-        //List<String> hexString;
-        //List<ImageView> imageList;
-
-        /**
-         for (int i = 0; i < hexString.size(); i++) {
-         list.get(i).setHex(hexString.get(i));
-         list.get(i).setImage(imageList.get(i));
-         }
-         **/
-        ImageView imageView = new ImageView(new Image("https://upload.wikimedia.org/wikipedia/commons/2/26/Pyeongchang_Olympic_Stadium_at_day_for_2018_Winter_Paralympics_opening_ceremony_-_5.jpg"));
-        Display d1 = new Display(imageView, "Hex");
-
-        ObservableList<Display> list = FXCollections.observableArrayList();
-        list.add(d1);
-
-
-        TableView<Display> tableView = new TableView<Display>(list);
-
-        TableColumn<Display, ImageView> imageCol = new TableColumn<Display,ImageView>("image");
-        imageCol.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Display, ImageView>, ObservableValue<ImageView>>() {
-            @Override
-            public ObservableValue<ImageView> call(TableColumn.CellDataFeatures<Display, ImageView> param) {
-                return param.getValue().getImage();
-            }
-        });
+                TableCell<Display, Image> cell = new TableCell<Display, Image>() {
+                    public void updateItem(Image item, boolean empty) {
+                        if (item != null) {
+                            imageview.setImage(item);
+                        }
+                    }
+                };
+                // Attach the imageview to the cell
+                cell.setGraphic(imageview);
+                return cell;
+            });
+            DisplayCol.setCellValueFactory(new PropertyValueFactory<Display, Image>("image"));
 
         TableColumn<Display, String> stringCol = new TableColumn<Display, String>("hex");
         stringCol.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Display, String>, ObservableValue<String>>() {
@@ -55,5 +51,16 @@ public class controllerTest extends Application {
                 return param.getValue().getHex();
             }
         });
+
+        HBox parent = new HBox();
+        VBox vBox = new VBox();
+        TableView<Display> tableView = new TableView<Display>();
+        tableView.getColumns().addAll(DisplayCol, stringCol);
+        vBox.getChildren().add(tableView);
+        parent.getChildren().addAll(vBox);
+
+        primaryStage.setScene(new Scene(parent));
+        primaryStage.show();
+
     }
 }

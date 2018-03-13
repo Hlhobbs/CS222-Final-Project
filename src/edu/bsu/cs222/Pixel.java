@@ -12,7 +12,6 @@ public class Pixel {
     private double blueValue;
     private double alphaValue;
     private Image color;
-    //will probably break
     private Pixel hex;
 
     public int getxCoordinate() {
