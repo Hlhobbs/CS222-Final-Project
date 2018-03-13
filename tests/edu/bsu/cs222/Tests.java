@@ -17,7 +17,7 @@ public class Tests {
     public void testChoosePictureFromFile()
     {
         ChoosePicture pictureFromFile = new ChoosePicture();
-        Image readPicture = pictureFromFile.getPictureFromFile();
+        Image readPicture = pictureFromFile.getPictureFromUrl();
         Assert.assertNotNull(readPicture);
     }
 
@@ -61,6 +61,18 @@ public class Tests {
 
         Assert.assertNotNull(listofpixels.get(1).getGreenValue());
 
+    }
+
+    @Test
+    public void testReturnStringHexValue() {
+        Pixel pixel = new Pixel();
+        returnStringHexValue hex = new returnStringHexValue();
+        pixel.setBlueValue(255);
+        pixel.setRedValue(255);
+        pixel.setGreenValue(255);
+        String result = hex.returnStringHexValue(pixel);
+
+        Assert.assertEquals("#ffffff", result);
     }
 
 }
