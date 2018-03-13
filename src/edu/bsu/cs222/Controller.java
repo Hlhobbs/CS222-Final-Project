@@ -22,8 +22,10 @@ public class Controller {
     TableView<Pixel> table;
 
     private Desktop desktop = Desktop.getDesktop();
-    //start
+
+
     public void start(Stage primaryStage) {
+
         //Color Column
         TableColumn<Pixel, Image> colorColumn = new TableColumn<>("Color");
         colorColumn.setCellValueFactory(new PropertyValueFactory<>("color"));
@@ -34,11 +36,11 @@ public class Controller {
 
         //Sets up Table
         table = new TableView<>();
-        //Needs ObservableList with data to populate aka getData()
-        //table.setItems();
+        //Needs ObservableList with data to populate
+
         table.getColumns().addAll(colorColumn, hexColumn);
 
-
+        //fileChooser selects an image from computer's memory and returns it
         final FileChooser fileChooser = new FileChooser();
 
         fileChooser.setTitle("Choose an image!");
@@ -71,8 +73,4 @@ public class Controller {
         }
     }
 
-    //public ObservableList<type> getData(){
-        //ObservableList<type> datas = FXCollections.observableArrayList();
-        //datas.add(new data());
-        //return datas;
 }

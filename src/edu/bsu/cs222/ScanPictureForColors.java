@@ -13,7 +13,7 @@ public class ScanPictureForColors {
 
     public ObservableList<Pixel> ScanPixelsforColors(Image image) {
 
-        ObservableList<Pixel> listofscannedpixels = FXCollections.observableArrayList();
+        ObservableList<Pixel> ScannedPixels = FXCollections.observableArrayList();
 
         double w = image.getWidth();
         double h = image.getHeight();
@@ -33,10 +33,10 @@ public class ScanPictureForColors {
                 datapixel.setGreenValue( (picturePixel >> 8) & 0xff);
                 datapixel.setBlueValue( (picturePixel) & 0xff);
 
-                listofscannedpixels.add(datapixel);
+                ScannedPixels.add(datapixel);
 
             }
         }
-        return listofscannedpixels;
+        return ScannedPixels;
     }
 }

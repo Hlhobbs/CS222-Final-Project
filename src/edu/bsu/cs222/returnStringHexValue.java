@@ -6,17 +6,17 @@ public class returnStringHexValue {
     public String returnStringHexValue(Pixel pixel)
     {
 
-        double reddouble = pixel.getRedValue();
-        double bluedouble = pixel.getBlueValue();
-        double greendouble = pixel.getGreenValue();
-        Long redlong = Math.round(reddouble);
-        int redint = Integer.valueOf(redlong.intValue());
-        Long bluelong = Math.round(bluedouble);
-        int blueint = Integer.valueOf(bluelong.intValue());
-        Long greenlong = Math.round(greendouble);
-        int greenint = Integer.valueOf(greenlong.intValue());
+        double redDouble = pixel.getRedValue();
+        double blueDouble = pixel.getBlueValue();
+        double greenDouble = pixel.getGreenValue();
+        Long redLong = Math.round(redDouble);
+        int redInt = Integer.valueOf(redLong.intValue());
+        Long blueLong = Math.round(blueDouble);
+        int blueInt = Integer.valueOf(blueLong.intValue());
+        Long greenLong = Math.round(greenDouble);
+        int greenInt = Integer.valueOf(greenLong.intValue());
 
-        String hex = String.format("#%02x%02x%02x",redint,greenint,blueint);
+        String hex = String.format("#%02x%02x%02x",redInt,greenInt,blueInt);
 
         return hex;
 

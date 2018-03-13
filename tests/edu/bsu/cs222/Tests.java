@@ -16,7 +16,7 @@ public class Tests {
     @Test
     public void testChoosePictureFromFile()
     {
-        ChoosePicture pictureFromFile = new ChoosePicture();
+        ChooseUrl pictureFromFile = new ChooseUrl();
         Image readPicture = pictureFromFile.getPictureFromUrl();
         Assert.assertNotNull(readPicture);
     }
@@ -24,7 +24,7 @@ public class Tests {
     @Test
     public void testChoosePictureFromUrl()
     {
-        ChoosePicture pictureFromUrl = new ChoosePicture();
+        ChooseUrl pictureFromUrl = new ChooseUrl();
         Image readPicture = pictureFromUrl.getPictureFromUrl();
         Assert.assertNotNull(readPicture);
     }
@@ -39,7 +39,7 @@ public class Tests {
     @Test
     public void testScanPictureForColors() {
         ScanPictureForColors scanPictureForColors = new ScanPictureForColors();
-        ChoosePicture choosePictureFromUrl = new ChoosePicture();
+        ChooseUrl choosePictureFromUrl = new ChooseUrl();
 
         ObservableList<Pixel> listofpixels = FXCollections.observableArrayList();
 
@@ -52,7 +52,7 @@ public class Tests {
     @Test
     public void testScanPictureForColorsGreen() {
         ScanPictureForColors scanPictureForColors = new ScanPictureForColors();
-        ChoosePicture choosePictureFromUrl = new ChoosePicture();
+        ChooseUrl choosePictureFromUrl = new ChooseUrl();
 
         ObservableList<Pixel> listofpixels = FXCollections.observableArrayList();
         Image image = choosePictureFromUrl.getPictureFromUrl();
