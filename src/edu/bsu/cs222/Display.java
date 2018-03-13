@@ -1,27 +1,32 @@
 package edu.bsu.cs222;
 
 import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.value.ObservableValue;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 
 import java.io.Serializable;
 
-public class Display implements Serializable {
-    Image image;
-    SimpleStringProperty hex = new SimpleStringProperty();
+class Display implements Serializable {
 
-    public Display(Image img, String hString){
-        this.image = img;
-        hex.set(hString);
+    public Display() {
     }
 
-    public Image getImage(){
+    private Image image;
+    private SimpleStringProperty simpleHex = new SimpleStringProperty();
+
+    public Image getImage() {
         return image;
     }
 
-    public SimpleStringProperty getHex(){
-        return hex;
+    public void setImage(Image image) {
+        this.image = image;
     }
 
+    public SimpleStringProperty getSimpleHex() {
+        return simpleHex;
+    }
+
+    public SimpleStringProperty setSimpleHex(String hex) {
+        this.simpleHex.set(hex);
+        return this.simpleHex;
+    }
 }

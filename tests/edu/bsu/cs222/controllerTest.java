@@ -4,8 +4,8 @@ import javafx.application.Application;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Tab;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -17,50 +17,45 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
-import java.net.URL;
-import java.util.List;
 
 public class controllerTest extends Application {
 
-    private TableColumn<Display, Image> DisplayCol;
+    private TableView<Display> tableView;
+    private TableColumn<Display, Image> imageCol;
+    private TableColumn<Display, String> StringCol;
+    public ObservableList<Display> list;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        DisplayCol.setCellFactory(param -> {
-                final ImageView imageview = new ImageView();
-                imageview.setFitHeight(50);
-                imageview.setFitWidth(50);
-
-                TableCell<Display, Image> cell = new TableCell<Display, Image>() {
-                    public void updateItem(Image item, boolean empty) {
-                        if (item != null) {
-                            imageview.setImage(item);
-                        }
-                    }
-                };
-                // Attach the imageview to the cell
-                cell.setGraphic(imageview);
-                return cell;
-            });
-            DisplayCol.setCellValueFactory(new PropertyValueFactory<Display, Image>("image"));
-
-        TableColumn<Display, String> stringCol = new TableColumn<Display, String>("hex");
-        stringCol.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Display, String>, ObservableValue<String>>() {
-            @Override
-            public ObservableValue<String> call(TableColumn.CellDataFeatures<Display, String> param) {
-                return param.getValue().getHex();
-            }
-        });
 
         HBox parent = new HBox();
         VBox vBox = new VBox();
-        TableView<Display> tableView = new TableView<Display>();
-        tableView.getColumns().addAll(DisplayCol, stringCol);
+        vBox.setPrefSize(parent.getPrefWidth(), parent.getPrefHeight());
+
+        Display d = new Display();
+        d.setSimpleHex("Hex values");
+
+        ObservableList<Display> list = FXCollections.observableArrayList();
+        list.addAll(d);
+
+        TableView<Display> tableView = new TableView<>(list);
+        tableView.prefHeight(vBox.getPrefHeight());
+        tableView.prefWidth(vBox.getPrefWidth());
+
+        TableColumn<Display, String> hexColumn = new TableColumn<Display, String>("hex");
+        hexColumn.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Display, String>, ObservableValue<String>>() {
+            public ObservableValue<String> call(TableColumn.CellDataFeatures<Display, String> param) {
+                return param.getValue().getSimpleHex();
+            }
+        });
+
+
+        tableView.getColumns().addAll(hexColumn);
+        tableView.setVisible(true);
         vBox.getChildren().add(tableView);
         parent.getChildren().addAll(vBox);
 
         primaryStage.setScene(new Scene(parent));
         primaryStage.show();
-
     }
 }
