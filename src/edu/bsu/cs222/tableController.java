@@ -32,7 +32,7 @@ public class tableController implements Initializable {
             list.get(i).setImage(imageList.get(i));
         }
          **/
-        ImageView imageView = new ImageView(new Image("https://upload.wikimedia.org/wikipedia/commons/2/26/Pyeongchang_Olympic_Stadium_at_day_for_2018_Winter_Paralympics_opening_ceremony_-_5.jpg"));
+        Image imageView =new Image("https://upload.wikimedia.org/wikipedia/commons/2/26/Pyeongchang_Olympic_Stadium_at_day_for_2018_Winter_Paralympics_opening_ceremony_-_5.jpg");
         Display d1 = new Display(imageView, "Hex");
 
         list.add(d1);
