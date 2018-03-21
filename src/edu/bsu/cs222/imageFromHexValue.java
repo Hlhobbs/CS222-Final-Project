@@ -5,12 +5,9 @@ import javafx.scene.image.PixelWriter;
 import javafx.scene.image.WritableImage;
 import javafx.scene.paint.Color;
 
-public class imageFromRGBValue {
+public class imageFromHexValue {
 
-    private double red;
-    private double green;
-    private double blue;
-    private double alpha;
+    private String hex;
 
     //Sets default size for images to be contained within the table
     private int defaultWidth = 10;
@@ -18,15 +15,10 @@ public class imageFromRGBValue {
 
     private Image returnImage;
 
-    public imageFromRGBValue(Pixel pixel) {
+    public imageFromHexValue(String h) {
 
-        red = pixel.getRedValue();
-        green = pixel.getGreenValue();
-        blue = pixel.getBlueValue();
-        alpha = pixel.getAlphaValue();
-
-
-        Color color = new Color(red,green,blue,alpha);
+        this.hex = h;
+        Color color = Color.web(hex);
 
         WritableImage wImage = new WritableImage(defaultWidth,defaultHeight);
         PixelWriter pixelWriter = wImage.getPixelWriter();

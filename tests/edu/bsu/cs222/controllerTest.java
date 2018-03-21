@@ -42,8 +42,6 @@ public class controllerTest extends Application {
 
         TableColumn<Display, String> stringCol = new TableColumn<>("hex");
 
-        stringCol.setCellValueFactory(param -> param.getValue().getHex());
-
         HBox parent = new HBox();
         VBox vBox = new VBox();
         TableView<Display> tableView = new TableView<>();
