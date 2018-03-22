@@ -8,6 +8,8 @@ public class DisplayPicture {
     private ImageView view;
 
     public DisplayPicture(ImageView imageView) {
+        imageView.setFitHeight(500);
+        imageView.setPreserveRatio(true);
         this.view = imageView;
     }
 
