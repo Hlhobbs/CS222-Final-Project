@@ -25,6 +25,9 @@ public class Controller {
         return urlScanner.nextLine();
     }
 
-    public void bigsnemes(ActionEvent actionEvent) {
+    public void ChooseImageFromFile(ActionEvent actionEvent) {
+    }
+
+    public void getUrl(ActionEvent actionEvent) {
     }
 }
