@@ -1,5 +1,7 @@
 package edu.bsu.cs222;
 
+import javafx.event.ActionEvent;
+
 import java.util.Scanner;
 
 public class Controller {
@@ -21,5 +23,8 @@ public class Controller {
             System.out.println("Enter the exact URL of an image");
             Scanner urlScanner = new Scanner(System.in);
         return urlScanner.nextLine();
+    }
+
+    public void bigsnemes(ActionEvent actionEvent) {
     }
 }

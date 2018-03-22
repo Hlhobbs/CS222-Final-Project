@@ -1,9 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.layout.*?>
-<AnchorPane id="AnchorPane" prefHeight="461.0" prefWidth="682.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.bsu.cs222.Controller">
-    <children>
-        <TableView fx:id="tableView" layoutY="-6.0" prefHeight="200.0" prefWidth="273.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-    </children>
-</AnchorPane>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="TOP_CENTER" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.bsu.cs222.Controller">
+    <Label text="Image Viewer" />
+    <HBox alignment="TOP_CENTER" prefHeight="46.0" prefWidth="600.0">
+        <Button fx:id="FileButton" mnemonicParsing="false" onAction="#ChooseImageFromFile" text="Choose Image From File" />
+      <Button fx:id="URLButton" layoutX="275.0" layoutY="10.0" mnemonicParsing="false" onAction="#getPictureFromUrl" text="Choose Image From Url" />
+    </HBox>
+   <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="45.0" prefWidth="175.0">
+      <children>
+         <Label prefHeight="18.0" prefWidth="105.0" text="Enter URL Here:">
+            <HBox.margin>
+               <Insets left="40.0" top="30.0" />
+            </HBox.margin>
+         </Label>
+      </children></HBox>
+   <TextField maxWidth="-Infinity" prefHeight="9.0" prefWidth="539.0" />
+</VBox>
