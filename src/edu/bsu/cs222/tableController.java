@@ -28,6 +28,7 @@ public class tableController extends Application {
 
         TableView<Display> tableView = new TableView<Display>(displays);
 
+
         TableColumn<Display, String> hexCol = new TableColumn<>("hex");
         hexCol.setCellValueFactory(new PropertyValueFactory<>("hex"));
         hexCol.setPrefWidth(120);
@@ -75,6 +76,7 @@ public class tableController extends Application {
         parent.getChildren().addAll(vBox);
 
         primaryStage.setScene(new Scene(parent));
+        primaryStage.setTitle("List of Hexadecimal color codes");
         primaryStage.show();
 
     }
