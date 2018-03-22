@@ -1,13 +1,10 @@
 package edu.bsu.cs222;
 
 
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.image.Image;
 import org.junit.Assert;
 import org.junit.Test;
-
-import java.io.IOException;
 
 
 public class Tests {

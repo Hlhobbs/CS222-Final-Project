@@ -1,7 +1,5 @@
 package edu.bsu.cs222;
 
-import javafx.scene.image.Image;
-
 public class Pixel {
 
     //Will be used in future iterations
