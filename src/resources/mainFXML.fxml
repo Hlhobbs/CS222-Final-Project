@@ -11,7 +11,7 @@
     <Label text="Image Viewer" />
     <HBox alignment="TOP_CENTER" prefHeight="46.0" prefWidth="600.0">
         <Button fx:id="FileButton" mnemonicParsing="false" onAction="#ChooseImageFromFile" text="Choose Image From File" />
-      <Button fx:id="URLButton" layoutX="275.0" layoutY="10.0" mnemonicParsing="false" onAction="#getPictureFromUrl" text="Choose Image From Url" />
+      <Button fx:id="URLButton" layoutX="275.0" layoutY="10.0" mnemonicParsing="false" onAction="#getUrl" text="Choose Image From Url" />
     </HBox>
    <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="45.0" prefWidth="175.0">
       <children>
