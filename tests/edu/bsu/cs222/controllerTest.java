@@ -18,7 +18,6 @@ public class controllerTest extends Application {
 
     private TableColumn<Display, Image> DisplayCol;
 
-    //Should not pass/work at all, this portion of our project is still in development
     @Override
     public void start(Stage primaryStage) {
         DisplayCol.setCellFactory(param -> {
@@ -45,7 +44,8 @@ public class controllerTest extends Application {
         HBox parent = new HBox();
         VBox vBox = new VBox();
         TableView<Display> tableView = new TableView<>();
-        //noinspection unchecked
+
+
         tableView.getColumns().addAll(DisplayCol, stringCol);
         vBox.getChildren().add(tableView);
         parent.getChildren().addAll(vBox);

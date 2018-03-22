@@ -60,7 +60,6 @@ public class tableController extends Application {
                         }
                     }
                 };
-                System.out.println(cell.getIndex());
                 return cell;
             }
         });
