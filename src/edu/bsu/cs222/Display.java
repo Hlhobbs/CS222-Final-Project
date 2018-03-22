@@ -9,11 +9,13 @@ public class Display implements Serializable {
 
     Image image;
     private SimpleStringProperty hex = new SimpleStringProperty();
+    //private ObjectProperty thumbnail = new SimpleObjectProperty();
 
     //Data type which hold data to be displayed within out tableView
     Display(){
     }
 
+    //For Image
     public Image getImage(){
         return image;
     }
@@ -22,14 +24,16 @@ public class Display implements Serializable {
         this.image = i;
     }
 
-    public SimpleStringProperty getHex(){
+    //For hex
+    public void setHex(String h) {
+        hex.set(h);
+    }
+
+    public String getHex() {
+        return hex.get();
+    }
+
+    public SimpleStringProperty hexProperty() {
         return hex;
     }
-
-    public void setHex(SimpleStringProperty s) {
-        this.hex = s;
-    }
-
-
-
 }

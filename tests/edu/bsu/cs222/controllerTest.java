@@ -1,7 +1,6 @@
 package edu.bsu.cs222;
 
 import javafx.application.Application;
-import javafx.beans.value.ObservableValue;
 import javafx.scene.Scene;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
@@ -12,13 +11,11 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import javafx.util.Callback;
 
 public class controllerTest extends Application {
 
     private TableColumn<Display, Image> DisplayCol;
 
-    //Should not pass/work at all, this portion of our project is still in development
     @Override
     public void start(Stage primaryStage) {
         DisplayCol.setCellFactory(param -> {
@@ -42,12 +39,11 @@ public class controllerTest extends Application {
 
         TableColumn<Display, String> stringCol = new TableColumn<>("hex");
 
-        stringCol.setCellValueFactory(param -> param.getValue().getHex());
-
         HBox parent = new HBox();
         VBox vBox = new VBox();
         TableView<Display> tableView = new TableView<>();
-        //noinspection unchecked
+
+
         tableView.getColumns().addAll(DisplayCol, stringCol);
         vBox.getChildren().add(tableView);
         parent.getChildren().addAll(vBox);

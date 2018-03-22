@@ -1,7 +1,6 @@
 package edu.bsu.cs222;
 
 import javafx.application.Application;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.image.Image;
@@ -64,10 +63,8 @@ public class Main extends Application{
         for (int i = 0; i < pixelList.size(); i++) {
             String hex = new returnStringHexValue().returnStringHexValue(pixelList.get(i));
             HexValues.add(i,hex);
-            SimpleStringProperty simpleStringProperty = new SimpleStringProperty();
-            simpleStringProperty.setValue(HexValues.get(i));
             Display display = new Display();
-            display.setHex(simpleStringProperty);
+            display.setHex(hex);
             displays.add(i,display);
         }
 
