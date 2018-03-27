@@ -30,32 +30,6 @@ public class Tests {
         Assert.assertEquals(12, pixel.getAlphaValue(), 0);
     }
 
-    @Test
-    public void testScanPictureForColors() {
-        ScanPictureForColors scanPictureForColors = new ScanPictureForColors();
-        ChooseUrl choosePictureFromUrl = new ChooseUrl();
-
-        ObservableList<Pixel> listOfPixels;
-
-        Image image = choosePictureFromUrl.getPictureFromUrl("https://en.wikipedia.org/wiki/Main_Page#/media/File:Pyeongchang_Olympic_Stadium_at_day_for_2018_Winter_Paralympics_opening_ceremony_-_5.jpg");
-        listOfPixels = scanPictureForColors.ScanPixelsForColors(image);
-        Assert.assertNotNull(listOfPixels);
-
-    }
-
-    @Test
-    public void testScanPictureForColorsGreen() {
-        ScanPictureForColors scanPictureForColors = new ScanPictureForColors();
-        ChooseUrl choosePictureFromUrl = new ChooseUrl();
-
-        ObservableList<Pixel> listOfPixels;
-        Image image = choosePictureFromUrl.getPictureFromUrl("https://en.wikipedia.org/wiki/Main_Page#/media/File:Pyeongchang_Olympic_Stadium_at_day_for_2018_Winter_Paralympics_opening_ceremony_-_5.jpg");
-
-        listOfPixels = scanPictureForColors.ScanPixelsForColors(image);
-
-        Assert.assertNotNull(listOfPixels.get(1).getGreenValue());
-
-    }
 
     @Test
     public void testReturnStringHexValue() {

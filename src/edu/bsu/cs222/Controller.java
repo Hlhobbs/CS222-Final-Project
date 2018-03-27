@@ -14,14 +14,11 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Controller {
 
     public Button FileButton;
-    public Button URLButton;
-    public TextField UrlField;
 
     public void ChooseImageFromFile(ActionEvent actionEvent) throws FileNotFoundException {
         ImageView imageView = null;
@@ -52,9 +49,9 @@ public class Controller {
         Image forColors = imageView.getImage();
         ScanPictureForColors scanPictureForColors = new ScanPictureForColors();
 
-        List<Pixel> pixelList = scanPictureForColors.ScanPixelsForColors(forColors);
-        List<String> HexValues = new ArrayList<String>();
-        List<Display> displays = new ArrayList<Display>();
+        ObservableList<Pixel> pixelList = scanPictureForColors.ScanPixelsForColors(forColors);
+        ObservableList<String> HexValues = FXCollections.observableArrayList();
+        ObservableList<Display> displays = FXCollections.observableArrayList();
 
         //Shrink array of hexValues before putting them into the DisplayArray
         for (int i = 0; i < pixelList.size(); i++) {
@@ -81,43 +78,4 @@ public class Controller {
         tableController.start(stage);
     }
 
-    public void getUrl(ActionEvent actionEvent) throws FileNotFoundException {
-        ImageView imageView = null;
-        String imagesource = UrlField.getText();
-        File URLFile = null;
-        //URlFile = null;
-        if (URLFile != null) {
-            InputStream inputStream = new FileInputStream(URLFile);
-            CreateImage createImage = new CreateImage(inputStream);
-            Image createdImage = createImage.returnImage();
-
-            //Both lines are necessary else throws an exception
-            imageView = new ImageView(createdImage);
-        }
-
-
-        DisplayPicture displayPicture = new DisplayPicture(imageView);
-        displayPicture.picture();
-
-        Image forColors = imageView.getImage();
-        ScanPictureForColors scanPictureForColors = new ScanPictureForColors();
-
-        List<Pixel> pixelList = scanPictureForColors.ScanPixelsForColors(forColors);
-        List<String> HexValues = new ArrayList<String>();
-        List<Display> displays = new ArrayList<Display>();
-
-
-        for (int i = 0; i < pixelList.size(); i++) {
-            String hex = new returnStringHexValue().returnStringHexValue(pixelList.get(i));
-            HexValues.add(i, hex);
-            Display display = new Display();
-            display.setHex(hex);
-            displays.add(i, display);
-        }
-
-        tableController tableController = new tableController();
-        tableController.setParameters(displays);
-        Stage stage = new Stage();
-        tableController.start(stage);
-    }
 }

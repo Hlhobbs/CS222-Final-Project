@@ -10,7 +10,6 @@ import java.util.List;
 
 public class Display implements Serializable {
 
-    //Image image no longer required
     Image image;
 
     private SimpleStringProperty hex = new SimpleStringProperty();
