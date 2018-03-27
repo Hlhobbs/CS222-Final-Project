@@ -6,13 +6,16 @@ import javafx.scene.image.Image;
 import javafx.scene.image.PixelReader;
 import javafx.scene.paint.Color;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ScanPictureForColors {
 
 
 
-    public ObservableList<Pixel> ScanPixelsForColors(Image image) {
+    public List<Pixel> ScanPixelsForColors(Image image) {
 
-        ObservableList<Pixel> ScannedPixels = FXCollections.observableArrayList();
+        List<Pixel> ScannedPixels = new ArrayList<Pixel>();
 
         double w = image.getWidth();
         double h = image.getHeight();

@@ -1,6 +1,7 @@
 package edu.bsu.cs222;
 
 import javafx.application.Application;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -15,12 +16,14 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
+import java.util.List;
+
 public class tableController extends Application {
 
     private ObservableList<Display> displays;
 
-    public void setParameters(ObservableList<Display> DList) {
-        this.displays = DList;
+    public void setParameters(List<Display> DList) {
+        this.displays = FXCollections.observableArrayList(DList);
     }
 
     @Override

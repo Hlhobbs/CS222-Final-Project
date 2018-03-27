@@ -5,21 +5,22 @@ import javafx.collections.ObservableList;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 public class SimplifyColors {
 
     private List<Integer> count = new ArrayList<>();
-    private ObservableList<String> observableList;
+    private List<String> observableList;
 
-    public ObservableList<String> DeleteRepeatColors(ObservableList<String> list) {
+    public ObservableList<String> DeleteRepeatColors(List<String> list) {
         this.observableList = list;
         ObservableList<String> returnList = FXCollections.observableArrayList();
         while (observableList.isEmpty() != true) {
             String color = observableList.get(0);
             int indexBefore = observableList.size();
             returnList.add(color);
-            observableList.removeAll(color);
+            observableList.removeAll(Collections.singleton(color));
             int indexAfter = observableList.size();
             int individualCount = indexBefore - indexAfter;
             this.count.add(individualCount);
