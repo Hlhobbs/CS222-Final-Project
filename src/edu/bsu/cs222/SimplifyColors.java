@@ -3,17 +3,14 @@ package edu.bsu.cs222;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class SimplifyColors {
 
-    private List<Integer> count = new ArrayList<>();
-    private List<String> observableList;
+    private LinkedList<Integer> count = new LinkedList<>();
+    private LinkedList<String> observableList;
 
-    public List<String> DeleteRepeatColors(List<String> list) {
+    public List<String> DeleteRepeatColors(LinkedList<String> list) {
         this.observableList = list;
         List<String> returnList = new ArrayList();
         while (observableList.isEmpty() != true) {

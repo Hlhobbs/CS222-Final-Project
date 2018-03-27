@@ -15,7 +15,9 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.PriorityQueue;
 
 public class Controller {
 
@@ -51,8 +53,8 @@ public class Controller {
         ScanPictureForColors scanPictureForColors = new ScanPictureForColors();
 
         List<Pixel> pixelList = scanPictureForColors.ScanPixelsForColors(forColors);
-        ArrayList HexValues = new ArrayList();
-        ArrayList displays = new ArrayList();
+        LinkedList HexValues = new LinkedList();
+        LinkedList displays = new LinkedList();
 
         //Shrink array of hexValues before putting them into the DisplayArray
         for (int i = 0; i < pixelList.size(); i++) {
