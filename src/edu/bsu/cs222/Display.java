@@ -1,21 +1,26 @@
 package edu.bsu.cs222;
 
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.scene.image.Image;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Display implements Serializable {
 
+    //Image image no longer required
     Image image;
-    private SimpleStringProperty hex = new SimpleStringProperty();
-    //private ObjectProperty thumbnail = new SimpleObjectProperty();
 
-    //Data type which hold data to be displayed within out tableView
+    private SimpleStringProperty hex = new SimpleStringProperty();
+
+    private int count = 0;
+
     Display(){
     }
 
-    //For Image
+    //This portion does not do anything in the final code
     public Image getImage(){
         return image;
     }
@@ -35,5 +40,13 @@ public class Display implements Serializable {
 
     public SimpleStringProperty hexProperty() {
         return hex;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void addToCount() {
+        this.count = count + 1;
     }
 }
