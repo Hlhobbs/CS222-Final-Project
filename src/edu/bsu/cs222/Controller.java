@@ -60,7 +60,7 @@ public class Controller {
             HexValues.add(i, hex);
         }
 
-        ObservableList<String> ShrinkedHexValues = FXCollections.observableArrayList();
+        List<String> ShrinkedHexValues;
         SimplifyColors simplifyColors = new SimplifyColors();
         ShrinkedHexValues = simplifyColors.DeleteRepeatColors(HexValues);
         List<Integer> count = simplifyColors.getCount();
