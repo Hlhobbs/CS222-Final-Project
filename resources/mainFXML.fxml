@@ -21,5 +21,5 @@
             </HBox.margin>
          </Label>
       </children></HBox>
-   <TextField maxWidth="-Infinity" prefHeight="9.0" prefWidth="539.0" />
+   <TextField fx:id="UrlField" maxWidth="-Infinity" prefHeight="9.0" prefWidth="539.0" />
 </VBox>
