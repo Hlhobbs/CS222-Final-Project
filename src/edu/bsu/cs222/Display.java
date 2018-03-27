@@ -49,4 +49,8 @@ public class Display implements Serializable {
     public void addToCount() {
         this.count = count + 1;
     }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
 }

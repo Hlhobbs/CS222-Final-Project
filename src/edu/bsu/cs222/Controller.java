@@ -14,6 +14,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.util.List;
 
 public class Controller {
 
@@ -63,11 +64,13 @@ public class Controller {
         ObservableList<String> ShrinkedHexValues = FXCollections.observableArrayList();
         SimplifyColors simplifyColors = new SimplifyColors();
         ShrinkedHexValues = simplifyColors.DeleteRepeatColors(HexValues);
+        List<Integer> count = simplifyColors.getCount();
 
 
         for (int k = 0; k < ShrinkedHexValues.size(); k++) {
             Display display = new Display();
             display.setHex(ShrinkedHexValues.get(k));
+            display.setCount(count.get(k));
             displays.add(k, display);
         }
 

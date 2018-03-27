@@ -37,6 +37,11 @@ public class tableController extends Application {
         thumbnailCol.setCellValueFactory(new PropertyValueFactory<>("hex"));
         thumbnailCol.setPrefWidth(120);
 
+        TableColumn<Display, Integer> countCol = new TableColumn<>("uses");
+        countCol.setCellValueFactory(new PropertyValueFactory<Display,Integer>("count"));
+        countCol.setPrefWidth(120);
+
+
         thumbnailCol.setCellFactory(new Callback<TableColumn<Display, String>, TableCell<Display, String>>() {
             @Override
             public TableCell<Display, String> call(TableColumn<Display, String> param) {
@@ -62,7 +67,7 @@ public class tableController extends Application {
             }
         });
 
-        tableView.getColumns().addAll(hexCol,thumbnailCol);
+        tableView.getColumns().addAll(hexCol,thumbnailCol,countCol);
 
         HBox parent = new HBox();
         parent.setPrefSize(600, 400);

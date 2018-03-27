@@ -9,19 +9,27 @@ import java.util.List;
 
 public class SimplifyColors {
 
-    private int count = 0;
+    private List<Integer> count = new ArrayList<>();
     private ObservableList<String> observableList;
 
     public ObservableList<String> DeleteRepeatColors(ObservableList<String> list) {
         this.observableList = list;
         ObservableList<String> returnList = FXCollections.observableArrayList();
         while (observableList.isEmpty() != true) {
-            String color = list.get(0);
+            String color = observableList.get(0);
+            int indexBefore = observableList.size();
             returnList.add(color);
             observableList.removeAll(color);
+            int indexAfter = observableList.size();
+            int individualCount = indexBefore - indexAfter;
+            this.count.add(individualCount);
             System.out.println(list.size());
         }
         return returnList;
+    }
+
+    public List<Integer> getCount() {
+        return count;
     }
 
     //public ObservableList<Display> CombineSimilarColors(ObservableList<Display> list) {
