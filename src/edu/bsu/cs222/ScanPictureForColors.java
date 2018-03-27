@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.image.Image;
 import javafx.scene.image.PixelReader;
+import javafx.scene.paint.Color;
 
 public class ScanPictureForColors {
 

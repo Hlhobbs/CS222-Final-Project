@@ -1,33 +1,119 @@
 package edu.bsu.cs222;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
-import java.util.Scanner;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 
 public class Controller {
 
-    private Scanner scanner = new Scanner(System.in);
-    private int InputType = -1;
+    public Button FileButton;
+    public Button URLButton;
+    public TextField UrlField;
+
+    public void ChooseImageFromFile(ActionEvent actionEvent) throws FileNotFoundException {
+        ImageView imageView = null;
+        //Choose an image file from the users computer system
+        //File choosing has to be done in the main thread according to Java
+
+        FileChooser testFileChooser = new FileChooser();
+        testFileChooser.setTitle("Test File Chooser");
+        File chosenTestFile;
+        testFileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg", "*.gif"));
+
+        chosenTestFile = testFileChooser.showOpenDialog(null);
+
+        if (chosenTestFile != null) {
+            InputStream inputStream = new FileInputStream(chosenTestFile);
+            CreateImage createImage = new CreateImage(inputStream);
+            Image createdImage = createImage.returnImage();
+
+            //Both lines are necessary else throws an exception
+            imageView = new ImageView(createdImage);
+        }
 
 
-    Controller() {
+        DisplayPicture displayPicture = new DisplayPicture(imageView);
+        displayPicture.picture();
+
+        Image forColors = imageView.getImage();
+        ScanPictureForColors scanPictureForColors = new ScanPictureForColors();
+
+        ObservableList<Pixel> pixelList = scanPictureForColors.ScanPixelsForColors(forColors);
+        ObservableList<String> HexValues = FXCollections.observableArrayList();
+        ObservableList<Display> displays = FXCollections.observableArrayList();
+
+        //Shrink array of hexValues before putting them into the DisplayArray
+        for (int i = 0; i < pixelList.size(); i++) {
+            String hex = new returnStringHexValue().returnStringHexValue(pixelList.get(i));
+            HexValues.add(i, hex);
+        }
+
+        ObservableList<String> ShrinkedHexValues = FXCollections.observableArrayList();
+        SimplifyColors simplifyColors = new SimplifyColors();
+        ShrinkedHexValues = simplifyColors.DeleteRepeatColors(HexValues);
+
+
+        for (int k = 0; k < ShrinkedHexValues.size(); k++) {
+            Display display = new Display();
+            display.setHex(ShrinkedHexValues.get(k));
+            displays.add(k, display);
+        }
+
+        tableController tableController = new tableController();
+        tableController.setParameters(displays);
+        Stage stage = new Stage();
+        tableController.start(stage);
     }
 
-    public int getInputType() {
-        System.out.println("Enter 1 for URL or 2 for File to choose where to locate image");
-        this.InputType = scanner.nextInt();
-        return InputType;
-    }
+    public void getUrl(ActionEvent actionEvent) throws FileNotFoundException {
+        ImageView imageView = null;
+        String imagesource = UrlField.getText();
+        File URLFile = null;
+        //URlFile = null;
+        if (URLFile != null) {
+            InputStream inputStream = new FileInputStream(URLFile);
+            CreateImage createImage = new CreateImage(inputStream);
+            Image createdImage = createImage.returnImage();
 
-    public String imageURL() {
-            System.out.println("Enter the exact URL of an image");
-            Scanner urlScanner = new Scanner(System.in);
-        return urlScanner.nextLine();
-    }
+            //Both lines are necessary else throws an exception
+            imageView = new ImageView(createdImage);
+        }
 
-    public void ChooseImageFromFile(ActionEvent actionEvent) {
-    }
 
-    public void getUrl(ActionEvent actionEvent) {
+        DisplayPicture displayPicture = new DisplayPicture(imageView);
+        displayPicture.picture();
+
+        Image forColors = imageView.getImage();
+        ScanPictureForColors scanPictureForColors = new ScanPictureForColors();
+
+        ObservableList<Pixel> pixelList = scanPictureForColors.ScanPixelsForColors(forColors);
+        ObservableList<String> HexValues = FXCollections.observableArrayList();
+        ObservableList<Display> displays = FXCollections.observableArrayList();
+
+
+        for (int i = 0; i < pixelList.size(); i++) {
+            String hex = new returnStringHexValue().returnStringHexValue(pixelList.get(i));
+            HexValues.add(i, hex);
+            Display display = new Display();
+            display.setHex(hex);
+            displays.add(i, display);
+        }
+
+        tableController tableController = new tableController();
+        tableController.setParameters(displays);
+        Stage stage = new Stage();
+        tableController.start(stage);
     }
 }
