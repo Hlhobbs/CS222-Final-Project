@@ -14,6 +14,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Controller {
@@ -49,9 +50,9 @@ public class Controller {
         Image forColors = imageView.getImage();
         ScanPictureForColors scanPictureForColors = new ScanPictureForColors();
 
-        ObservableList<Pixel> pixelList = scanPictureForColors.ScanPixelsForColors(forColors);
-        ObservableList<String> HexValues = FXCollections.observableArrayList();
-        ObservableList<Display> displays = FXCollections.observableArrayList();
+        List<Pixel> pixelList = scanPictureForColors.ScanPixelsForColors(forColors);
+        ArrayList HexValues = new ArrayList();
+        ArrayList displays = new ArrayList();
 
         //Shrink array of hexValues before putting them into the DisplayArray
         for (int i = 0; i < pixelList.size(); i++) {
