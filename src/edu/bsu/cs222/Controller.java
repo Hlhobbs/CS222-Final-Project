@@ -54,13 +54,21 @@ public class Controller {
         ObservableList<String> HexValues = FXCollections.observableArrayList();
         ObservableList<Display> displays = FXCollections.observableArrayList();
 
-
+        //Shrink array of hexValues before putting them into the DisplayArray
         for (int i = 0; i < pixelList.size(); i++) {
             String hex = new returnStringHexValue().returnStringHexValue(pixelList.get(i));
             HexValues.add(i, hex);
+        }
+
+        ObservableList<String> ShrinkedHexValues = FXCollections.observableArrayList();
+        SimplifyColors simplifyColors = new SimplifyColors();
+        ShrinkedHexValues = simplifyColors.DeleteRepeatColors(HexValues);
+
+
+        for (int k = 0; k < ShrinkedHexValues.size(); k++) {
             Display display = new Display();
-            display.setHex(hex);
-            displays.add(i, display);
+            display.setHex(ShrinkedHexValues.get(k));
+            displays.add(k, display);
         }
 
         tableController tableController = new tableController();
