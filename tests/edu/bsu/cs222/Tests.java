@@ -10,20 +10,6 @@ import org.junit.Test;
 public class Tests {
 
     @Test
-    public void testChoosePictureFromFile() {
-        ChooseUrl pictureFromFile = new ChooseUrl();
-        Image readPicture = pictureFromFile.getPictureFromUrl("https://en.wikipedia.org/wiki/Main_Page#/media/File:Pyeongchang_Olympic_Stadium_at_day_for_2018_Winter_Paralympics_opening_ceremony_-_5.jpg");
-        Assert.assertNotNull(readPicture);
-    }
-
-    @Test
-    public void testChoosePictureFromUrl() {
-        ChooseUrl pictureFromUrl = new ChooseUrl();
-        Image readPicture = pictureFromUrl.getPictureFromUrl("https://en.wikipedia.org/wiki/Main_Page#/media/File:Pyeongchang_Olympic_Stadium_at_day_for_2018_Winter_Paralympics_opening_ceremony_-_5.jpg");
-        Assert.assertNotNull(readPicture);
-    }
-
-    @Test
     public void testPixel() {
         Pixel pixel = new Pixel();
         pixel.setAlphaValue(12);
