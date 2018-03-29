@@ -5,7 +5,7 @@ import javafx.scene.image.PixelWriter;
 import javafx.scene.image.WritableImage;
 import javafx.scene.paint.Color;
 
-public class imageFromHexValue {
+public class ThumbnailFromHexValue {
 
     private String hex;
 
@@ -15,7 +15,7 @@ public class imageFromHexValue {
 
     private Image returnImage;
 
-    public imageFromHexValue(String h) {
+    public ThumbnailFromHexValue(String h) {
 
         this.hex = h;
         Color color = Color.web(hex);

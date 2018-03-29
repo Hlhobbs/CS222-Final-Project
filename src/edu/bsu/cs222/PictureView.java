@@ -6,11 +6,11 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
-public class pictureView extends Application {
+public class PictureView extends Application {
 
 
     //Turn into controller + FXML
-    //pictureView makes a new stage to display a picture for the GUI
+    //PictureView makes a new stage to display a picture for the GUI
 
     private ImageView view = null;
 

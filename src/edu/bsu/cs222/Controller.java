@@ -2,7 +2,6 @@ package edu.bsu.cs222;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
@@ -13,7 +12,6 @@ import javafx.stage.Stage;
 import java.io.*;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Objects;
 
 
 public class Controller {
@@ -43,8 +41,8 @@ public class Controller {
         }
 
 
-        DisplayPicture displayPicture = new DisplayPicture(imageView);
-        displayPicture.picture();
+        ShowSelectedPicture showSelectedPicture = new ShowSelectedPicture(imageView);
+        showSelectedPicture.picture();
 
         Image forColors = imageView.getImage();
         ScanPictureForColors scanPictureForColors = new ScanPictureForColors();
@@ -55,7 +53,7 @@ public class Controller {
 
         //Shrink array of hexValues before putting them into the DisplayArray
         for (int i = 0; i < pixelList.size(); i++) {
-            String hex = new returnStringHexValue().returnStringHexValue(pixelList.get(i));
+            String hex = new ReturnStringHexValue().returnStringHexValue(pixelList.get(i));
             HexValues.add(i, hex);
         }
 
@@ -74,11 +72,11 @@ public class Controller {
 
 
         FXMLLoader tableLoader = new FXMLLoader(getClass().getClassLoader().getResource("tableView.fxml"));
-        tableController tableController = new tableController();
-        tableController.setParameters(displays);
+        TableController TableController = new TableController();
+        TableController.setParameters(displays);
 
 
-        tableLoader.setController(tableController);
+        tableLoader.setController(TableController);
         HBox root = tableLoader.load();
         Scene scene = new Scene(root);
         Stage stage = new Stage();

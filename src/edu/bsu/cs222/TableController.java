@@ -1,13 +1,9 @@
 package edu.bsu.cs222;
 
-import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
@@ -16,14 +12,13 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 import javafx.util.Callback;
 
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class tableController implements Initializable {
+public class TableController implements Initializable {
 
     private ObservableList<Display> displays;
 
@@ -66,7 +61,7 @@ public class tableController implements Initializable {
                             ImageView imageview = new ImageView();
                             imageview.setFitHeight(50);
                             imageview.setFitWidth(50);
-                            imageview.setImage(new imageFromHexValue(s).returnImage());
+                            imageview.setImage(new ThumbnailFromHexValue(s).returnImage());
 
                             box.getChildren().addAll(imageview, vbox);
                             //SETTING ALL THE GRAPHICS COMPONENT FOR CELL
@@ -120,7 +115,7 @@ public class tableController implements Initializable {
                             ImageView imageview = new ImageView();
                             imageview.setFitHeight(50);
                             imageview.setFitWidth(50);
-                            imageview.setImage(new imageFromHexValue(s).returnImage());
+                            imageview.setImage(new ThumbnailFromHexValue(s).returnImage());
 
                             box.getChildren().addAll(imageview, vbox);
                             //SETTING ALL THE GRAPHICS COMPONENT FOR CELL
