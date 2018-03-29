@@ -48,6 +48,7 @@ public class tableController implements Initializable {
     @FXML
     private TableColumn<Display, Integer> countCol;
 
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         hexCol.setCellValueFactory(new PropertyValueFactory<>("hex"));

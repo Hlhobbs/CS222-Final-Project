@@ -11,6 +11,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -79,21 +81,16 @@ public class Controller {
 
 
         FXMLLoader tableLoader = new FXMLLoader(getClass().getResource("tableView.fxml"));
-        Parent root = (Parent) tableLoader.load();
-        tableController controller = tableLoader.<tableController>getController();
-        controller.setParameters(displays);
+        tableController tableController = new tableController();
+        tableController.setParameters(displays);
+
+
+        tableLoader.setController(tableController);
+        HBox root = tableLoader.load();
         Scene scene = new Scene(root);
         Stage stage = new Stage();
         stage.setScene(scene);
         stage.show();
-
-
-        /**
-        tableController tableController = new tableController();
-        tableController.setParameters(displays);
-
-        Stage tableStage = new Stage();
-        tableController.start(tableStage);**/
     }
 
 }
