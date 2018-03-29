@@ -10,6 +10,7 @@ public class pictureView extends Application {
 
 
     //Turn into controller + FXML
+    //pictureView makes a new stage to display a picture for the GUI
 
     private ImageView view = null;
 
