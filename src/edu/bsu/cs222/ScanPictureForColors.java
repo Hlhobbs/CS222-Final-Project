@@ -11,6 +11,9 @@ import java.util.List;
 
 public class ScanPictureForColors {
 
+/* ScanPixelsForColors takes an image and outputs an observable list of Pixels. The method scans the image and gets the RGB values
+of each pixel in the image and populates the list with pixels each with RBG values.
+ */
 
 
     public List<Pixel> ScanPixelsForColors(Image image) {

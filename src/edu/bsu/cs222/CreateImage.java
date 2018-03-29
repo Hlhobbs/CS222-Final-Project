@@ -4,6 +4,8 @@ import javafx.scene.image.Image;
 
 import java.io.InputStream;
 
+//CreateImage takes the InputStream from our file picker and creates an image out ot it.
+
 public class CreateImage {
 
     Image image;
