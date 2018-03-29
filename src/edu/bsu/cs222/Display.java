@@ -1,12 +1,8 @@
 package edu.bsu.cs222;
 
-import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.scene.image.Image;
-
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 //Display holds values so the values are in order for tableview
 

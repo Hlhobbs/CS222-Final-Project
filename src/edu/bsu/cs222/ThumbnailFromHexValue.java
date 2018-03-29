@@ -7,24 +7,19 @@ import javafx.scene.paint.Color;
 
 public class ThumbnailFromHexValue {
 
-    private String hex;
-
-    //Sets default size for images to be contained within the table
-    private int defaultWidth = 10;
-    private int defaultHeight = 10;
-
     private Image returnImage;
 
     public ThumbnailFromHexValue(String h) {
 
-        this.hex = h;
-        Color color = Color.web(hex);
+        Color color = Color.web(h);
 
-        WritableImage wImage = new WritableImage(defaultWidth,defaultHeight);
+        int defaultWidth = 10;
+        int defaultHeight = 10;
+        WritableImage wImage = new WritableImage(defaultWidth, defaultHeight);
         PixelWriter pixelWriter = wImage.getPixelWriter();
 
         for (int y = 0; y < defaultWidth; y++) {
-            for ( int x = 0; x < defaultHeight; x++) {
+            for (int x = 0; x < defaultHeight; x++) {
                 pixelWriter.setColor(x,y,color);
             }
         }

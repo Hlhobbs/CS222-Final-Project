@@ -4,7 +4,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -12,8 +11,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.util.Callback;
-
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -22,54 +19,46 @@ public class TableController implements Initializable {
 
     private ObservableList<Display> displays;
 
+    public TableController() {
+    }
+
     public void setParameters(List<Display> DList) {
         this.displays = FXCollections.observableArrayList(DList);
     }
 
 
     @FXML
-    private HBox parent;
-
+     HBox parent;
     @FXML
-    private Label label;
-
+     TableView<Display> tableView;
     @FXML
-    private TableView<Display> tableView;
-
+     TableColumn<Display, String> hexCol;
     @FXML
-    private TableColumn<Display, String> hexCol;
+     TableColumn<Display, String> thumbnailCol;
     @FXML
-    private TableColumn<Display, String> thumbnailCol;
-    @FXML
-    private TableColumn<Display, Integer> countCol;
+     TableColumn<Display, Integer> countCol;
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         hexCol.setCellValueFactory(new PropertyValueFactory<>("hex"));
-        countCol.setCellValueFactory(new PropertyValueFactory<Display,Integer>("count"));
-        thumbnailCol.setCellFactory(new Callback<TableColumn<Display, String>, TableCell<Display, String>>() {
-            @Override
-            public TableCell<Display, String> call(TableColumn<Display, String> param) {
-                TableCell<Display, String> cell = new TableCell<Display, String>() {
-                    public void updateItem(String s, boolean empty) {
-                        if (s != null) {
-                            HBox box = new HBox();
-                            box.setSpacing(10);
-                            VBox vbox = new VBox();
+        countCol.setCellValueFactory(new PropertyValueFactory<>("count"));
+        thumbnailCol.setCellFactory(param -> new TableCell<>() {
+            public void updateItem(String s, boolean empty) {
+                if (s != null) {
+                    HBox box = new HBox();
+                    box.setSpacing(10);
+                    VBox vbox = new VBox();
 
-                            ImageView imageview = new ImageView();
-                            imageview.setFitHeight(50);
-                            imageview.setFitWidth(50);
-                            imageview.setImage(new ThumbnailFromHexValue(s).returnImage());
+                    ImageView imageview = new ImageView();
+                    imageview.setFitHeight(50);
+                    imageview.setFitWidth(50);
+                    imageview.setImage(new ThumbnailFromHexValue(s).returnImage());
 
-                            box.getChildren().addAll(imageview, vbox);
-                            //SETTING ALL THE GRAPHICS COMPONENT FOR CELL
-                            setGraphic(box);
-                        }
-                    }
-                };
-                return cell;
+                    box.getChildren().addAll(imageview, vbox);
+                    //SETTING ALL THE GRAPHICS COMPONENT FOR CELL
+                    setGraphic(box);
+                }
             }
         });
 
@@ -83,7 +72,7 @@ public class TableController implements Initializable {
 
 
 
-    /**
+    /*
     @Override
     public void start(Stage primaryStage) throws Exception {
         TableView<Display> tableView = new TableView<Display>(displays);

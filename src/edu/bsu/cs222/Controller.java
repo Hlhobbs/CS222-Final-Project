@@ -1,6 +1,5 @@
 package edu.bsu.cs222;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -12,13 +11,14 @@ import javafx.stage.Stage;
 import java.io.*;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Objects;
 
 
 public class Controller {
 
     public Button FileButton;
 
-    public void ChooseImageFromFile(ActionEvent actionEvent) throws Exception {
+    public void ChooseImageFromFile() throws Exception {
         ImageView imageView = null;
         //Choose an image file from the users computer system
         //File choosing has to be done in the main thread according to Java
@@ -41,15 +41,18 @@ public class Controller {
         }
 
 
-        ShowSelectedPicture showSelectedPicture = new ShowSelectedPicture(imageView);
-        showSelectedPicture.picture();
+        ShowSelectedPicture showSelectedPicture = null;
+        if (imageView != null) {
+            showSelectedPicture = new ShowSelectedPicture(imageView);
+        }
+        Objects.requireNonNull(showSelectedPicture).picture();
 
         Image forColors = imageView.getImage();
         ScanPictureForColors scanPictureForColors = new ScanPictureForColors();
 
         List<Pixel> pixelList = scanPictureForColors.ScanPixelsForColors(forColors);
-        LinkedList HexValues = new LinkedList();
-        LinkedList displays = new LinkedList();
+        LinkedList<String> HexValues = new LinkedList<>();
+        LinkedList<Display> displays = new LinkedList<>();
 
         //Shrink array of hexValues before putting them into the DisplayArray
         for (int i = 0; i < pixelList.size(); i++) {

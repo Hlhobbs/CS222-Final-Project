@@ -8,14 +8,10 @@ import java.io.InputStream;
 
 public class CreateImage {
 
-    Image image;
+    private Image image;
 
-    public CreateImage(InputStream InputPath) {
+    CreateImage(InputStream InputPath) {
         image = new Image(InputPath);
-    }
-
-    public CreateImage(String StringPath) {
-        image = new Image(StringPath);
     }
 
     public Image returnImage() {

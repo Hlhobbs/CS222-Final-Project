@@ -1,11 +1,8 @@
 package edu.bsu.cs222;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+
 import javafx.scene.image.Image;
 import javafx.scene.image.PixelReader;
-import javafx.scene.paint.Color;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +15,7 @@ of each pixel in the image and populates the list with pixels each with RBG valu
 
     public List<Pixel> ScanPixelsForColors(Image image) {
 
-        List<Pixel> ScannedPixels = new ArrayList<Pixel>();
+        List<Pixel> ScannedPixels = new ArrayList<>();
 
         double w = image.getWidth();
         double h = image.getHeight();

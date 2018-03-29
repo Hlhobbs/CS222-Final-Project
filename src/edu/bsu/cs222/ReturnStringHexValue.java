@@ -16,15 +16,13 @@ public class ReturnStringHexValue {
         double blueDouble = pixel.getBlueValue();
         double greenDouble = pixel.getGreenValue();
         Long redLong = Math.round(redDouble);
-        int redInt = Integer.valueOf(redLong.intValue());
+        int redInt = redLong.intValue();
         Long blueLong = Math.round(blueDouble);
-        int blueInt = Integer.valueOf(blueLong.intValue());
+        int blueInt = blueLong.intValue();
         Long greenLong = Math.round(greenDouble);
-        int greenInt = Integer.valueOf(greenLong.intValue());
+        int greenInt = greenLong.intValue();
 
-        String hex = String.format("#%02x%02x%02x",redInt,greenInt,blueInt);
-
-        return hex;
+        return String.format("#%02x%02x%02x",redInt,greenInt,blueInt);
 
     }
 }
