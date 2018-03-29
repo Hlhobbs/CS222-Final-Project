@@ -1,8 +1,11 @@
 package edu.bsu.cs222;
 
 
+import javafx.application.Platform;
 import javafx.collections.ObservableList;
+import javafx.embed.swing.JFXPanel;
 import javafx.scene.image.Image;
+import javafx.stage.Stage;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -34,15 +37,6 @@ public class Tests {
         String result = hex.returnStringHexValue(pixel);
 
         Assert.assertEquals("#ffffff", result);
-    }
-
-    @Test
-    public void testScanPictureForColors() {
-        Image image = new Image("TestResources/exampleWhiteImage.png");
-        ScanPictureForColors scanPictureForColors = new ScanPictureForColors();
-        List list = scanPictureForColors.ScanPixelsForColors(image);
-        Assert.assertEquals(list.get(5), "#000000");
-        System.out.println(list.get(5));
     }
 
 }

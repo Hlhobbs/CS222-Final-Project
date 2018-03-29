@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -18,9 +19,11 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
+import java.net.URL;
 import java.util.List;
+import java.util.ResourceBundle;
 
-public class tableController extends Application {
+public class tableController implements Initializable {
 
     private ObservableList<Display> displays;
 
@@ -28,7 +31,7 @@ public class tableController extends Application {
         this.displays = FXCollections.observableArrayList(DList);
     }
 
-    /**
+
     @FXML
     private HBox parent;
 
@@ -43,12 +46,48 @@ public class tableController extends Application {
     @FXML
     private TableColumn<Display, String> thumbnailCol;
     @FXML
-    private TableColumn<Display, String> countCol; **/
+    private TableColumn<Display, Integer> countCol;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        hexCol.setCellValueFactory(new PropertyValueFactory<>("hex"));
+        countCol.setCellValueFactory(new PropertyValueFactory<Display,Integer>("count"));
+        thumbnailCol.setCellFactory(new Callback<TableColumn<Display, String>, TableCell<Display, String>>() {
+            @Override
+            public TableCell<Display, String> call(TableColumn<Display, String> param) {
+                TableCell<Display, String> cell = new TableCell<Display, String>() {
+                    public void updateItem(String s, boolean empty) {
+                        if (s != null) {
+                            HBox box = new HBox();
+                            box.setSpacing(10);
+                            VBox vbox = new VBox();
+
+                            ImageView imageview = new ImageView();
+                            imageview.setFitHeight(50);
+                            imageview.setFitWidth(50);
+                            imageview.setImage(new imageFromHexValue(s).returnImage());
+
+                            box.getChildren().addAll(imageview, vbox);
+                            //SETTING ALL THE GRAPHICS COMPONENT FOR CELL
+                            setGraphic(box);
+                        }
+                    }
+                };
+                return cell;
+            }
+        });
+
+        tableView.setItems(displays);
 
 
 
 
+    }
 
+
+
+
+    /**
     @Override
     public void start(Stage primaryStage) throws Exception {
         TableView<Display> tableView = new TableView<Display>(displays);
@@ -102,7 +141,7 @@ public class tableController extends Application {
 
         primaryStage.setTitle("List of Hexadecimal color codes");
         primaryStage.show();
-    }
+    }**/
 
 
 }

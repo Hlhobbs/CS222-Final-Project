@@ -77,17 +77,23 @@ public class Controller {
             displays.add(k, display);
         }
 
-        /**
+
         FXMLLoader tableLoader = new FXMLLoader(getClass().getResource("tableView.fxml"));
-        tableController tableController = tableLoader.<tableController>getController();
-        tableController.setParameters(displays); **/
+        Parent root = (Parent) tableLoader.load();
+        tableController controller = tableLoader.<tableController>getController();
+        controller.setParameters(displays);
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
 
 
+        /**
         tableController tableController = new tableController();
         tableController.setParameters(displays);
 
         Stage tableStage = new Stage();
-        tableController.start(tableStage);
+        tableController.start(tableStage);**/
     }
 
 }
