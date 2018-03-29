@@ -9,6 +9,8 @@ import javafx.stage.Stage;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -39,4 +41,29 @@ public class Tests {
         Assert.assertEquals("#ffffff", result);
     }
 
+    @Test
+    public void testSimplifyColors() {
+        LinkedList<String> testColors = new LinkedList<>();
+        LinkedList<Integer> testCount = new LinkedList<>();
+        testColors.add("#000000");
+        testColors.add("#000000");
+        testColors.add("#000000");
+        testColors.add("#ffffff");
+
+        List<String> returnList = new ArrayList();
+        while(!testColors.isEmpty()) {
+            String color = testColors.get(0);
+            int indexBefore = testColors.size();
+            returnList.add(color);
+            testColors.removeAll(Collections.singleton(color));
+            int indexAfter = testColors.size();
+            int individualCount = indexBefore - indexAfter;
+            testCount.add(individualCount);
+        }
+        LinkedList<Integer> expectedCount = new LinkedList<>();
+        expectedCount.add(3);
+        expectedCount.add(1);
+
+        Assert.assertEquals(expectedCount, testCount);
+    }
 }
