@@ -8,6 +8,9 @@ import javafx.stage.Stage;
 
 public class pictureView extends Application {
 
+
+    //Turn into controller + FXML
+
     private ImageView view = null;
 
     @Override

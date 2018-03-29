@@ -20,7 +20,7 @@ import javafx.util.Callback;
 
 import java.util.List;
 
-public class tableController  {
+public class tableController extends Application {
 
     private ObservableList<Display> displays;
 
@@ -28,6 +28,7 @@ public class tableController  {
         this.displays = FXCollections.observableArrayList(DList);
     }
 
+    /**
     @FXML
     private HBox parent;
 
@@ -42,9 +43,14 @@ public class tableController  {
     @FXML
     private TableColumn<Display, String> thumbnailCol;
     @FXML
-    private TableColumn<Display, String> countCol;
+    private TableColumn<Display, String> countCol; **/
 
-        /**
+
+
+
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
         TableView<Display> tableView = new TableView<Display>(displays);
 
 
@@ -93,8 +99,12 @@ public class tableController  {
         parent.getChildren().add(tableView);
 
         primaryStage.setScene(new Scene(parent));
-        primaryStage.setTitle("List of Hexadecimal color codes");
-        primaryStage.show();**/
 
+        primaryStage.setTitle("List of Hexadecimal color codes");
+        primaryStage.show();
     }
+
+
+}
+
 

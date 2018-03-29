@@ -25,7 +25,7 @@ public class Controller {
 
     public Button FileButton;
 
-    public void ChooseImageFromFile(ActionEvent actionEvent) throws IOException {
+    public void ChooseImageFromFile(ActionEvent actionEvent) throws Exception {
         ImageView imageView = null;
         //Choose an image file from the users computer system
         //File choosing has to be done in the main thread according to Java
@@ -64,11 +64,11 @@ public class Controller {
             HexValues.add(i, hex);
         }
 
+
         List<String> ShrinkedHexValues;
         SimplifyColors simplifyColors = new SimplifyColors();
         ShrinkedHexValues = simplifyColors.DeleteRepeatColors(HexValues);
         List<Integer> count = simplifyColors.getCount();
-
 
         for (int k = 0; k < ShrinkedHexValues.size(); k++) {
             Display display = new Display();
@@ -77,16 +77,17 @@ public class Controller {
             displays.add(k, display);
         }
 
-
+        /**
         FXMLLoader tableLoader = new FXMLLoader(getClass().getResource("tableView.fxml"));
         tableController tableController = tableLoader.<tableController>getController();
-        tableController.setParameters(displays);
+        tableController.setParameters(displays); **/
 
-        /**
+
         tableController tableController = new tableController();
         tableController.setParameters(displays);
 
-        tableController.start(tableStage); **/
+        Stage tableStage = new Stage();
+        tableController.start(tableStage);
     }
 
 }
