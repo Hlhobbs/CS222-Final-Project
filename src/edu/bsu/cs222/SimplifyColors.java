@@ -5,7 +5,7 @@ import javafx.collections.ObservableList;
 
 import java.util.*;
 
-//SimplifyColors removes repeated colors while keeping a count of how many times a individual color is displayed 
+//SimplifyColors removes repeated colors while keeping a count of how many times a individual color is displayed
 
 public class SimplifyColors {
 
