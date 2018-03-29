@@ -8,6 +8,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+//Display holds values so the values are in order for tableview
+
 public class Display implements Serializable {
 
     Image image;
