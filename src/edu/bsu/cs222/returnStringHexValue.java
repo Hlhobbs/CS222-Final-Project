@@ -3,8 +3,11 @@ package edu.bsu.cs222;
 
 public class returnStringHexValue {
 
+
     public returnStringHexValue() {
     }
+
+    // returnStringHexValue takes a pixel with RBG values and takes the values to return a string with the hex value for the pixel.
 
     public String returnStringHexValue(Pixel pixel)
     {
