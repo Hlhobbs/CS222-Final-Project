@@ -5,9 +5,14 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="TOP_CENTER" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.bsu.cs222.Controller">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.bsu.cs222.Controller">
     <Label text="Image Viewer" />
     <HBox alignment="TOP_CENTER" prefHeight="46.0" prefWidth="600.0">
         <Button fx:id="FileButton" mnemonicParsing="false" onAction="#ChooseImageFromFile" text="Choose an Image!" />
     </HBox>
+   <HBox prefHeight="100.0" prefWidth="200.0">
+      <children>
+         <Label alignment="CENTER" contentDisplay="CENTER" text="NOTE: You may only select from .JPG, .PNG, and .GIF files. However, please do not choose a .GIF image that moves. This program does not support those files." wrapText="true" />
+      </children>
+   </HBox>
 </VBox>

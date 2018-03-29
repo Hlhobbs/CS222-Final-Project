@@ -6,13 +6,15 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.util.Objects;
+
 public class Main extends Application{
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("mainFXML.fxml"));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("mainFXML.fxml")));
         primaryStage.setTitle("Palette Search");
-        primaryStage.setScene(new Scene(root, 500, 375));
+        primaryStage.setScene(new Scene(root, 300, 175));
         primaryStage.show();
     }
 
