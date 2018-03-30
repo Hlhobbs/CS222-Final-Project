@@ -22,10 +22,9 @@
          <!-- Thumbnail column -->
          <TableColumn fx:id="thumbnailCol" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="Thumbnail">
              <cellValueFactory>
-                 <!--
-                 Create and insert a custom CellValueFactory to create and render the thumbnail
-                 -->
+                 <PropertyValueFactory property = "hex" />
              </cellValueFactory>
+             <!-- Custom CellFactory contained within Controller class -->
          </TableColumn>
 
          <!-- Count column -->
@@ -34,8 +33,6 @@
                  <PropertyValueFactory property="count" />
              </cellValueFactory>
          </TableColumn>
-
-
 
      </columns>
    </TableView>

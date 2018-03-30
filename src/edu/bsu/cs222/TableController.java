@@ -11,6 +11,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.util.Callback;
+
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -28,44 +30,47 @@ public class TableController implements Initializable {
 
 
     @FXML
-     HBox parent;
+    HBox parent;
     @FXML
-     TableView<Display> tableView;
+    TableView<Display> tableView;
     @FXML
-     TableColumn<Display, String> hexCol;
+    TableColumn<Display, String> hexCol;
     @FXML
-     TableColumn<Display, String> thumbnailCol;
+    TableColumn<Display, String> thumbnailCol;
     @FXML
-     TableColumn<Display, Integer> countCol;
+    TableColumn<Display, Integer> countCol;
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        thumbnailCol.setCellFactory(param -> new TableCell<>() {
-            public void updateItem(String s, boolean empty) {
-                if (s != null) {
-                    HBox box = new HBox();
-                    box.setSpacing(10);
-                    VBox vbox = new VBox();
+        thumbnailCol.setCellFactory(new Callback<TableColumn<Display, String>, TableCell<Display, String>>() {
+            @Override
+            public TableCell<Display, String> call(TableColumn<Display, String> param) {
+                TableCell<Display, String> cell = new TableCell<Display, String>() {
+                    public void updateItem(String s, boolean empty) {
+                        if (s != null) {
+                            HBox box = new HBox();
+                            box.setSpacing(10);
+                            VBox vbox = new VBox();
 
-                    ImageView imageview = new ImageView();
-                    imageview.setFitHeight(50);
-                    imageview.setFitWidth(50);
-                    imageview.setImage(new ThumbnailFromHexValue(s).returnImage());
+                            ImageView imageview = new ImageView();
+                            imageview.setFitHeight(50);
+                            imageview.setFitWidth(50);
+                            imageview.setImage(new ThumbnailFromHexValue(s).returnImage());
 
-                    box.getChildren().addAll(imageview, vbox);
-                    //SETTING ALL THE GRAPHICS COMPONENT FOR CELL
-                    setGraphic(box);
-                }
+                            box.getChildren().addAll(imageview, vbox);
+                            //SETTING ALL THE GRAPHICS COMPONENT FOR CELL
+                            setGraphic(box);
+                        }
+                    }
+                };
+                return cell;
             }
         });
 
         tableView.setItems(displays);
-
-
-
-
     }
+}
 
 
 
@@ -125,8 +130,5 @@ public class TableController implements Initializable {
         primaryStage.setTitle("List of Hexadecimal color codes");
         primaryStage.show();
     }**/
-
-
-}
 
 
