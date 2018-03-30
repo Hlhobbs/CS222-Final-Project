@@ -3,17 +3,40 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.layout.FlowPane?>
 
 
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
 <HBox fx:id="root" alignment="CENTER" maxHeight="500.0" maxWidth="500.0" minHeight="500.0" minWidth="500.0" prefHeight="500.0" prefWidth="500.0" xmlns:fx="http://javafx.com/fxml" >
     <Label fx:id="label" text="Image Table" />
    <TableView fx:id="tableView" maxHeight="500.0" maxWidth="500.0" minHeight="500.0" minWidth="500.0" prefHeight="500.0" prefWidth="500.0">
      <columns>
-         <TableColumn fx:id="hexCol" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" text="Hexadecimal color codes" />
-         <TableColumn fx:id="thumbnailCol" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="Thumbnail" />
-         <TableColumn fx:id="countCol" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" text="Uses of each color" />
+
+         <!-- Hexadecimal column -->
+         <TableColumn fx:id="hexCol" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" text="Hexadecimal color codes">
+             <cellValueFactory>
+                 <PropertyValueFactory property = "hex" />
+             </cellValueFactory>
+         </TableColumn>
+
+         <!-- Thumbnail column -->
+         <TableColumn fx:id="thumbnailCol" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="Thumbnail">
+             <cellValueFactory>
+                 <!--
+                 Create and insert a custom CellValueFactory to create and render the thumbnail
+                 -->
+             </cellValueFactory>
+         </TableColumn>
+
+         <!-- Count column -->
+         <TableColumn fx:id="countCol" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" text="Uses of each color">
+             <cellValueFactory>
+                 <PropertyValueFactory property="count" />
+             </cellValueFactory>
+         </TableColumn>
+
+
+
      </columns>
    </TableView>
 </HBox>

@@ -41,8 +41,6 @@ public class TableController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        hexCol.setCellValueFactory(new PropertyValueFactory<>("hex"));
-        countCol.setCellValueFactory(new PropertyValueFactory<>("count"));
         thumbnailCol.setCellFactory(param -> new TableCell<>() {
             public void updateItem(String s, boolean empty) {
                 if (s != null) {
