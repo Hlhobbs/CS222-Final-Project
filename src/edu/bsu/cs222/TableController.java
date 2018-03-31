@@ -44,13 +44,9 @@ public class TableController implements Initializable {
 
 
     public void initialize(URL location, ResourceBundle resources) {
-
-        System.out.println("The value in index zero of pixels is: " + pixels.get(0).getHexValue());
-
         thumbnailCol.setCellFactory((TableColumn<Pixel, String> param) -> {
             TableCell<Pixel, String> cell = new TableCell<Pixel, String>() {
                 public void updateItem(String s, boolean empty) {
-                    System.out.println("The value of String s is: " + s);
                     if (s != null) {
                         HBox box = new HBox();
                         box.setSpacing(10);

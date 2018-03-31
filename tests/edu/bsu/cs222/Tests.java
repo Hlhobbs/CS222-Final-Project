@@ -29,15 +29,15 @@ public class Tests {
     }
 
 
-    /**
+
     @Test
     public void testReturnStringHexValue() {
         Pixel pixel = new Pixel();
-        ReturnStringHexValue hex = new ReturnStringHexValue();
+        ReturnStringHexValue hex = new ReturnStringHexValue(pixel);
         pixel.setBlueValue(255);
         pixel.setRedValue(255);
         pixel.setGreenValue(255);
-        String result = hex.returnStringHexValue(pixel);
+        String result = hex.returnStringHexValue();
 
         Assert.assertEquals("#ffffff", result);
     }
@@ -67,5 +67,4 @@ public class Tests {
 
         Assert.assertEquals(expectedCount, testCount);
     }
-    **/
 }

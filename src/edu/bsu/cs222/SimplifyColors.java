@@ -7,7 +7,6 @@ import java.util.*;
 public class SimplifyColors {
 
     private LinkedList<Pixel> pixelList;
-    private LinkedList<Integer> count = new LinkedList<>();
 
     public SimplifyColors(LinkedList<Pixel> list) {
         this.pixelList = list;
@@ -37,5 +36,15 @@ public class SimplifyColors {
 
     public LinkedList<Pixel> returnShrunkList() {
         return this.pixelList;
+    }
+
+    public void DeleteRareColors(int uses) {
+        LinkedList<Pixel> newList = new LinkedList<>();
+        for (int i = 0; i < pixelList.size(); i++) {
+            if (pixelList.get(i).getCount() > uses) {
+                newList.add(pixelList.get(i));
+            }
+        }
+        pixelList = newList;
     }
 }
