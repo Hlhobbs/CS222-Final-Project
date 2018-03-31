@@ -14,7 +14,7 @@ public class Main extends Application{
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("mainFXML.fxml")));
         primaryStage.setTitle("Palette Search");
-        primaryStage.setScene(new Scene(root, 300, 175));
+        primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
 

@@ -1,8 +1,11 @@
 package edu.bsu.cs222;
 
+import com.sun.xml.internal.bind.v2.TODO;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
@@ -16,9 +19,14 @@ import java.util.Objects;
 
 public class Controller {
 
+    @FXML
     public Button FileButton;
 
+    @FXML
+    public TextField minimumUsesTextField;
+
     public void ChooseImageFromFile() throws Exception {
+
         ImageView imageView = null;
         //Choose an image file from the users computer system
         //File choosing has to be done in the main thread according to Java
@@ -63,6 +71,8 @@ public class Controller {
 
         List<String> ShrinkedHexValues;
         SimplifyColors simplifyColors = new SimplifyColors();
+
+        //TODO: Refactor/format code so that this is done on the same list which DeleteRarelyUsedColors is done on
         ShrinkedHexValues = simplifyColors.DeleteRepeatColors(HexValues);
         List<Integer> count = simplifyColors.getCount();
 
@@ -73,7 +83,35 @@ public class Controller {
             displays.add(k, display);
         }
 
-        displays = simplifyColors.DeleteRarelyUsedColors(displays,15);
+        //Checks textField for minimumUses, if field is blank assumes 0
+        //TODO: Deal with non integer values being entered into the textField
+        String stringInTextField = minimumUsesTextField.getCharacters().toString();
+
+        Boolean containsNonDigit = false;
+        for( int i = 0; i < stringInTextField.length(); i++) {
+            if(!Character.isDigit(stringInTextField.charAt(i))) {
+                containsNonDigit = true;
+            }
+        }
+
+        if (containsNonDigit == true) {
+            //TODO: Create a Visual exception
+            stringInTextField = "";
+            System.out.println("The value you entered within the textBox contained non-numeric characters, try again");
+        }
+
+
+        int uses;
+        if (stringInTextField.equals("")) {
+           uses = 0;
+       } else {
+           uses = Integer.parseInt(stringInTextField);
+       }
+
+        
+
+        //TODO: Display a message for when all elements in a table have been deleted:
+        displays = simplifyColors.DeleteRarelyUsedColors(displays,uses);
 
 
         FXMLLoader tableLoader = new FXMLLoader(getClass().getClassLoader().getResource("tableView.fxml"));
