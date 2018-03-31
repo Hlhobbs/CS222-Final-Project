@@ -27,26 +27,11 @@ public class Controller {
 
     public void ChooseImageFromFile() throws Exception {
 
-        ImageView imageView = null;
+        ImageView imageView = new FilePicker().returnImageView();
         //Choose an image file from the users computer system
         //File choosing has to be done in the main thread according to Java
 
-        FileChooser testFileChooser = new FileChooser();
-        testFileChooser.setTitle("Test File Chooser");
-        File chosenTestFile;
-        testFileChooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg", "*.gif"));
-
-        chosenTestFile = testFileChooser.showOpenDialog(null);
-
-        if (chosenTestFile != null) {
-            InputStream inputStream = new FileInputStream(chosenTestFile);
-            CreateImage createImage = new CreateImage(inputStream);
-            Image createdImage = createImage.returnImage();
-
-            //Both lines are necessary else throws an exception
-            imageView = new ImageView(createdImage);
-        }
+        
 
 
         ShowSelectedPicture showSelectedPicture = null;
