@@ -3,8 +3,8 @@ package edu.bsu.cs222;
 
 import javafx.scene.image.Image;
 import javafx.scene.image.PixelReader;
-import java.util.ArrayList;
-import java.util.List;
+
+import java.util.LinkedList;
 
 public class ScanPictureForColors {
 
@@ -12,10 +12,11 @@ public class ScanPictureForColors {
 of each pixel in the image and populates the list with pixels each with RBG values.
  */
 
+    private LinkedList<Pixel> ScannedPixels;
 
-    public List<Pixel> ScanPixelsForColors(Image image) {
+    public ScanPictureForColors(Image image) {
 
-        List<Pixel> ScannedPixels = new ArrayList<>();
+        ScannedPixels = new LinkedList<>();
 
         double w = image.getWidth();
         double h = image.getHeight();
@@ -27,19 +28,23 @@ of each pixel in the image and populates the list with pixels each with RBG valu
                 datapixel.setX_Coordinate(j);
                 datapixel.setY_Coordinate(i);
 
-                PixelReader pixelReader =image.getPixelReader();
-                int picturePixel = pixelReader.getArgb(j,i);
+                PixelReader pixelReader = image.getPixelReader();
+                int picturePixel = pixelReader.getArgb(j, i);
 
-                datapixel.setAlphaValue( (picturePixel >> 24) & 0xff);
-                datapixel.setRedValue( (picturePixel >> 16) & 0xff );
-                datapixel.setGreenValue( (picturePixel >> 8) & 0xff);
-                datapixel.setBlueValue( (picturePixel) & 0xff);
+                datapixel.setAlphaValue((picturePixel >> 24) & 0xff);
+                datapixel.setRedValue((picturePixel >> 16) & 0xff);
+                datapixel.setGreenValue((picturePixel >> 8) & 0xff);
+                datapixel.setBlueValue((picturePixel) & 0xff);
                 datapixel.setHexValue();
 
                 ScannedPixels.add(datapixel);
 
             }
         }
-        return ScannedPixels;
     }
+
+    public LinkedList<Pixel> returnPixel() {
+        return this.ScannedPixels;
+    }
+
 }

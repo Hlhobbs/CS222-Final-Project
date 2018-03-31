@@ -7,68 +7,63 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.util.Callback;
 
 import java.net.URL;
-import java.util.List;
+import java.util.LinkedList;
 import java.util.ResourceBundle;
 
 public class TableController implements Initializable {
 
-    private ObservableList<Display> displays;
+    private ObservableList<Pixel> pixels;
 
     public TableController() {
     }
 
-    public void setParameters(List<Display> DList) {
-        this.displays = FXCollections.observableArrayList(DList);
+    public void setParameters(LinkedList<Pixel> pixelList) {
+        this.pixels = FXCollections.observableArrayList(pixelList);
     }
 
 
+
     @FXML
-    HBox parent;
+    TableView<Pixel> tableView;
     @FXML
-    TableView<Display> tableView;
+    TableColumn<Pixel, String> hexCol;
     @FXML
-    TableColumn<Display, String> hexCol;
+    TableColumn<Pixel, String> thumbnailCol;
     @FXML
-    TableColumn<Display, String> thumbnailCol;
-    @FXML
-    TableColumn<Display, Integer> countCol;
+    TableColumn<Pixel, Integer> countCol;
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        thumbnailCol.setCellFactory(new Callback<TableColumn<Display, String>, TableCell<Display, String>>() {
-            @Override
-            public TableCell<Display, String> call(TableColumn<Display, String> param) {
-                TableCell<Display, String> cell = new TableCell<Display, String>() {
-                    public void updateItem(String s, boolean empty) {
-                        if (s != null) {
-                            HBox box = new HBox();
-                            box.setSpacing(10);
-                            VBox vbox = new VBox();
+        thumbnailCol.setCellFactory(param -> {
+            TableCell<Pixel, String> cell = new TableCell<Pixel, String>() {
+                public void updateItem(String s, boolean empty) {
+                    if (s != null) {
+                        HBox box = new HBox();
+                        box.setSpacing(10);
+                        VBox vbox = new VBox();
 
-                            ImageView imageview = new ImageView();
-                            imageview.setFitHeight(50);
-                            imageview.setFitWidth(50);
-                            imageview.setImage(new ThumbnailFromHexValue(s).returnImage());
+                        ImageView imageview = new ImageView();
+                        imageview.setFitHeight(50);
+                        imageview.setFitWidth(50);
+                        imageview.setImage(new ThumbnailFromHexValue(s).returnImage());
 
-                            box.getChildren().addAll(imageview, vbox);
-                            //SETTING ALL THE GRAPHICS COMPONENT FOR CELL
-                            setGraphic(box);
-                        }
+                        box.getChildren().addAll(imageview, vbox);
+                        //SETTING ALL THE GRAPHICS COMPONENT FOR CELL
+                        setGraphic(box);
                     }
-                };
-                return cell;
-            }
+                }
+            };
+            return cell;
         });
 
-        tableView.setItems(displays);
+        tableView.setItems(pixels);
     }
 }
 

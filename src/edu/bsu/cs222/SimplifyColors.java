@@ -6,35 +6,36 @@ import java.util.*;
 
 public class SimplifyColors {
 
+    private LinkedList<Pixel> pixelList;
     private LinkedList<Integer> count = new LinkedList<>();
 
-    public List<String> DeleteRepeatColors(LinkedList<String> list) {
-        List<String> returnList = new ArrayList<>();
-        while (!list.isEmpty()) {
-            String color = list.get(0);
-            int indexBefore = list.size();
-            returnList.add(color);
-            list.removeAll(Collections.singleton(color));
-            int indexAfter = list.size();
-            int individualCount = indexBefore - indexAfter;
-            this.count.add(individualCount);
-            System.out.println(list.size());
-        }
-        return returnList;
+    public SimplifyColors(LinkedList<Pixel> list) {
+        this.pixelList = list;
     }
 
-    public List<Integer> getCount() {
-        return count;
-    }
+    public void DeleteRepeatColors(){
+        LinkedList<Pixel> newList = new LinkedList<>();
+        while (!pixelList.isEmpty()) {
+            Pixel color = pixelList.get(0);
+            int indexBefore = pixelList.size();
+            newList.add(color);
 
-    public LinkedList<Display> DeleteRarelyUsedColors(LinkedList<Display> list, int minimumUses) {
-        LinkedList<Display> returnList = new LinkedList<Display>();
-        for (int i = 0; i < list.size(); i++) {
-            if (list.get(i).getCount() >= minimumUses) {
-                returnList.add(list.get(i));
+            Iterator<Pixel> itr = pixelList.iterator();
+            while (itr.hasNext()) {
+                if (itr.next().getHexValue().matches(color.getHexValue())) {
+                    itr.remove();
+                }
             }
+
+            int indexAfter = pixelList.size();
+            int individualCount = indexBefore - indexAfter;
+            newList.getLast().setCount(individualCount);
+            System.out.println(pixelList.size());
         }
-        return returnList;
+        pixelList = newList;
     }
 
+    public LinkedList<Pixel> returnShrunkList() {
+        return this.pixelList;
+    }
 }

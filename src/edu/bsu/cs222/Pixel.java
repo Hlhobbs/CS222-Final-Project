@@ -1,8 +1,6 @@
 package edu.bsu.cs222;
 
 import javafx.beans.property.SimpleStringProperty;
-import org.omg.PortableInterceptor.INACTIVE;
-import sun.java2d.pipe.SpanShapeRenderer;
 
 import java.util.LinkedList;
 
@@ -20,7 +18,7 @@ public class Pixel {
     private double blueValue;
     private double alphaValue;
 
-    private SimpleStringProperty hexValue = new SimpleStringProperty();
+    private SimpleStringProperty hex = new SimpleStringProperty();
 
     private int count;
 
@@ -63,19 +61,15 @@ public class Pixel {
     }
 
     public String getHexValue() {
-        return hexValue.get();
+        return hex.get();
     }
 
     public void setHexValue() {
-        String hex = new ReturnStringHexValue(this).returnStringHexValue();
-        hexValue.set(hex);
+        String h = new ReturnStringHexValue(this).returnStringHexValue();
+        hex.set(h);
     }
 
-    public int getCount() {
-        return count;
-    }
-
-    public void addToCount() {
-        this.count = count + 1;
+    public void setCount(int individualCount) {
+        this.count = individualCount;
     }
 }
