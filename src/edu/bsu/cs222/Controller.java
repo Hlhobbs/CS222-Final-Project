@@ -73,6 +73,8 @@ public class Controller {
             displays.add(k, display);
         }
 
+        displays = simplifyColors.DeleteRarelyUsedColors(displays,15);
+
 
         FXMLLoader tableLoader = new FXMLLoader(getClass().getClassLoader().getResource("tableView.fxml"));
         TableController TableController = new TableController();

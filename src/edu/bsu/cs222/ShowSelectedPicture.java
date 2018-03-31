@@ -8,8 +8,12 @@ public class ShowSelectedPicture {
     private ImageView view;
 
     public ShowSelectedPicture(ImageView imageView) {
-        imageView.setFitHeight(500);
-        imageView.setPreserveRatio(true);
+        double width = imageView.getX();
+        if (width > 500) {
+            imageView.setFitHeight(500);
+            imageView.setPreserveRatio(true);
+        }
+
         this.view = imageView;
     }
 

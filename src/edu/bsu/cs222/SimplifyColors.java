@@ -27,7 +27,14 @@ public class SimplifyColors {
         return count;
     }
 
-    //public List<Display> CombineSimilarColors(List<Display> list) {
-    //}
+    public LinkedList<Display> DeleteRarelyUsedColors(LinkedList<Display> list, int minimumUses) {
+        LinkedList<Display> returnList = new LinkedList<Display>();
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).getCount() >= minimumUses) {
+                returnList.add(list.get(i));
+            }
+        }
+        return returnList;
+    }
 
 }
