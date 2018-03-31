@@ -34,6 +34,7 @@ of each pixel in the image and populates the list with pixels each with RBG valu
                 datapixel.setRedValue( (picturePixel >> 16) & 0xff );
                 datapixel.setGreenValue( (picturePixel >> 8) & 0xff);
                 datapixel.setBlueValue( (picturePixel) & 0xff);
+                datapixel.setHexValue();
 
                 ScannedPixels.add(datapixel);
 

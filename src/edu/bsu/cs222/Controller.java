@@ -43,6 +43,7 @@ public class Controller {
         List<Pixel> pixelList = scanPictureForColors.ScanPixelsForColors(forColors);
 
 
+        /** Redundant because of new features in Pixel()
         LinkedList<String> HexValues = new LinkedList<>();
         LinkedList<Display> displays = new LinkedList<>();
 
@@ -51,6 +52,7 @@ public class Controller {
             String hex = new ReturnStringHexValue().returnStringHexValue(pixelList.get(i));
             HexValues.add(i, hex);
         }
+
 
 
         List<String> ShrinkedHexValues;
@@ -109,6 +111,7 @@ public class Controller {
         Stage stage = new Stage();
         stage.setScene(scene);
         stage.show();
+         **/
     }
 
 }
