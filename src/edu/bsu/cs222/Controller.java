@@ -28,22 +28,21 @@ public class Controller {
     public void ChooseImageFromFile() throws Exception {
 
         ImageView imageView = new FilePicker().returnImageView();
-        //Choose an image file from the users computer system
-        //File choosing has to be done in the main thread according to Java
 
-        
-
-
+       //TODO: Make ShowSelectedPicture check null inside class
         ShowSelectedPicture showSelectedPicture = null;
         if (imageView != null) {
             showSelectedPicture = new ShowSelectedPicture(imageView);
         }
         Objects.requireNonNull(showSelectedPicture).picture();
 
+
+        //TODO: Condense
         Image forColors = imageView.getImage();
         ScanPictureForColors scanPictureForColors = new ScanPictureForColors();
-
         List<Pixel> pixelList = scanPictureForColors.ScanPixelsForColors(forColors);
+
+
         LinkedList<String> HexValues = new LinkedList<>();
         LinkedList<Display> displays = new LinkedList<>();
 
