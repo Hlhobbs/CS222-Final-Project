@@ -11,7 +11,6 @@ public class Display implements Serializable {
     Image image;
 
     private SimpleStringProperty hex = new SimpleStringProperty();
-
     private int count = 0;
 
     Display(){

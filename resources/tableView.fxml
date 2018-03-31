@@ -12,7 +12,7 @@
 
          <!-- Hexadecimal column -->
          <TableColumn fx:id="hexCol" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" text="Hexadecimal color codes">
-             <cellValueFactory>
+             <cellValueFactory >
                  <PropertyValueFactory property = "hex" />
              </cellValueFactory>
          </TableColumn>

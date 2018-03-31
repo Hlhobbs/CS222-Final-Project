@@ -29,31 +29,6 @@ public class Controller {
 
         ImageView imageView = new FilePicker().returnImageView();
 
-        //Checks textField for minimumUses, if field is blank assumes 0
-        //TODO: Deal with non integer values being entered into the textField
-        String stringInTextField = minimumUsesTextField.getCharacters().toString();
-
-        Boolean containsNonDigit = false;
-        for( int i = 0; i < stringInTextField.length(); i++) {
-            if(!Character.isDigit(stringInTextField.charAt(i))) {
-                containsNonDigit = true;
-            }
-        }
-
-        if (containsNonDigit == true) {
-            //TODO: Create a Visual exception
-            stringInTextField = "";
-            System.out.println("The value you entered within the textBox contained non-numeric characters, try again");
-        }
-
-
-        int uses;
-        if (stringInTextField.equals("")) {
-            uses = 0;
-        } else {
-            uses = Integer.parseInt(stringInTextField);
-        }
-
        //TODO: Make ShowSelectedPicture check null inside class
         ShowSelectedPicture showSelectedPicture = null;
         if (imageView != null) {
@@ -76,9 +51,8 @@ public class Controller {
         FXMLLoader tableLoader = new FXMLLoader(getClass().getClassLoader().getResource("tableView.fxml"));
         TableController TableController = new TableController();
         TableController.setParameters(pixelList);
-
-
         tableLoader.setController(TableController);
+
         HBox root = tableLoader.load();
         Scene scene = new Scene(root);
         Stage stage = new Stage();

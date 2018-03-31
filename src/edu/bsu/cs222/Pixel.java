@@ -1,10 +1,11 @@
 package edu.bsu.cs222;
 
 import javafx.beans.property.SimpleStringProperty;
-
+import javafx.fxml.FXML;
+import java.io.Serializable;
 import java.util.LinkedList;
 
-public class Pixel {
+public class Pixel implements Serializable {
 
     //Will be used in future iterations
     private int xCoordinate;
@@ -18,9 +19,9 @@ public class Pixel {
     private double blueValue;
     private double alphaValue;
 
-    private SimpleStringProperty hex = new SimpleStringProperty();
 
-    private int count;
+    private SimpleStringProperty hex = new SimpleStringProperty();
+    private int count  = 0;
 
     Pixel() {}
 
@@ -30,8 +31,6 @@ public class Pixel {
 
     public void setY_Coordinate(int yCoordinate) {this.yCoordinate = yCoordinate; }
     public int getY_Coordinate() {return this.yCoordinate;}
-
-
 
     public double getRedValue() {
         return redValue;
@@ -63,7 +62,9 @@ public class Pixel {
     public String getHexValue() {
         return hex.get();
     }
-
+    public SimpleStringProperty hexProperty() {
+        return hex;
+    }
     public void setHexValue() {
         String h = new ReturnStringHexValue(this).returnStringHexValue();
         hex.set(h);
@@ -71,5 +72,8 @@ public class Pixel {
 
     public void setCount(int individualCount) {
         this.count = individualCount;
+    }
+    public int getCount() {
+        return count;
     }
 }
