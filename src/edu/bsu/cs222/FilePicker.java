@@ -14,10 +14,13 @@ public class FilePicker {
     private ImageView imageView;
 
     public FilePicker() throws FileNotFoundException {
+
         ImageView tempImageView = null;
         FileChooser testFileChooser = new FileChooser();
         testFileChooser.setTitle("Test File Chooser");
         File chosenTestFile;
+
+        //The following extensions are picture files which the program can display
         testFileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg", "*.gif"));
 
@@ -25,8 +28,7 @@ public class FilePicker {
 
         if (chosenTestFile != null) {
             InputStream inputStream = new FileInputStream(chosenTestFile);
-            CreateImage createImage = new CreateImage(inputStream);
-            Image createdImage = createImage.returnImage();
+            Image createdImage = new Image(inputStream);
 
             //Both lines are necessary else throws an exception
             tempImageView = new ImageView(createdImage);

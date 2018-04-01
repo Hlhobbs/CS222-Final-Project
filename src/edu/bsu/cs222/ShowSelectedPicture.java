@@ -1,26 +1,26 @@
 package edu.bsu.cs222;
 
+import javafx.application.Application;
+import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
-public class ShowSelectedPicture {
+public class ShowSelectedPicture extends Application{
 
-    private ImageView view;
+    private ImageView imageView;
 
-    public ShowSelectedPicture(ImageView imageView) {
-        double width = imageView.getX();
-        if (width > 500) {
-            imageView.setFitHeight(500);
-            imageView.setPreserveRatio(true);
-        }
-
-        this.view = imageView;
+    public ShowSelectedPicture(ImageView iv) {
+        this.imageView = iv;
     }
 
-    public void picture() {
-        PictureView PictureView = new PictureView();
-        PictureView.view(view);
-        Stage stage = new Stage();
-        PictureView.start(stage);
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        StackPane Pane = new StackPane();
+        Pane.getChildren().add(imageView);
+
+        Scene scene = new Scene(Pane);
+        primaryStage.setScene(scene);
+        primaryStage.show();
     }
 }
