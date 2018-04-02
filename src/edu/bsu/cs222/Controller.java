@@ -10,6 +10,7 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 import java.util.LinkedList;
+import java.util.Objects;
 
 
 public class Controller {
@@ -24,8 +25,8 @@ public class Controller {
 
         ImageView imageView = new FilePicker().returnImageView();
 
-       String s = minimumUsesTextField.getText();
-       int uses = new MinimmumUsesFromTextField(s).asInt();
+       String containedInTextField = minimumUsesTextField.getText();
+       int uses = new MinimumUsesFromTextField(containedInTextField).asInt();
 
         //Checks the validity of the image obtained from the file system and displays it
        if (imageView != null) {
@@ -36,12 +37,12 @@ public class Controller {
            System.out.println("There was an issue with the image chosen");
        }
 
-        LinkedList<Pixel> pixelList = new ScanPictureForColors(imageView.getImage()).returnPixel();
+        LinkedList<Pixel> pixelList = new ScanPictureForColors(Objects.requireNonNull(imageView).getImage()).returnPixel();
 
 
         SimplifyColors sc = new SimplifyColors(pixelList);
         sc.DeleteRepeatColors();
-       // sc.DeleteRareColors(uses);
+        sc.DeleteRareColors(uses);
         pixelList = sc.returnShrunkList();
 
 

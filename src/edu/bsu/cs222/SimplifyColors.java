@@ -39,34 +39,11 @@ public class SimplifyColors {
     }
 
     public void DeleteRareColors(int uses) {
-        LinkedList<Pixel> newList = new LinkedList<>();
-        for (int i = 0; i < pixelList.size(); i++) {
-            if (pixelList.get(i).getCount() > uses) {
-                newList.add(pixelList.get(i));
+        Iterator<Pixel> iterator = pixelList.iterator();
+        while(iterator.hasNext()) {
+            if (iterator.next().getCount() < uses) {
+                iterator.remove();
             }
         }
-        pixelList = newList;
     }
 }
-
-/**
- LinkedList<Pixel> newList = new LinkedList<>();
- while (!pixelList.isEmpty()) {
- Pixel color = pixelList.get(0);
- int indexBefore = pixelList.size();
- newList.add(color);
-
- Iterator<Pixel> itr = pixelList.iterator();
- while (itr.hasNext()) {
- if (itr.next().getHexValue().matches(color.getHexValue())) {
- itr.remove();
- }
- }
-
- int indexAfter = pixelList.size();
- int individualCount = indexBefore - indexAfter;
- newList.getLast().setCount(individualCount);
- System.out.println(pixelList.size());
- }
- pixelList = newList;
- **/
