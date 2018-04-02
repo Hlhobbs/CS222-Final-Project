@@ -1,5 +1,6 @@
 package edu.bsu.cs222;
 
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,7 +13,7 @@ public class Main extends Application{
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("mainFXML.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("/mainFXML.fxml")));
         primaryStage.setTitle("Palette Search");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
