@@ -46,7 +46,7 @@ public class Controller {
         pixelList = sc.returnShrunkList();
 
 
-        FXMLLoader tableLoader = new FXMLLoader(getClass().getClassLoader().getResource("tableView.fxml"));
+        FXMLLoader tableLoader = new FXMLLoader(getClass().getClassLoader().getResource("resources/tableView.fxml"));
         TableController TableController = new TableController();
         TableController.setParameters(pixelList);
         tableLoader.setController(TableController);
