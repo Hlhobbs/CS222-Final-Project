@@ -10,9 +10,6 @@ public class SimplifyColors {
 
     public SimplifyColors(LinkedList<Pixel> list) {
         this.pixelList = list;
-    }
-
-    public void DeleteRepeatColors(){
         LinkedList<Pixel> newList = new LinkedList<>();
         while (!pixelList.isEmpty()) {
             Pixel color = pixelList.get(0);
@@ -25,13 +22,15 @@ public class SimplifyColors {
                     itr.remove();
                 }
             }
-
             int indexAfter = pixelList.size();
             int individualCount = indexBefore - indexAfter;
             newList.getLast().setCount(individualCount);
-            System.out.println(pixelList.size());
         }
         pixelList = newList;
+    }
+
+    public void DeleteRepeatColors(){
+
     }
 
     public LinkedList<Pixel> returnShrunkList() {
