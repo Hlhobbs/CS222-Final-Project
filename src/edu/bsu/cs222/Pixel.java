@@ -21,7 +21,8 @@ public class Pixel implements Serializable {
 
 
     private SimpleStringProperty hex = new SimpleStringProperty();
-    private int count  = 0;
+    private int count  = 1;
+    private int hexInt;
 
     Pixel() {}
 
@@ -62,18 +63,24 @@ public class Pixel implements Serializable {
     public String getHexValue() {
         return hex.get();
     }
+    public int getHexInt() { return this.hexInt; }
     public SimpleStringProperty hexProperty() {
         return hex;
     }
     public void setHexValue() {
         String h = new ReturnStringHexValue(this).returnStringHexValue();
         hex.set(h);
+        hexInt = Integer.parseInt(h.substring(1),16);
     }
 
-    public void setCount(int individualCount) {
-        this.count = individualCount;
+    public void addCount() {
+        this.count += 1;
     }
     public int getCount() {
         return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
     }
 }

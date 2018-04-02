@@ -48,3 +48,25 @@ public class SimplifyColors {
         pixelList = newList;
     }
 }
+
+/**
+ LinkedList<Pixel> newList = new LinkedList<>();
+ while (!pixelList.isEmpty()) {
+ Pixel color = pixelList.get(0);
+ int indexBefore = pixelList.size();
+ newList.add(color);
+
+ Iterator<Pixel> itr = pixelList.iterator();
+ while (itr.hasNext()) {
+ if (itr.next().getHexValue().matches(color.getHexValue())) {
+ itr.remove();
+ }
+ }
+
+ int indexAfter = pixelList.size();
+ int individualCount = indexBefore - indexAfter;
+ newList.getLast().setCount(individualCount);
+ System.out.println(pixelList.size());
+ }
+ pixelList = newList;
+ **/

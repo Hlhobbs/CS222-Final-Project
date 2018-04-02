@@ -24,29 +24,8 @@ public class Controller {
 
         ImageView imageView = new FilePicker().returnImageView();
 
-        //Checks textField for minimumUses, if field is blank assumes 0
-        //TODO: Deal with non integer values being entered into the textField
-        String stringInTextField = minimumUsesTextField.getCharacters().toString();
-
-        Boolean containsNonDigit = false;
-        for( int i = 0; i < stringInTextField.length(); i++) {
-            if(!Character.isDigit(stringInTextField.charAt(i))) {
-                containsNonDigit = true;
-            }
-        }
-
-        if (containsNonDigit == true) {
-            //TODO: Create a Visual exception
-            stringInTextField = "";
-            System.out.println("The value you entered within the textBox contained non-numeric characters, try again");
-        }
-
-        int uses;
-        if (stringInTextField.equals("")) {
-            uses = 0;
-        } else {
-            uses = Integer.parseInt(stringInTextField);
-        }
+       String s = minimumUsesTextField.getText();
+       int uses = new MinimmumUsesFromTextField(s).asInt();
 
         //Checks the validity of the image obtained from the file system and displays it
        if (imageView != null) {
@@ -62,7 +41,7 @@ public class Controller {
 
         SimplifyColors sc = new SimplifyColors(pixelList);
         sc.DeleteRepeatColors();
-        sc.DeleteRareColors(uses);
+       // sc.DeleteRareColors(uses);
         pixelList = sc.returnShrunkList();
 
 
