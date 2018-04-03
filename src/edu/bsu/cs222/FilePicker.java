@@ -13,6 +13,8 @@ public class FilePicker {
 
     private ImageView imageView;
 
+    //FilePicker is a method that allows the user to browse their files for a picture.
+
     public FilePicker() throws FileNotFoundException {
 
         ImageView tempImageView = null;

@@ -37,6 +37,8 @@ public class SimplifyColors {
         return this.pixelList;
     }
 
+    //DeleteRareColors is a method that takes the number from MinimumUsesFromTextField and uses it to get rid of colors that appear less than that number.
+
     public void DeleteRareColors(int uses) {
         Iterator<Pixel> iterator = pixelList.iterator();
         while(iterator.hasNext()) {
