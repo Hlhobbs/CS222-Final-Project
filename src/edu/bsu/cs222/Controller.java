@@ -2,6 +2,7 @@ package edu.bsu.cs222;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -34,14 +35,17 @@ public class Controller {
            Stage pictureStage = new Stage();
            sc.start(pictureStage);
        } else {
-           System.out.println("There was an issue with the image chosen");
+           String exception = "There was an issue with the image chosen";
+           exceptionController eC = new exceptionController();
+           eC.setException(exception);
+           eC.start(new Stage());
+
        }
 
         LinkedList<Pixel> pixelList = new ScanPictureForColors(Objects.requireNonNull(imageView).getImage()).returnPixel();
 
 
         SimplifyNumberOfColors sc = new SimplifyNumberOfColors(pixelList);
-        sc.DeleteRepeatColors();
         sc.DeleteRareColors(uses);
         pixelList = sc.returnShrunkList();
 

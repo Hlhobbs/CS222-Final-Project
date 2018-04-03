@@ -4,6 +4,7 @@ package edu.bsu.cs222;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.io.IOException;
 import java.util.LinkedList;
 
 
@@ -70,7 +71,6 @@ public class Tests {
         Assert.assertEquals(2, LL.size());
 
         SimplifyNumberOfColors sc = new SimplifyNumberOfColors(LL);
-        sc.DeleteRepeatColors();
         LL = sc.returnShrunkList();
         Assert.assertEquals(1, LL.size());
     }
@@ -97,7 +97,6 @@ public class Tests {
         Assert.assertEquals(2, LL.size());
 
         SimplifyNumberOfColors sc = new SimplifyNumberOfColors(LL);
-        sc.DeleteRepeatColors();
         LL = sc.returnShrunkList();
         Assert.assertEquals(2, LL.size());
     }
@@ -126,7 +125,6 @@ public class Tests {
         Assert.assertEquals(4,LL.size());
 
         SimplifyNumberOfColors sc = new SimplifyNumberOfColors(LL);
-        sc.DeleteRepeatColors();
         sc.DeleteRareColors(1);
         LL = sc.returnShrunkList();
 
@@ -135,7 +133,7 @@ public class Tests {
 
     @Test
     //Tests with a valid string
-    public void testMinimumUsesFromTextField_1() {
+    public void testMinimumUsesFromTextField_1() throws Exception {
         MinimumUsesFromTextField minimumUsesFromTextField = new MinimumUsesFromTextField("16");
         int uses = minimumUsesFromTextField.asInt();
         Assert.assertEquals(16, uses);
@@ -143,7 +141,7 @@ public class Tests {
 
     @Test
     //Tests with a invalid string
-    public void testMinimumUsesFromTextField_2() {
+    public void testMinimumUsesFromTextField_2() throws Exception {
         MinimumUsesFromTextField minimumUsesFromTextField = new MinimumUsesFromTextField("ZZ");
         int uses = minimumUsesFromTextField.asInt();
         Assert.assertEquals(0, uses);

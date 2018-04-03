@@ -29,10 +29,6 @@ public class SimplifyNumberOfColors {
         pixelList = newList;
     }
 
-    public void DeleteRepeatColors(){
-
-    }
-
     public LinkedList<Pixel> returnShrunkList() {
         return this.pixelList;
     }
