@@ -9,13 +9,13 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 
-public class FilePicker {
+class FilePicker {
 
     private ImageView imageView;
 
     //FilePicker is a method that allows the user to browse their files for a picture.
 
-    public FilePicker() throws FileNotFoundException {
+    FilePicker() throws FileNotFoundException {
 
         ImageView tempImageView = null;
         FileChooser testFileChooser = new FileChooser();
@@ -38,7 +38,7 @@ public class FilePicker {
         this.imageView = tempImageView;
     }
 
-    public ImageView returnImageView() {
+    ImageView returnImageView() {
         return this.imageView;
     }
 }

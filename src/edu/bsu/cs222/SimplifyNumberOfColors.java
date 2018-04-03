@@ -4,11 +4,11 @@ import java.util.*;
 
 //SimplifyNumberOfColors removes repeated colors while keeping a count of how many times a individual color is displayed
 
-public class SimplifyNumberOfColors {
+class SimplifyNumberOfColors {
 
     private LinkedList<Pixel> pixelList;
 
-    public SimplifyNumberOfColors(LinkedList<Pixel> list) {
+    SimplifyNumberOfColors(LinkedList<Pixel> list) {
         this.pixelList = list;
         LinkedList<Pixel> newList = new LinkedList<>();
         while (!pixelList.isEmpty()) {
@@ -16,31 +16,22 @@ public class SimplifyNumberOfColors {
             int indexBefore = pixelList.size();
             newList.add(color);
 
-            Iterator<Pixel> itr = pixelList.iterator();
-            while (itr.hasNext()) {
-                if (itr.next().getHexValue().matches(color.getHexValue())) {
-                    itr.remove();
-                }
-            }
+            pixelList.removeIf(pixel -> pixel.getHexValue().matches(color.getHexValue()));
             int indexAfter = pixelList.size();
             int individualCount = indexBefore - indexAfter;
             newList.getLast().setCount(individualCount);
+            System.out.println(pixelList.size());
         }
         pixelList = newList;
     }
 
-    public LinkedList<Pixel> returnShrunkList() {
+    LinkedList<Pixel> returnShrunkList() {
         return this.pixelList;
     }
 
     //DeleteRareColors is a method that takes the number from MinimumUsesFromTextField and uses it to get rid of colors that appear less than that number.
 
-    public void DeleteRareColors(int uses) {
-        Iterator<Pixel> iterator = pixelList.iterator();
-        while(iterator.hasNext()) {
-            if (iterator.next().getCount() < uses) {
-                iterator.remove();
-            }
-        }
+    void DeleteRareColors(int uses) {
+        pixelList.removeIf(pixel -> pixel.getCount() < uses);
     }
 }

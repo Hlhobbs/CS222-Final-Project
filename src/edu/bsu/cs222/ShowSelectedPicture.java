@@ -10,7 +10,7 @@ public class ShowSelectedPicture extends Application{
 
     private ImageView imageView;
 
-    public ShowSelectedPicture(ImageView iv) {
+    ShowSelectedPicture(ImageView iv) {
         this.imageView = iv;
     }
 
