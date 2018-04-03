@@ -65,6 +65,7 @@ public class Controller {
         HBox root = tableLoader.load();
         Scene table = new Scene(root);
         Stage tableStage = new Stage();
+        tableStage.setTitle("TableView");
         tableStage.setScene(table);
         tableStage.show();
     }
