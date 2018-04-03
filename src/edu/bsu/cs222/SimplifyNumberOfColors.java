@@ -2,13 +2,13 @@ package edu.bsu.cs222;
 
 import java.util.*;
 
-//SimplifyColors removes repeated colors while keeping a count of how many times a individual color is displayed
+//SimplifyNumberOfColors removes repeated colors while keeping a count of how many times a individual color is displayed
 
-public class SimplifyColors {
+public class SimplifyNumberOfColors {
 
     private LinkedList<Pixel> pixelList;
 
-    public SimplifyColors(LinkedList<Pixel> list) {
+    public SimplifyNumberOfColors(LinkedList<Pixel> list) {
         this.pixelList = list;
         LinkedList<Pixel> newList = new LinkedList<>();
         while (!pixelList.isEmpty()) {

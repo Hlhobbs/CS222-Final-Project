@@ -21,7 +21,7 @@ public class Controller {
     @FXML
     public TextField minimumUsesTextField;
 
-    public void ChooseImageFromFile() throws Exception {
+    public void Controller() throws Exception {
 
         ImageView imageView = new FilePicker().returnImageView();
 
@@ -40,7 +40,7 @@ public class Controller {
         LinkedList<Pixel> pixelList = new ScanPictureForColors(Objects.requireNonNull(imageView).getImage()).returnPixel();
 
 
-        SimplifyColors sc = new SimplifyColors(pixelList);
+        SimplifyNumberOfColors sc = new SimplifyNumberOfColors(pixelList);
         sc.DeleteRepeatColors();
         sc.DeleteRareColors(uses);
         pixelList = sc.returnShrunkList();

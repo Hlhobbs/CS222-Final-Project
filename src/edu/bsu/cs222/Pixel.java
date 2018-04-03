@@ -5,9 +5,10 @@ import javafx.fxml.FXML;
 import java.io.Serializable;
 import java.util.LinkedList;
 
+//Container class
 public class Pixel implements Serializable {
 
-    //Will be used in future iterations
+    //X and Y values will be used in iteration #3
     private int xCoordinate;
     private int yCoordinate;
 

@@ -4,7 +4,7 @@ public class MinimumUsesFromTextField {
 
     private int uses;
 
-    //MinimumUsesFromTextField is a method that gets the number from the text field. SimplifyColors uses it for DeleteRareColors
+    //MinimumUsesFromTextField is a method that gets the number from the text field. SimplifyNumberOfColors uses it for DeleteRareColors
 
     public MinimumUsesFromTextField(String stringInTextField) {
 

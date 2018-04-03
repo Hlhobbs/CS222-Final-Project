@@ -20,6 +20,7 @@ public class ShowSelectedPicture extends Application{
         Pane.getChildren().add(imageView);
 
         Scene scene = new Scene(Pane);
+        primaryStage.setTitle("Image");
         primaryStage.setScene(scene);
         primaryStage.show();
     }

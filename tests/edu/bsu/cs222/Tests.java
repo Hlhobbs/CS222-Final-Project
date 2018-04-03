@@ -1,18 +1,10 @@
 package edu.bsu.cs222;
 
 
-import javafx.application.Platform;
-import javafx.collections.ObservableList;
-import javafx.embed.swing.JFXPanel;
-import javafx.scene.image.Image;
-import javafx.stage.Stage;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.LinkedList;
-import java.util.List;
 
 
 public class Tests {
@@ -77,7 +69,7 @@ public class Tests {
 
         Assert.assertEquals(2, LL.size());
 
-        SimplifyColors sc = new SimplifyColors(LL);
+        SimplifyNumberOfColors sc = new SimplifyNumberOfColors(LL);
         sc.DeleteRepeatColors();
         LL = sc.returnShrunkList();
         Assert.assertEquals(1, LL.size());
@@ -104,7 +96,7 @@ public class Tests {
 
         Assert.assertEquals(2, LL.size());
 
-        SimplifyColors sc = new SimplifyColors(LL);
+        SimplifyNumberOfColors sc = new SimplifyNumberOfColors(LL);
         sc.DeleteRepeatColors();
         LL = sc.returnShrunkList();
         Assert.assertEquals(2, LL.size());
@@ -133,7 +125,7 @@ public class Tests {
 
         Assert.assertEquals(4,LL.size());
 
-        SimplifyColors sc = new SimplifyColors(LL);
+        SimplifyNumberOfColors sc = new SimplifyNumberOfColors(LL);
         sc.DeleteRepeatColors();
         sc.DeleteRareColors(1);
         LL = sc.returnShrunkList();
