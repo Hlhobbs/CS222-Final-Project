@@ -9,7 +9,6 @@
 <?import javafx.scene.text.Font?>
 
 <VBox alignment="TOP_CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="275.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
-    <children>
 
 
     <Label text="Image Viewer">
@@ -21,8 +20,9 @@
       </font>
     </Label>
 
-    <!-- -->
+    <!--Controller is supposed to be un-marked, it is manually loaded -->
     <HBox fx:id="buttonHBox" alignment="TOP_CENTER" prefHeight="30.0" prefWidth="600.0">
+
         <Button fx:id="FileButton" alignment="CENTER" mnemonicParsing="false" onAction="#Controller" text="Choose an Image!">
          <HBox.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -54,5 +54,4 @@
       </children>
    </HBox>
 
-    </children>
-</VBox>
+    </VBox>
