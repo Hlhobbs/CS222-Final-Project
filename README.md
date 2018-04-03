@@ -6,18 +6,18 @@ This project allows the user to select an image from their computer, and view ev
 
 Features Include:
 
-View the selected image/n
-Sort the pixels in several different ways/n
-Concatenate duplicate values/n
-Displays a sample of the color of each pixel/n
-Displays the number of appearances of each pixel value/n
+*View the selected image
+*Sort the pixels in several different ways
+*Concatenate duplicate values
+*Displays a sample of the color of each pixel
+*Displays the number of appearances of each pixel value
 
 Future Features:
 
-Make it realistic to use larger images/n
-Show complimentary colors of the pixels in the image/n
-Add a search function to search for colors in an image/n
-Display only searched for color(s)/n
+*Make it realistic to use larger images
+*Show complimentary colors of the pixels in the image
+*Add a search function to search for colors in an image
+*Display only searched for color(s)
 
 
 
