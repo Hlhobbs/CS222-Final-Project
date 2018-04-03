@@ -19,7 +19,7 @@ public class FilePicker {
 
         ImageView tempImageView = null;
         FileChooser testFileChooser = new FileChooser();
-        testFileChooser.setTitle("Test File Chooser");
+        testFileChooser.setTitle("File Chooser");
         File chosenTestFile;
 
         //The following extensions are picture files which the program can display

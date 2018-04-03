@@ -38,7 +38,14 @@ public class Controller {
            String exception = "There was an issue with the image chosen";
            exceptionController eC = new exceptionController();
            eC.setException(exception);
-           eC.start(new Stage());
+           FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getClassLoader().getResource("resources/exceptionFXML.fxml")));
+           loader.setController(eC);
+
+           Parent root = loader.load();
+           Stage stage = new Stage();
+           stage.setTitle("exception");
+           stage.setScene(new Scene(root,300,25));
+           stage.show();
 
        }
 

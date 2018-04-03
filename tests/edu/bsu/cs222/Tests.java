@@ -132,19 +132,10 @@ public class Tests {
     }
 
     @Test
-    //Tests with a valid string
-    public void testMinimumUsesFromTextField_1() throws Exception {
+    public void testMinimumUsesFromTextField() throws Exception {
         MinimumUsesFromTextField minimumUsesFromTextField = new MinimumUsesFromTextField("16");
         int uses = minimumUsesFromTextField.asInt();
         Assert.assertEquals(16, uses);
-    }
-
-    @Test
-    //Tests with a invalid string
-    public void testMinimumUsesFromTextField_2() throws Exception {
-        MinimumUsesFromTextField minimumUsesFromTextField = new MinimumUsesFromTextField("ZZ");
-        int uses = minimumUsesFromTextField.asInt();
-        Assert.assertEquals(0, uses);
     }
 
 }
