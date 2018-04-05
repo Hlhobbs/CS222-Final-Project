@@ -134,4 +134,16 @@ public class Tests {
         int uses = minimumUsesFromTextField.asInt();
         Assert.assertEquals(16, uses);
     }
+
+    @Test
+    public void testComplementaryColorsFromRGB() {
+        Pixel pixel = new Pixel();
+        pixel.setRedValue(255);
+        pixel.setGreenValue(0);
+        pixel.setBlueValue(0);
+        Pixel compPixel = new ComplementaryColorsFromRGB(pixel).getCompPixel();
+        Assert.assertEquals(0,compPixel.getRedValue(),1);
+        Assert.assertEquals(255, compPixel.getGreenValue(),1);
+        Assert.assertEquals(255, compPixel.getGreenValue(),1);
+    }
 }
