@@ -22,6 +22,7 @@ public class Pixel implements Serializable {
 
     private SimpleStringProperty hex = new SimpleStringProperty();
     private int count  = 1;
+    private String rgb;
 
     Pixel() {}
 
@@ -75,5 +76,10 @@ public class Pixel implements Serializable {
 
     public void increaseby1() {
         count++;
+    }
+
+    public String getRgb() {
+        rgb = "Red:" + redValue + " Blue:" + blueValue + " Green:" + greenValue;
+        return rgb;
     }
 }
