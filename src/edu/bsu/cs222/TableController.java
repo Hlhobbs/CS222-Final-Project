@@ -20,12 +20,12 @@ public class TableController implements Initializable {
 
     private ObservableList<Pixel> pixels;
 
-    TableController() { }
+    TableController() {
+    }
 
     void setParameters(LinkedList<Pixel> pixelList) {
         this.pixels = FXCollections.observableArrayList(pixelList);
     }
-
 
 
     @FXML
@@ -41,8 +41,16 @@ public class TableController implements Initializable {
     @FXML
     TableColumn<Pixel, Integer> countCol;
 
+    @FXML
+    TableColumn<Pixel, String> rgbCol;
+
+    @FXML
+    Label totalDistinctColors;
+
 
     public void initialize(URL location, ResourceBundle resources) {
+
+        totalDistinctColors.setText("Total number of distinct colors displayed: " + String.valueOf(pixels.size()));
         thumbnailCol.setCellFactory((TableColumn<Pixel, String> param) -> new TableCell<Pixel, String>() {
             public void updateItem(String s, boolean empty) {
                 if (s != null) {
@@ -64,5 +72,6 @@ public class TableController implements Initializable {
         tableView.setItems(pixels);
     }
 }
+
 
 
