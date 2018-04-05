@@ -47,7 +47,7 @@
 
    <HBox alignment="BOTTOM_CENTER" prefHeight="60.0" prefWidth="200.0">
       <children>
-         <Label alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" prefHeight="100.0" prefWidth="380.0" text="NOTE: You may only select from .JPG, .PNG, and .GIF files. However, please do not choose a .GIF image that moves. This program does not support those files." textAlignment="CENTER" wrapText="true">
+         <Label alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" prefHeight="100.0" prefWidth="380.0" text="NOTE: You may only select from .JPG, .JPEG, .PNG, .BMP, and .GIF files. However, please do not choose a .GIF image that moves. This program does not support those files." textAlignment="CENTER" wrapText="true">
             <HBox.margin>
                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
             </HBox.margin></Label>

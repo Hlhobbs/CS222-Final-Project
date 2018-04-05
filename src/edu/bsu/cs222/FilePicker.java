@@ -24,7 +24,7 @@ class FilePicker {
 
         //The following extensions are picture files which the program can display
         testFileChooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg", "*.gif"));
+                new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg", "*.gif", "*.bmp"));
 
         chosenTestFile = testFileChooser.showOpenDialog(null);
 
