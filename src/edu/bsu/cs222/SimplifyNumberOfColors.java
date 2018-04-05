@@ -9,20 +9,24 @@ class SimplifyNumberOfColors {
     private LinkedList<Pixel> pixelList;
 
     SimplifyNumberOfColors(LinkedList<Pixel> list) {
-        this.pixelList = list;
-        LinkedList<Pixel> newList = new LinkedList<>();
-        while (!pixelList.isEmpty()) {
-            Pixel color = pixelList.get(0);
-            int indexBefore = pixelList.size();
-            newList.add(color);
 
-            pixelList.removeIf(pixel -> pixel.getHexValue().matches(color.getHexValue()));
-            int indexAfter = pixelList.size();
-            int individualCount = indexBefore - indexAfter;
-            newList.getLast().setCount(individualCount);
-            System.out.println(pixelList.size());
+        long start = System.nanoTime();
+
+        HashMap<String,Pixel> colorsAndCounts = new HashMap<>();
+
+        for (Pixel pixel :
+                list) {
+            if (!colorsAndCounts.containsKey(pixel.getHexValue())) {
+                colorsAndCounts.put(pixel.getHexValue(),pixel);
+                pixel.setCount(1);
+            }
+            else
+                colorsAndCounts.get(pixel.getHexValue()).increaseby1();
         }
-        pixelList = newList;
+
+        pixelList = new LinkedList<>(colorsAndCounts.values());
+
+        System.out.println(((System.nanoTime()-start)/1000000.0)+" millisec");
     }
 
     LinkedList<Pixel> returnShrunkList() {

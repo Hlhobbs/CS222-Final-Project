@@ -72,4 +72,8 @@ public class Pixel implements Serializable {
     //needs to be public for the tableView to access it
     public int getCount() {return count;}
     void setCount(int count) {this.count = count;}
+
+    public void increaseby1() {
+        count++;
+    }
 }
