@@ -146,4 +146,15 @@ public class Tests {
         Assert.assertEquals(255, compPixel.getGreenValue(),1);
         Assert.assertEquals(255, compPixel.getGreenValue(),1);
     }
+
+    @Test
+    public void testComplementaryColorsFromRGB_2() {
+        Pixel pixel = new Pixel();
+        pixel.setRedValue(0);
+        pixel.setGreenValue(180);
+        pixel.setBlueValue(0);
+        Pixel compPixel = new ComplementaryColorsFromRGB(pixel).getCompPixel();
+        compPixel.setHexValue();
+        Assert.assertEquals("#b40000", compPixel.getHexValue());
+    }
 }
