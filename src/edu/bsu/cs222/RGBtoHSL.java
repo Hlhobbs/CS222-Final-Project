@@ -62,15 +62,17 @@ public class RGBtoHSL {
         this.L = ((max + min) / 2);
     }
 
-    public double getH() {
-        return H;
+    public double[] getHSL() {
+        double[] HSL = new double[2];
+        HSL[0] = this.H;
+        HSL[1] = this.S;
+        HSL[2] = this.L;
+        return HSL;
     }
 
-    public double getS() {
-        return S;
-    }
+    //Getters are used in testing
+    public double getH() {return H;}
+    public double getS() {return S;}
+    public double getL() {return L;}
 
-    public double getL() {
-        return L;
-    }
 }

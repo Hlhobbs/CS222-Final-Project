@@ -136,29 +136,6 @@ public class Tests {
     }
 
     @Test
-    public void testComplementaryColorsFromRGB() {
-        Pixel pixel = new Pixel();
-        pixel.setRedValue(255);
-        pixel.setGreenValue(0);
-        pixel.setBlueValue(0);
-        Pixel compPixel = new ComplementaryColorsFromRGB(pixel).getCompPixel();
-        Assert.assertEquals(0,compPixel.getRedValue(),1);
-        Assert.assertEquals(255, compPixel.getGreenValue(),1);
-        Assert.assertEquals(255, compPixel.getGreenValue(),1);
-    }
-
-    @Test
-    public void testComplementaryColorsFromRGB_2() {
-        Pixel pixel = new Pixel();
-        pixel.setRedValue(0);
-        pixel.setGreenValue(180);
-        pixel.setBlueValue(0);
-        Pixel compPixel = new ComplementaryColorsFromRGB(pixel).getCompPixel();
-        compPixel.setHexValue();
-        Assert.assertEquals("#b40000", compPixel.getHexValue());
-    }
-
-    @Test
     public void testRGBtoHSL_1() {
         double r =160;
         double g = 150;
@@ -186,5 +163,21 @@ public class Tests {
         RGBtoHSL rgBtoHSL = new RGBtoHSL(r,g,b);
         double saturation = rgBtoHSL.getS();
         Assert.assertEquals(0.173,saturation,1);
+    }
+
+    @Test
+    public void testHSLtoHex() {
+        double[] hsl = new double[3];
+        hsl[0] = 45;
+        hsl[1] = 0.173;
+        hsl[2] = 0.549;
+
+        HSLtoHex hsLtoHex = new HSLtoHex(hsl);
+        String hex = hsLtoHex.returnHex();
+
+        System.out.println(hex);
+
+        boolean boo = hex.equals("#a09678");
+        Assert.assertEquals(true, boo);
     }
 }
