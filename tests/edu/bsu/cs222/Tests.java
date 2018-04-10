@@ -134,4 +134,50 @@ public class Tests {
         int uses = minimumUsesFromTextField.asInt();
         Assert.assertEquals(16, uses);
     }
+
+    @Test
+    public void testRGBtoHSL_1() {
+        double r =160;
+        double g = 150;
+        double b = 120;
+        RGBtoHSL rgBtoHSL = new RGBtoHSL(r,g,b);
+        double hue = rgBtoHSL.getH();
+        Assert.assertEquals(45.0,hue,1);
+    }
+
+    @Test
+    public void testRGBtoHSL_2() {
+        double r =160;
+        double g = 150;
+        double b = 120;
+        RGBtoHSL rgBtoHSL = new RGBtoHSL(r,g,b);
+        double lum = rgBtoHSL.getL();
+        Assert.assertEquals(0.549,lum,1);
+    }
+
+    @Test
+    public void testRGBtoHSL_3() {
+        double r =160;
+        double g = 150;
+        double b = 120;
+        RGBtoHSL rgBtoHSL = new RGBtoHSL(r,g,b);
+        double saturation = rgBtoHSL.getS();
+        Assert.assertEquals(0.173,saturation,1);
+    }
+
+    @Test
+    public void testHSLtoHex() {
+        double[] hsl = new double[3];
+        hsl[0] = 45;
+        hsl[1] = 0.173;
+        hsl[2] = 0.549;
+
+        HSLtoHex hsLtoHex = new HSLtoHex(hsl);
+        String hex = hsLtoHex.returnHex();
+
+        System.out.println(hex);
+
+        boolean boo = hex.equals("#a09678");
+        Assert.assertEquals(true, boo);
+    }
 }
