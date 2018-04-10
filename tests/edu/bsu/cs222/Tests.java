@@ -180,4 +180,24 @@ public class Tests {
         boolean boo = hex.equals("#a09678");
         Assert.assertEquals(true, boo);
     }
+
+    @Test
+    public void testCompColors() {
+        String hex = "#a09678";
+        CalculateRelatedColors calculateRelatedColors = new CalculateRelatedColors(hex);
+        String comp = calculateRelatedColors.returnCompColor();
+        System.out.println(comp);
+
+        boolean boo = comp.equals("#7882a0");
+        Assert.assertEquals(true, boo);
+
+        String[] triad = calculateRelatedColors.returnTriadColors();
+
+        System.out.println(triad[0]);
+        System.out.println(triad[1]);
+        System.out.println(triad[2]);
+
+
+
+    }
 }

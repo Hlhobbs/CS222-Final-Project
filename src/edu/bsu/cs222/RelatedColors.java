@@ -7,8 +7,9 @@ public class RelatedColors {
 
     private String complementary;
 
-
     RelatedColors(String s) {
+        CalculateRelatedColors calculateRelatedColors = new CalculateRelatedColors(s);
+        this.complementary = calculateRelatedColors.returnCompColor();
 
 
     }

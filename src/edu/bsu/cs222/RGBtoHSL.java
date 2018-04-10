@@ -63,7 +63,7 @@ public class RGBtoHSL {
     }
 
     public double[] getHSL() {
-        double[] HSL = new double[2];
+        double[] HSL = new double[3];
         HSL[0] = this.H;
         HSL[1] = this.S;
         HSL[2] = this.L;
