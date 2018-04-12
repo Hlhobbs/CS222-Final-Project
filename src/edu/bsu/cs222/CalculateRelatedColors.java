@@ -22,30 +22,4 @@ public class CalculateRelatedColors {
         String hex = new HSLtoHex(copyHSL).returnHex();
         return hex;
     }
-
-    public String[] returnTriadColors() {
-
-        double[] triad2HSL = this.HSL;
-
-        if (triad2HSL[0] + 120 > 360) {
-            triad2HSL[0] = (triad2HSL[0] + 120) - 360;
-        } else {
-            triad2HSL[0] = triad2HSL[0] + 120;
-        }
-
-        double[] triad3HSL = triad2HSL;
-
-        if (triad3HSL[0] + 120 > 360) {
-            triad3HSL[0] = (triad3HSL[0] + 120) - 360;
-        } else {
-            triad3HSL[0] = triad3HSL[0] + 120;
-        }
-
-        String[] triads = new String[3];
-        triads[0] = new HSLtoHex(HSL).returnHex();
-        triads[1] = new HSLtoHex(triad2HSL).returnHex();
-        triads[2] = new HSLtoHex(triad3HSL).returnHex();
-        return triads;
-    }
-
 }

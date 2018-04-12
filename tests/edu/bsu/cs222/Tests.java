@@ -191,13 +191,5 @@ public class Tests {
         boolean boo = comp.equals("#7882a0");
         Assert.assertEquals(true, boo);
 
-        String[] triad = calculateRelatedColors.returnTriadColors();
-
-        System.out.println(triad[0]);
-        System.out.println(triad[1]);
-        System.out.println(triad[2]);
-
-
-
     }
 }
