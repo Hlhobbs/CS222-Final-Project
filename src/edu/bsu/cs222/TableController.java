@@ -5,17 +5,19 @@ import javafx.collections.ObservableList;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableCell;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.LinkedList;
 import java.util.ResourceBundle;
@@ -44,22 +46,23 @@ public class TableController implements Initializable {
     TableColumn thumbnailCol;
     @FXML
     TableColumn<Pixel, Integer> countCol;
-
     @FXML
     TableColumn<Pixel, String> rgbCol;
-
     @FXML
+    private
     Label totalDistinctColors;
+    @FXML
+    TabPane tabPane = new TabPane();
+    @FXML
+    Tab compTab = new Tab();
 
 
     public void initialize(URL location, ResourceBundle resources) {
 
         totalDistinctColors.setText("Total number of distinct colors displayed: " + String.valueOf(pixels.size()));
-
-
         ThumbnailClickCellFactory cellFactory = new ThumbnailClickCellFactory(new ClickMouseHandler());
         thumbnailCol.setCellFactory(cellFactory);
-        
+
 
         tableView.setItems(pixels);
     }
@@ -72,43 +75,19 @@ public class TableController implements Initializable {
 
                 try {
                     Pixel pixel = pixels.get(((TableCell) event.getSource()).getIndex());
-                    System.out.println("Hey we got here");
-                } catch (IndexOutOfBoundsException e) {
+                    RelatedColors relatedColors = new RelatedColors(pixel.getHexValue());
+                    Image compImage = new ThumbnailFromHexValue(relatedColors.getComplementary()).returnImage();
+                    ImageView compView = new ImageView(compImage);
 
-                }
+                    HBox box = new HBox();
+                    box.getChildren().add(compView);
+                    compTab.setGraphic(box);
+
+                } catch (IndexOutOfBoundsException e) {}
             }
         }
     }
 }
-
-/**
- public void initialize(URL location, ResourceBundle resources) {
-
- totalDistinctColors.setText("Total number of distinct colors displayed: " + String.valueOf(pixels.size()));
- thumbnailCol.setCellFactory((TableColumn<Pixel, String> param) -> new TableCell<>() {
-
-
-
- public void updateItem(String s, boolean empty) {
- if (s != null) {
- HBox box = new HBox();
- box.setSpacing(10);
- VBox vbox = new VBox();
-
- ImageView imageview = new ImageView();
- imageview.setFitHeight(50);
- imageview.setFitWidth(50);
- imageview.setImage(new ThumbnailFromHexValue(s).returnImage());
-
- box.getChildren().addAll(imageview, vbox);
- //SETTING ALL THE GRAPHICS COMPONENT FOR CELL
- setGraphic(box);
- }
- }
- });
- tableView.setItems(pixels);
- }
- */
 
 
 

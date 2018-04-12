@@ -13,4 +13,8 @@ public class RelatedColors {
 
 
     }
+
+    public String getComplementary() {
+        return complementary;
+    }
 }

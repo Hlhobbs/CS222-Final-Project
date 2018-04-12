@@ -5,6 +5,7 @@ public class CalculateRelatedColors {
 
     private static double[] HSL;
 
+    //Assumes string s is a hex
     CalculateRelatedColors(String s) {
         double red = Integer.parseInt(s.substring(1,3),16);
         double green = Integer.parseInt(s.substring(3,5),16);
