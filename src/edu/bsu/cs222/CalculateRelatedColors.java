@@ -23,64 +23,32 @@ public class CalculateRelatedColors {
         String hex = new HSLtoHex(copyHSL).returnHex();
         return hex;
     }
-/*
-    public String[] returnTriad(Pixel pixel)
+
+    public String[] returnTriad()
     {
-        String[] paletteHex = new String[8];
-        int[]    P5Colors   = new int[8];
+        String[] paletteHex = new String[3];
 
-        RGBtoHSL hslValues = new RGBtoHSL(pixel.getRedValue(),pixel.getGreenValue(),pixel.getBlueValue());
-        double[] hsl = new double[3];
-        hsl[0]= hslValues.getH();
-        hsl[1]= hslValues.getS();
-        hsl[2]= hslValues.getL();
+        double[] copyHSL = this.HSL;
 
 
-        String hexValue = new HSLtoHex(hsl).returnHex();
-
-        //hex.toUpperCase().replace("#", "");
-        //baseColorHex = correctColorHex(hex);
-
-        //float[] hsl = Hex2HSL(baseColorHex);
-
-        double H = hslValues.getH();
-        double S = hslValues.getS();
-        double L = hslValues.getL();
-
-        double H1 = FixHue(H + 120);
-        double H2 = FixHue(H - 120);
-
-        // Color 1 (Corrected base color)
+        //Original color
+        String hexValue = new HSLtoHex(copyHSL).returnHex();
         paletteHex[0] = hexValue;
-        P5Colors[0]   = Hex2P5(paletteHex[0]);
+
         // Color 2
-        hsl[0] = H1;
-        hexValue = new HSLtoHex(hsl).returnHex();
+        copyHSL[0] = FixHue(copyHSL[0] + 120);
+        hexValue = new HSLtoHex(copyHSL).returnHex();
         paletteHex[1] = hexValue;
-        P5Colors[1]   = Hex2P5(paletteHex[1]);
+
+
         // Color 3
-        paletteHex[2] = "FFFFFF";
-        P5Colors[2]   = Hex2P5(paletteHex[2]);
+        copyHSL[0] = FixHue(copyHSL[0] - 120);
+        hexValue = new HSLtoHex(copyHSL).returnHex();
+        paletteHex[2] = hexValue;
 
-        // Color 4
-        hsl[0] = H2;
-        hexValue = new HSLtoHex(hsl).returnHex();
-        paletteHex[3] = hexValue;
-        P5Colors[3]   = Hex2P5(paletteHex[3]);
-/*
-        // Color 5
-        P5Colors[4]  = Hex2P5(SecondColor(paletteHex[0]));
-        // Color 6
-        P5Colors[5]  = Hex2P5(SecondColor(paletteHex[1]));
-        // Color 7
-        P5Colors[6]  = Hex2P5(SecondColor(paletteHex[2]));
-        // Color 8
-        P5Colors[7]  = Hex2P5(SecondColor(paletteHex[3]));
 
-        // Return array with Processing colors
-        */
-       // return paletteHex;
-    //}
+       return paletteHex;
+    }
 
 
     private double FixHue(double hue) {
@@ -90,7 +58,7 @@ public class CalculateRelatedColors {
             return hue - 360;
         } else {
             return hue;
-        } // if (hue < 0)
-    } // FixHue()
+        }
+    }
 
 }
