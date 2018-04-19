@@ -15,11 +15,7 @@ public class CalculateRelatedColors {
 
     public String returnCompColor() {
         double[] copyHSL = this.HSL;
-        if (copyHSL[0] > 180) {
-            copyHSL[0] = copyHSL[0] - 180;
-        } else if (copyHSL[0] < 180) {
-            copyHSL[0] = copyHSL[0] + 180;
-        }
+        copyHSL[0] = FixHue(copyHSL[0] + 180);
         String hex = new HSLtoHex(copyHSL).returnHex();
         return hex;
     }
@@ -46,8 +42,35 @@ public class CalculateRelatedColors {
         hexValue = new HSLtoHex(copyHSL).returnHex();
         paletteHex[2] = hexValue;
 
+        return paletteHex;
+    }
 
-       return paletteHex;
+    public String[] returnTetrad()
+    {
+        String[] paletteHex = new String[4];
+
+        double[] copyHSL = this.HSL;
+
+        //Original color
+        String hexValue = new HSLtoHex(copyHSL).returnHex();
+        paletteHex[0] = hexValue;
+
+        //Color 2 Comp color of original color
+        copyHSL[0] = FixHue(copyHSL[0] + 180);
+        hexValue = new HSLtoHex(copyHSL).returnHex();
+        paletteHex[1] = hexValue;
+
+        //Color 3 30 degrees of original color
+        copyHSL[0] = FixHue((copyHSL[0] - 180) + 30);
+        hexValue = new HSLtoHex(copyHSL).returnHex();
+        paletteHex[2] = hexValue;
+
+        //Color 4 Comp color of color 3
+        copyHSL[0] = FixHue(copyHSL[0] + 180);
+        hexValue = new HSLtoHex(copyHSL).returnHex();
+        paletteHex[1] = hexValue;
+
+        return paletteHex;
     }
 
 
