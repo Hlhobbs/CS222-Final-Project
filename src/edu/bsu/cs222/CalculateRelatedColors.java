@@ -38,7 +38,7 @@ public class CalculateRelatedColors {
 
 
         // Color 3
-        copyHSL[0] = FixHue(copyHSL[0] - 120);
+        copyHSL[0] = FixHue(copyHSL[0] - 240);
         hexValue = new HSLtoHex(copyHSL).returnHex();
         paletteHex[2] = hexValue;
 
@@ -68,7 +68,7 @@ public class CalculateRelatedColors {
         //Color 4 Comp color of color 3
         copyHSL[0] = FixHue(copyHSL[0] + 180);
         hexValue = new HSLtoHex(copyHSL).returnHex();
-        paletteHex[1] = hexValue;
+        paletteHex[3] = hexValue;
 
         return paletteHex;
     }
