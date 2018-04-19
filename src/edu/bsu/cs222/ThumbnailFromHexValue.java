@@ -8,14 +8,14 @@ import javafx.scene.paint.Color;
 class ThumbnailFromHexValue {
 
     private Image returnImage;
-    private int defaultWidth = 10;
-    private int defaultHeight = 10;
 
     ThumbnailFromHexValue(String h) {
 
         Color color = Color.web(h);
 
-        WritableImage wImage = new WritableImage(this.defaultWidth, this.defaultHeight);
+        int defaultWidth = 10;
+        int defaultHeight = 10;
+        WritableImage wImage = new WritableImage(defaultWidth, defaultHeight);
         PixelWriter pixelWriter = wImage.getPixelWriter();
 
         for (int y = 0; y < defaultWidth; y++) {

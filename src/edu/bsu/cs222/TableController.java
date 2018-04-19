@@ -55,6 +55,8 @@ public class TableController implements Initializable {
     Tab compTab;
     @FXML
     private HBox box;
+    @FXML
+    private ImageView compView;
 
 
     public void initialize(URL location, ResourceBundle resources) {
@@ -77,7 +79,7 @@ public class TableController implements Initializable {
                     Pixel pixel = pixels.get(((TableCell) event.getSource()).getIndex());
                     RelatedColors relatedColors = new RelatedColors(pixel.getHexValue());
                     Image compImage = new ThumbnailFromHexValue(relatedColors.getComplementary(),100,100).returnImage();
-                    ImageView compView = new ImageView(compImage);
+                    compView = new ImageView(compImage);
 
                     box.getChildren().clear();
                     box.getChildren().add(compView);
