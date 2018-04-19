@@ -47,14 +47,14 @@ public class TableController implements Initializable {
     @FXML
     TableColumn<Pixel, Integer> countCol;
     @FXML
-    TableColumn<Pixel, String> rgbCol;
-    @FXML
     private
     Label totalDistinctColors;
     @FXML
     TabPane tabPane = new TabPane();
     @FXML
-    Tab compTab = new Tab();
+    Tab compTab;
+    @FXML
+    private HBox box;
 
 
     public void initialize(URL location, ResourceBundle resources) {
@@ -76,12 +76,12 @@ public class TableController implements Initializable {
                 try {
                     Pixel pixel = pixels.get(((TableCell) event.getSource()).getIndex());
                     RelatedColors relatedColors = new RelatedColors(pixel.getHexValue());
-                    Image compImage = new ThumbnailFromHexValue(relatedColors.getComplementary()).returnImage();
+                    Image compImage = new ThumbnailFromHexValue(relatedColors.getComplementary(),100,100).returnImage();
                     ImageView compView = new ImageView(compImage);
 
-                    HBox box = new HBox();
+                    box.getChildren().clear();
                     box.getChildren().add(compView);
-                    compTab.setGraphic(box);
+                    compTab.setContent(box);
 
                 } catch (IndexOutOfBoundsException e) {}
             }

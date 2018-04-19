@@ -30,7 +30,8 @@ public class ThumbnailClickCellFactory implements Callback<TableColumn, TableCel
                     ImageView imageview = new ImageView();
                     imageview.setFitHeight(50);
                     imageview.setFitWidth(50);
-                    imageview.setImage(new ThumbnailFromHexValue(s).returnImage());
+                    ThumbnailFromHexValue compThumb = new ThumbnailFromHexValue(s);
+                    imageview.setImage(compThumb.returnImage());
 
                     box.getChildren().addAll(imageview, vbox);
                     //SETTING ALL THE GRAPHICS COMPONENT FOR CELL
