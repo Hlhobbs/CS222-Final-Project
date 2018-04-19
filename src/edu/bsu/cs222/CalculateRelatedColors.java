@@ -23,4 +23,42 @@ public class CalculateRelatedColors {
         String hex = new HSLtoHex(copyHSL).returnHex();
         return hex;
     }
+
+    public String[] returnTriad()
+    {
+        String[] paletteHex = new String[3];
+
+        double[] copyHSL = this.HSL;
+
+
+        //Original color
+        String hexValue = new HSLtoHex(copyHSL).returnHex();
+        paletteHex[0] = hexValue;
+
+        // Color 2
+        copyHSL[0] = FixHue(copyHSL[0] + 120);
+        hexValue = new HSLtoHex(copyHSL).returnHex();
+        paletteHex[1] = hexValue;
+
+
+        // Color 3
+        copyHSL[0] = FixHue(copyHSL[0] - 120);
+        hexValue = new HSLtoHex(copyHSL).returnHex();
+        paletteHex[2] = hexValue;
+
+
+       return paletteHex;
+    }
+
+
+    private double FixHue(double hue) {
+        if (hue < 0) {
+            return hue + 360;
+        } else if (hue > 360) {
+            return hue - 360;
+        } else {
+            return hue;
+        }
+    }
+
 }
