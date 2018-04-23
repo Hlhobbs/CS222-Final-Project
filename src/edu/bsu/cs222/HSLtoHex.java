@@ -48,10 +48,6 @@ public class HSLtoHex {
         double green = (gPrime + m) *255;
         double blue = (bPrime + m) * 255;
 
-        System.out.println(red);
-        System.out.println(green);
-        System.out.println(blue);
-
         Long redLong = Math.round(red);
         int redInt = redLong.intValue();
         Long blueLong = Math.round(blue);

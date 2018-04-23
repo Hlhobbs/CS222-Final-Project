@@ -4,10 +4,6 @@ package edu.bsu.cs222;
 import javafx.scene.image.Image;
 import org.junit.Assert;
 import org.junit.Test;
-
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.InputStream;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -98,10 +94,8 @@ public class Tests {
 
     }
 
-
-
     @Test
-    public void testRGBtoHSL_1() {
+    public void testRGBtoHSL_hue() {
         double r =160;
         double g = 150;
         double b = 120;
@@ -111,7 +105,7 @@ public class Tests {
     }
 
     @Test
-    public void testRGBtoHSL_2() {
+    public void testRGBtoHSL_lum() {
         double r =160;
         double g = 150;
         double b = 120;
@@ -121,7 +115,7 @@ public class Tests {
     }
 
     @Test
-    public void testRGBtoHSL_3() {
+    public void testRGBtoHSL_saturation() {
         double r =160;
         double g = 150;
         double b = 120;
@@ -140,8 +134,6 @@ public class Tests {
         HSLtoHex hsLtoHex = new HSLtoHex(hsl);
         String hex = hsLtoHex.returnHex();
 
-        System.out.println(hex);
-
         boolean boo = hex.equals("#a09678");
         Assert.assertEquals(true, boo);
     }
@@ -151,7 +143,6 @@ public class Tests {
         String hex = "#a09678";
         CalculateRelatedColors calculateRelatedColors = new CalculateRelatedColors(hex);
         String comp = calculateRelatedColors.returnCompColor();
-        System.out.println(comp);
 
         boolean boo = comp.equals("#7882a0");
         Assert.assertEquals(true, boo);
