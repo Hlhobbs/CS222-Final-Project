@@ -20,7 +20,7 @@ public class ThumbnailClickCellFactory implements Callback<TableColumn, TableCel
 
     @Override
     public TableCell call(TableColumn param) {
-        TableCell<Pixel, String> cell = new TableCell<>() {
+        TableCell<Pixel, String> cell = new TableCell<Pixel, String>() {
             public void updateItem(String s, boolean empty) {
                 if (s != null) {
                     HBox box = new HBox();
