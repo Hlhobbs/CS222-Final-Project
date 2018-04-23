@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.geometry.Point3D?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
@@ -55,26 +54,16 @@
                  <tabs>
                    <Tab fx:id="compTab" text="Comp Colors">
                         <content>
-                           <HBox fx:id="box" layoutX="100.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="367.0" prefWidth="200.0">
-                              <padding>
-                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                              </padding>
+                           <VBox fx:id="box">
                               <children>
                                  <Label minWidth="100.0" prefWidth="100.0" text="Hex Value:" textAlignment="CENTER">
-                                    <HBox.margin>
-                                       <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                    </HBox.margin>
                                     <padding>
                                        <Insets left="10.0" />
                                     </padding>
                                  </Label>
-                                 <ImageView fx:id="compView" fitHeight="100.0" fitWidth="100.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" translateX="-79.0" translateY="100.0">
-                                    <rotationAxis>
-                                       <Point3D />
-                                    </rotationAxis>
-                                 </ImageView>
+                                 <ImageView fx:id="compView" fitHeight="100.0" fitWidth="100.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" />
                               </children>
-                           </HBox>
+                           </VBox>
                         </content>
                    </Tab>
                    <Tab text="Untitled Tab 2" />

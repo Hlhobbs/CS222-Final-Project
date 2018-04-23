@@ -54,7 +54,7 @@ public class TableController implements Initializable {
     @FXML
     Tab compTab;
     @FXML
-    private HBox box;
+    private VBox box;
     @FXML
     private ImageView compView;
 
