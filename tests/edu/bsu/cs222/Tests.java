@@ -9,6 +9,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Iterator;
 import java.util.LinkedList;
 
 
@@ -17,7 +18,7 @@ public class Tests {
     //Tests for all of the utility classes within the project
 
     @Test
-    public void testPixel() throws FileNotFoundException {
+    public void testPixel() {
         LinkedList<Pixel> pixels = LoadPixelTestArray();
 
         Pixel redPixel = pixels.get(20);
@@ -32,115 +33,72 @@ public class Tests {
     }
 
     @Test
-    public void testPixel_2() {
-        LinkedList<Pixel> pixels = LoadPixelTestArray();
-    }
-
-    @Test
-    public void testPixel_3() {
-        LinkedList<Pixel> pixels = LoadPixelTestArray();
-    }
-
-    @Test
     public void testReturnStringHexValue() {
-        Pixel pixel = new Pixel();
-        ReturnStringHexValue hex = new ReturnStringHexValue(pixel);
-        pixel.setBlueValue(255);
-        pixel.setRedValue(255);
-        pixel.setGreenValue(255);
+        LinkedList<Pixel> pixels = LoadPixelTestArray();
+        ReturnStringHexValue hex = new ReturnStringHexValue(pixels.get(0));
         String result = hex.returnStringHexValue();
 
-        Assert.assertEquals("#ffffff", result);
+        Assert.assertEquals("#000000", result);
     }
 
     @Test
-    //Tests DeleteRepeatColors with an array of identical Pixels
+    //Tests that repeats are removed
     public void testSimplifyColors_1() {
-        Pixel pixel1 = new Pixel();
-        pixel1.setBlueValue(150);
-        pixel1.setGreenValue(150);
-        pixel1.setRedValue(150);
-        pixel1.setHexValue();
+        LinkedList<Pixel> pixels = LoadPixelTestArray();
+        Assert.assertEquals(100,pixels.size());
 
-        Pixel pixel2 = new Pixel();
-        pixel2.setBlueValue(150);
-        pixel2.setGreenValue(150);
-        pixel2.setRedValue(150);
-        pixel2.setHexValue();
+        SimplifyNumberOfColors sc = new SimplifyNumberOfColors(pixels);
 
-        LinkedList<Pixel> LL = new LinkedList<>();
-        LL.add(pixel1);
-        LL.add(pixel2);
+        LinkedList<Pixel> shrunkArray = sc.returnShrunkList();
+        Assert.assertEquals(6,shrunkArray.size());
 
-        Assert.assertEquals(2, LL.size());
+        Assert.assertEquals("#f0ff00",shrunkArray.get(0).getHexValue());
+        Assert.assertEquals(10,shrunkArray.get(0).getCount());
 
-        SimplifyNumberOfColors sc = new SimplifyNumberOfColors(LL);
-        LL = sc.returnShrunkList();
-        Assert.assertEquals(1, LL.size());
+        Assert.assertEquals("#ff5b8d",shrunkArray.get(1).getHexValue());
+        Assert.assertEquals(10,shrunkArray.get(1).getCount());
+
+        Assert.assertEquals("#ffffff",shrunkArray.get(2).getHexValue());
+        Assert.assertEquals(50,shrunkArray.get(2).getCount());
     }
 
     @Test
-    //Tests DeleteRepeatColors with an array of different Pixels
     public void testSimplifyColors_2() {
-        Pixel pixel1 = new Pixel();
-        pixel1.setBlueValue(150);
-        pixel1.setGreenValue(150);
-        pixel1.setRedValue(150);
-        pixel1.setHexValue();
+        LinkedList<Pixel> pixels = LoadPixelTestArray();
+        SimplifyNumberOfColors sc = new SimplifyNumberOfColors(pixels);
+        sc.DeleteRareColors(15);
 
-        Pixel pixel2 = new Pixel();
-        pixel2.setBlueValue(50);
-        pixel2.setGreenValue(50);
-        pixel2.setRedValue(50);
-        pixel2.setHexValue();
+        LinkedList<Pixel> shrunkArray = sc.returnShrunkList();
+        Assert.assertEquals(1, shrunkArray.size());
+        Assert.assertEquals("#ffffff",shrunkArray.getFirst().getHexValue());
 
-        LinkedList<Pixel> LL = new LinkedList<>();
-        LL.add(pixel1);
-        LL.add(pixel2);
-
-        Assert.assertEquals(2, LL.size());
-
-        SimplifyNumberOfColors sc = new SimplifyNumberOfColors(LL);
-        LL = sc.returnShrunkList();
-        Assert.assertEquals(2, LL.size());
-    }
-
-    @Test
-    //Tests Deleting underused Colors
-    public void testSimplifyColors_3() {
-        Pixel pixel1 = new Pixel();
-        pixel1.setBlueValue(150);
-        pixel1.setGreenValue(150);
-        pixel1.setRedValue(150);
-        pixel1.setHexValue();
-
-        Pixel pixel2 = new Pixel();
-        pixel2.setBlueValue(50);
-        pixel2.setGreenValue(50);
-        pixel2.setRedValue(50);
-        pixel2.setHexValue();
-
-        LinkedList<Pixel> LL = new LinkedList<>();
-        LL.add(pixel1);
-        LL.add(pixel2);
-        LL.add(pixel2);
-        LL.add(pixel2);
-
-        Assert.assertEquals(4,LL.size());
-
-        SimplifyNumberOfColors sc = new SimplifyNumberOfColors(LL);
-        sc.DeleteRareColors(1);
-        LL = sc.returnShrunkList();
-
-        Assert.assertEquals(2,LL.size());
     }
 
     @Test
     public void testMinimumUsesFromTextField() throws Exception {
         MinimumUsesFromTextField minimumUsesFromTextField = new MinimumUsesFromTextField("16");
         int uses = minimumUsesFromTextField.asInt();
-        Assert.assertEquals(16, uses);
+
+        LinkedList<Pixel> pixels = LoadLargePixelTestArray();
+        SimplifyNumberOfColors sc = new SimplifyNumberOfColors(pixels);
+        sc.DeleteRareColors(uses);
+        pixels = sc.returnShrunkList();
+
+        Iterator<Pixel> iterator = pixels.iterator();
+
+        boolean boo = true;
+
+        while( iterator.hasNext()) {
+            if (iterator.next().getCount() < uses) {
+                boo = false;
+            }
+        }
+
+        Assert.assertTrue(boo);
+
     }
+
+
 
     @Test
     public void testRGBtoHSL_1() {
@@ -203,6 +161,14 @@ public class Tests {
     public LinkedList<Pixel> LoadPixelTestArray() {
         ClassLoader classloader = Thread.currentThread().getContextClassLoader();
         InputStream is = classloader.getResourceAsStream("TestResources/smallTest.png");
+        ScanPictureForColors scanPictureForColors = new ScanPictureForColors(new Image(is));
+        LinkedList<Pixel> pixels = scanPictureForColors.returnPixel();
+        return pixels;
+    }
+
+    private LinkedList<Pixel> LoadLargePixelTestArray() {
+        ClassLoader classloader = Thread.currentThread().getContextClassLoader();
+        InputStream is = classloader.getResourceAsStream("TestResources/Test.jpg");
         ScanPictureForColors scanPictureForColors = new ScanPictureForColors(new Image(is));
         LinkedList<Pixel> pixels = scanPictureForColors.returnPixel();
         return pixels;

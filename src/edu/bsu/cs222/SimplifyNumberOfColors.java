@@ -10,8 +10,6 @@ class SimplifyNumberOfColors {
 
     SimplifyNumberOfColors(LinkedList<Pixel> list) {
 
-        long start = System.nanoTime();
-
         HashMap<String,Pixel> colorsAndCounts = new HashMap<>();
 
         for (Pixel pixel :
@@ -25,8 +23,6 @@ class SimplifyNumberOfColors {
         }
 
         pixelList = new LinkedList<>(colorsAndCounts.values());
-
-        System.out.println(((System.nanoTime()-start)/1000000.0)+" millisec");
     }
 
     LinkedList<Pixel> returnShrunkList() {
