@@ -11,13 +11,12 @@ import java.io.InputStream;
 
 class FilePicker {
 
-    private ImageView imageView;
+    private InputStream inputStream;
 
     //FilePicker is a method that allows the user to browse their files for a picture.
 
     FilePicker() throws FileNotFoundException {
 
-        ImageView tempImageView = null;
         FileChooser testFileChooser = new FileChooser();
         testFileChooser.setTitle("File Chooser");
         File chosenTestFile;
@@ -29,16 +28,11 @@ class FilePicker {
         chosenTestFile = testFileChooser.showOpenDialog(null);
 
         if (chosenTestFile != null) {
-            InputStream inputStream = new FileInputStream(chosenTestFile);
-            Image createdImage = new Image(inputStream);
-
-            //Both lines are necessary else throws an exception
-            tempImageView = new ImageView(createdImage);
+            inputStream = new FileInputStream(chosenTestFile);
         }
-        this.imageView = tempImageView;
     }
 
-    ImageView returnImageView() {
-        return this.imageView;
+    public InputStream getInputStream() {
+        return inputStream;
     }
 }

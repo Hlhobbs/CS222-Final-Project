@@ -1,8 +1,14 @@
 package edu.bsu.cs222;
 
 
+import javafx.scene.image.Image;
 import org.junit.Assert;
 import org.junit.Test;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.LinkedList;
 
 
@@ -11,27 +17,28 @@ public class Tests {
     //Tests for all of the utility classes within the project
 
     @Test
-    public void testPixel() {
-        Pixel pixel = new Pixel();
-        pixel.setAlphaValue(12);
-        Assert.assertEquals(12, pixel.getAlphaValue(), 0);
+    public void testPixel() throws FileNotFoundException {
+        LinkedList<Pixel> pixels = LoadPixelTestArray();
+
+        Pixel redPixel = pixels.get(20);
+        Assert.assertEquals("#ff0000", redPixel.getHexValue());
+
+        Pixel whitePixel = pixels.get(0);
+        Assert.assertEquals("#000000", whitePixel.getHexValue());
+
+        Pixel blackPixel = pixels.get(1);
+        Assert.assertEquals("#ffffff",blackPixel.getHexValue());
+        
     }
 
     @Test
     public void testPixel_2() {
-        Pixel pixel = new Pixel();
-        pixel.setBlueValue(150);
-        pixel.setGreenValue(150);
-        pixel.setRedValue(150);
-        pixel.setHexValue();
-        Assert.assertEquals("#969696", pixel.getHexValue());
+        LinkedList<Pixel> pixels = LoadPixelTestArray();
     }
 
     @Test
     public void testPixel_3() {
-        Pixel pixel = new Pixel();
-        pixel.setCount(156);
-        Assert.assertEquals(156, pixel.getCount());
+        LinkedList<Pixel> pixels = LoadPixelTestArray();
     }
 
     @Test
@@ -191,5 +198,13 @@ public class Tests {
         boolean boo = comp.equals("#7882a0");
         Assert.assertEquals(true, boo);
 
+    }
+
+    public LinkedList<Pixel> LoadPixelTestArray() {
+        ClassLoader classloader = Thread.currentThread().getContextClassLoader();
+        InputStream is = classloader.getResourceAsStream("TestResources/smallTest.png");
+        ScanPictureForColors scanPictureForColors = new ScanPictureForColors(new Image(is));
+        LinkedList<Pixel> pixels = scanPictureForColors.returnPixel();
+        return pixels;
     }
 }

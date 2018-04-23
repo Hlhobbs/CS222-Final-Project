@@ -9,12 +9,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.LinkedList;
 import java.util.Objects;
@@ -36,26 +38,10 @@ public class Controller implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         FileButton.setOnAction(event -> {
-            try {
-                imageView = new FilePicker().returnImageView();
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            }
-
             String containedInTextField = minimumUsesTextField.getText();
-            int uses = 0;
             try {
-                uses = new MinimumUsesFromTextField(containedInTextField).asInt();
+                MainLogic logic = new MainLogic(containedInTextField);
             } catch (Exception e) {
-                e.printStackTrace();
-            }
-
-            System.out.println(imageView.toString());
-            System.out.println(uses);
-
-            try {
-                MainLogic logic = new MainLogic(imageView, uses);
-            } catch (IOException e) {
                 e.printStackTrace();
             }
 

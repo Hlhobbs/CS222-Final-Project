@@ -3,17 +3,25 @@ package edu.bsu.cs222;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.LinkedList;
 import java.util.Objects;
 
 public class MainLogic {
 
-    public MainLogic(ImageView imageView, int uses) throws IOException {
+    public MainLogic(String textfield) throws Exception {
+
+        InputStream inputStream = new FilePicker().getInputStream();
+        ImageView imageView = new ImageView(new Image(inputStream));
+
+        int uses = new MinimumUsesFromTextField(textfield).asInt();
+
         //Checks the validity of the image obtained from the file system and displays it
         if (imageView != null) {
             ShowSelectedPicture sc = new ShowSelectedPicture(imageView);
