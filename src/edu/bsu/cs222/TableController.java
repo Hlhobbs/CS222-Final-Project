@@ -5,14 +5,10 @@ import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
-
-import javax.swing.event.TreeModelEvent;
 import java.net.URL;
 import java.util.LinkedList;
 import java.util.ResourceBundle;
@@ -30,6 +26,7 @@ public class TableController implements Initializable {
 
 
     @FXML
+    private
     Label compLabel;
     @FXML
     private
@@ -91,37 +88,27 @@ public class TableController implements Initializable {
     private class ClickMouseHandler implements EventHandler<MouseEvent> {
 
         @Override
+        //On click populates the Tabs with the related colors to what color is clicked
         public void handle(MouseEvent event) {
-            if (event.getClickCount() == 1) {
+            if (event.getClickCount() == 1) try {
+                relatedColors = new RelatedColors(pixels.get(((TableCell) event.getSource()).getIndex()).getHexValue());
 
-                try {
-                    Pixel pixel = pixels.get(((TableCell) event.getSource()).getIndex());
-                    relatedColors = new RelatedColors(pixel.getHexValue());
+                ComplementaryColors();
+                TriadColors();
 
-                    ComplementaryColors();
-                    TriadColors();
-
-                } catch (IndexOutOfBoundsException e) {}
+            } catch (IndexOutOfBoundsException ignored) {
             }
         }
     }
 
     private void TriadColors() {
-        Image triadImage_1 = new ThumbnailFromHexValue(relatedColors.getTriad()[0],100,100).returnImage();
-        Image triadImage_2 = new ThumbnailFromHexValue(relatedColors.getTriad()[1],100,100).returnImage();
-        Image triadImage_3 = new ThumbnailFromHexValue(relatedColors.getTriad()[2],100,100).returnImage();
+        triadView_1 = new ImageView(new ThumbnailFromHexValue(relatedColors.getTriad()[0],100,100).returnImage());
+        triadView_2 = new ImageView(new ThumbnailFromHexValue(relatedColors.getTriad()[1],100,100).returnImage());
+        triadView_3 = new ImageView(new ThumbnailFromHexValue(relatedColors.getTriad()[2],100,100).returnImage());
 
-        triadView_1 = new ImageView(triadImage_1);
-        triadView_2 = new ImageView(triadImage_2);
-        triadView_3 = new ImageView(triadImage_3);
-
-        triadLabel_1 = new Label();
-        triadLabel_2 = new Label();
-        triadLabel_3 = new Label();
-
-        triadLabel_1.setText("Hex Value = " + relatedColors.getTriad()[0]);
-        triadLabel_2.setText("Hex Value = " + relatedColors.getTriad()[1]);
-        triadLabel_3.setText("Hex Value = " + relatedColors.getTriad()[2]);
+        triadLabel_1 = new Label("Hex Value = " + relatedColors.getTriad()[0]);
+        triadLabel_2 = new Label("Hex Value = " + relatedColors.getTriad()[1]);
+        triadLabel_3 = new Label("Hex Value = " + relatedColors.getTriad()[2]);
 
         triadBox.getChildren().clear();
         triadBox.getChildren().addAll(triadLabel_1,triadView_1,triadLabel_2,triadView_2,triadLabel_3,triadView_3);
@@ -129,8 +116,7 @@ public class TableController implements Initializable {
     }
 
     private void ComplementaryColors() {
-        Image compImage = new ThumbnailFromHexValue(relatedColors.getComplementary(),100,100).returnImage();
-        compView = new ImageView(compImage);
+        compView = new ImageView(new ThumbnailFromHexValue(relatedColors.getComplementary(),100,100).returnImage());
         compLabel = new Label();
         compLabel.setText("Hex Value = " + relatedColors.getComplementary());
 
