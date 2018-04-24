@@ -1,4 +1,4 @@
-package edu.bsu.cs222;
+package Controller;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -10,7 +10,7 @@ public class ShowSelectedPicture extends Application{
 
     private ImageView imageView;
 
-    ShowSelectedPicture(ImageView iv) {
+    public ShowSelectedPicture(ImageView iv) {
         this.imageView = iv;
     }
 

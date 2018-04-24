@@ -1,14 +1,14 @@
-package edu.bsu.cs222;
+package Functions;
 
 import java.util.*;
 
 //SimplifyNumberOfColors removes repeated colors while keeping a count of how many times a individual color is displayed
 
-class SimplifyNumberOfColors {
+public class SimplifyNumberOfColors {
 
     private LinkedList<Pixel> pixelList;
 
-    SimplifyNumberOfColors(LinkedList<Pixel> list) {
+    public SimplifyNumberOfColors(LinkedList<Pixel> list) {
 
         HashMap<String,Pixel> colorsAndCounts = new HashMap<>();
 
@@ -25,13 +25,13 @@ class SimplifyNumberOfColors {
         pixelList = new LinkedList<>(colorsAndCounts.values());
     }
 
-    LinkedList<Pixel> returnShrunkList() {
+    public LinkedList<Pixel> returnShrunkList() {
         return this.pixelList;
     }
 
     //DeleteRareColors is a method that takes the number from MinimumUsesFromTextField and uses it to get rid of colors that appear less than that number.
 
-    void DeleteRareColors(int uses) {
+    public void DeleteRareColors(int uses) {
         pixelList.removeIf(pixel -> pixel.getCount() < uses);
     }
 }

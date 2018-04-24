@@ -68,7 +68,7 @@
                                        <Insets left="10.0" />
                                     </padding>
                                  </Label>
-                                 <ImageView fx:id="compView" fitHeight="100.0" fitWidth="100.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" />
+                                 <ImageView fx:id="compView" fitHeight="100.0" fitWidth="100.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" translateX="50.0" translateY="60.0" />
                               </children>
                               <padding>
                                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />

@@ -1,7 +1,5 @@
-package edu.bsu.cs222;
+package Functions;
 
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 
 import java.io.File;
@@ -9,13 +7,13 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 
-class FilePicker {
+public class FilePicker {
 
     private InputStream inputStream;
 
     //FilePicker is a method that allows the user to browse their files for a picture.
 
-    FilePicker() throws FileNotFoundException {
+    public FilePicker() throws FileNotFoundException {
 
         FileChooser testFileChooser = new FileChooser();
         testFileChooser.setTitle("File Chooser");
