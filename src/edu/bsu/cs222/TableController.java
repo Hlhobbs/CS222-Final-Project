@@ -2,22 +2,15 @@ package edu.bsu.cs222;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
-import javafx.util.Callback;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.LinkedList;
 import java.util.ResourceBundle;
@@ -35,7 +28,7 @@ public class TableController implements Initializable {
 
 
     @FXML
-    Label label;
+    Label compLabel;
     @FXML
     private
     TableView<Pixel> tableView;
@@ -50,8 +43,9 @@ public class TableController implements Initializable {
     private
     Label totalDistinctColors;
     @FXML
-    TabPane tabPane = new TabPane();
+    TabPane tabPane;
     @FXML
+    private
     Tab compTab;
     @FXML
     private VBox box;
@@ -78,10 +72,14 @@ public class TableController implements Initializable {
                 try {
                     Pixel pixel = pixels.get(((TableCell) event.getSource()).getIndex());
                     RelatedColors relatedColors = new RelatedColors(pixel.getHexValue());
+                    
                     Image compImage = new ThumbnailFromHexValue(relatedColors.getComplementary(),100,100).returnImage();
                     compView = new ImageView(compImage);
+                    compLabel = new Label();
+                    compLabel.setText("Hex Value = " + relatedColors.getComplementary());
 
                     box.getChildren().clear();
+                    box.getChildren().addAll(compLabel);
                     box.getChildren().add(compView);
                     compTab.setContent(box);
 

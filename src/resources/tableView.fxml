@@ -10,6 +10,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <HBox alignment="CENTER" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
    <children>
@@ -47,7 +48,13 @@
       </HBox>
       <VBox>
          <children>
-              <Label fx:id="totalDistinctColors" prefHeight="50.0" prefWidth="200.0" text="Number of displayed colors" wrapText="true" />
+              <Label fx:id="totalDistinctColors" prefHeight="25.0" prefWidth="200.0" text="Number of displayed colors" wrapText="true">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="10.0" />
+               </font></Label>
 
                    <HBox spacing="10">
                <TabPane fx:id="tabPane" prefHeight="400.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
@@ -56,7 +63,7 @@
                         <content>
                            <VBox fx:id="box">
                               <children>
-                                 <Label minWidth="100.0" prefWidth="100.0" text="Hex Value:" textAlignment="CENTER">
+                                 <Label fx:id="compLabel" minWidth="100.0" prefWidth="100.0" text="Hex Value:" textAlignment="CENTER">
                                     <padding>
                                        <Insets left="10.0" />
                                     </padding>

@@ -149,6 +149,20 @@ public class Tests {
 
     }
 
+    @Test
+    public void testBmpFileFormat() {
+        ClassLoader classloader = Thread.currentThread().getContextClassLoader();
+        InputStream is = classloader.getResourceAsStream("TestResources/bmp test.bmp");
+        Assert.assertNotNull(is);
+
+        ScanPictureForColors scanPictureForColors = new ScanPictureForColors(new Image(is));
+        LinkedList<Pixel> pixels = scanPictureForColors.returnPixel();
+
+
+
+
+    }
+
     public LinkedList<Pixel> LoadPixelTestArray() {
         ClassLoader classloader = Thread.currentThread().getContextClassLoader();
         InputStream is = classloader.getResourceAsStream("TestResources/smallTest.png");

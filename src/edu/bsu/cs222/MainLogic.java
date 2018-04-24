@@ -18,12 +18,14 @@ public class MainLogic {
     public MainLogic(String textfield) throws Exception {
 
         InputStream inputStream = new FilePicker().getInputStream();
-        ImageView imageView = new ImageView(new Image(inputStream));
+
 
         int uses = new MinimumUsesFromTextField(textfield).asInt();
 
         //Checks the validity of the image obtained from the file system and displays it
-        if (imageView != null) {
+        ImageView imageView = null;
+        if (inputStream != null) {
+            imageView = new ImageView(new Image(inputStream));
             ShowSelectedPicture sc = new ShowSelectedPicture(imageView);
             Stage pictureStage = new Stage();
             sc.start(pictureStage);
@@ -37,7 +39,7 @@ public class MainLogic {
             Parent root = loader.load();
             Stage stage = new Stage();
             stage.setTitle("exception");
-            stage.setScene(new Scene(root,300,25));
+            stage.setScene(new Scene(root, 300, 25));
             stage.show();
 
         }
