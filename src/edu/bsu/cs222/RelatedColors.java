@@ -7,11 +7,13 @@ public class RelatedColors {
 
     private String complementary;
     private String[] triad;
+    private String[] tetrad;
 
     RelatedColors(String s) {
         CalculateRelatedColors calculateRelatedColors = new CalculateRelatedColors(s);
         this.complementary = calculateRelatedColors.returnCompColor();
         this.triad = calculateRelatedColors.returnTriad();
+        this.tetrad = calculateRelatedColors.returnTetrad();
 
 
     }
@@ -22,5 +24,9 @@ public class RelatedColors {
 
     public String[] getTriad() {
         return triad;
+    }
+
+    public String[] getTetrad() {
+        return tetrad;
     }
 }
