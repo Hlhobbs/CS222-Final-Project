@@ -1,11 +1,11 @@
-package edu.bsu.cs222;
+package Functions;
 
 
 import javafx.scene.image.Image;
 import javafx.scene.image.PixelReader;
 import java.util.LinkedList;
 
-class ScanPictureForColors {
+public class ScanPictureForColors {
 
 /* ScanPixelsForColors takes an image and outputs an observable list of Pixels. The method scans the image and gets the RGB values
 of each pixel in the image and populates the list with pixels each with RBG values.
@@ -15,7 +15,7 @@ of each pixel in the image and populates the list with pixels each with RBG valu
     private Pixel ScannedPixel;
     private Image image;
 
-    ScanPictureForColors(Image i) {
+    public ScanPictureForColors(Image i) {
         this.image = i;
         ScannedPixels = new LinkedList<>();
 
@@ -35,10 +35,10 @@ of each pixel in the image and populates the list with pixels each with RBG valu
         this.ScannedPixel = Scan(x,y);
     }
 
-    LinkedList<Pixel> returnPixelList() {
+    public LinkedList<Pixel> returnPixelList() {
         return this.ScannedPixels;
     }
-    Pixel returnPixel() { return this.ScannedPixel;}
+    public Pixel returnPixel() { return this.ScannedPixel;}
 
     Pixel Scan(int x, int y) {
         Pixel datapixel = new Pixel();

@@ -27,10 +27,10 @@ public class Pixel implements Serializable {
     public Pixel() {}
 
     //The X and Y coordinate are not currently in use, but will be for features being implemented in iteration #3, so they have been prepared in advance
-    void setX_Coordinate(int xCoordinate) {this.xCoordinate = xCoordinate;}
+    public void setX_Coordinate(int xCoordinate) {this.xCoordinate = xCoordinate;}
     public int getX_Coordinate() {return this.xCoordinate;}
 
-    void setY_Coordinate(int yCoordinate) {this.yCoordinate = yCoordinate; }
+    public void setY_Coordinate(int yCoordinate) {this.yCoordinate = yCoordinate; }
     public int getY_Coordinate() {return this.yCoordinate;}
 
     double getRedValue() {

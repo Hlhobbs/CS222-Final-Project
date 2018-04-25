@@ -1,6 +1,9 @@
-package edu.bsu.cs222;
+package Controller;
 
 
+import Functions.Pixel;
+import Functions.ScanPictureForColors;
+import Functions.ThumbnailFromHexValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
