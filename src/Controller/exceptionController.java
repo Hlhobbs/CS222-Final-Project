@@ -12,6 +12,7 @@ public class exceptionController implements Initializable {
     private String exception;
 
     @FXML
+    private
     Label text = new Label();
 
     @FXML

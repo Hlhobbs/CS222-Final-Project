@@ -1,6 +1,5 @@
 package Controller;
 
-import Functions.FilePicker;
 import Main.MainLogic;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -15,13 +14,13 @@ import java.util.ResourceBundle;
 public class Controller implements Initializable {
 
     @FXML
-    public Button FileButton;
+    private Button FileButton;
 
     @FXML
-    public TextField minimumUsesTextField;
+    private TextField minimumUsesTextField;
 
     private String containedInTextField;
-    InputStream inputStream;
+    private InputStream inputStream;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

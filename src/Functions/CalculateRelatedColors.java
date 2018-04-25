@@ -10,11 +10,11 @@ public class CalculateRelatedColors {
         double red = Integer.parseInt(s.substring(1,3),16);
         double green = Integer.parseInt(s.substring(3,5),16);
         double blue = Integer.parseInt(s.substring(5,7),16);
-        this.HSL = new RGBtoHSL(red,green,blue).getHSL();
+        HSL = new RGBtoHSL(red,green,blue).getHSL();
     }
 
     public String returnCompColor() {
-        double[] copyHSL = this.HSL;
+        double[] copyHSL = HSL;
         copyHSL[0] = FixHue(copyHSL[0] + 180);
         String hex = new HSLtoHex(copyHSL).returnHex();
         copyHSL[0] = FixHue(copyHSL[0] - 180);
@@ -25,7 +25,7 @@ public class CalculateRelatedColors {
     {
         String[] paletteHex = new String[3];
 
-        double[] copyHSL = this.HSL;
+        double[] copyHSL = HSL;
 
 
         //Original color
@@ -52,7 +52,7 @@ public class CalculateRelatedColors {
     {
         String[] paletteHex = new String[3];
 
-        double[] copyHSL = this.HSL;
+        double[] copyHSL = HSL;
 
 
         //Original color
@@ -79,7 +79,7 @@ public class CalculateRelatedColors {
     {
         String[] paletteHex = new String[4];
 
-        double[] copyHSL = this.HSL;
+        double[] copyHSL = HSL;
 
         //Original color
         String hexValue = new HSLtoHex(copyHSL).returnHex();
@@ -109,7 +109,7 @@ public class CalculateRelatedColors {
     {
         String[] paletteHex = new String[4];
 
-        double[] copyHSL = this.HSL;
+        double[] copyHSL = HSL;
 
 
         String hexValue = new HSLtoHex(copyHSL).returnHex();
