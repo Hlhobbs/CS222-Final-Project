@@ -1,6 +1,6 @@
 package Functions;
 
-import Controller.exceptionController;
+import Controller.ExceptionController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -26,7 +26,7 @@ public class MinimumUsesFromTextField {
         if (containsNonDigit) {
             stringInTextField = "";
             String exception = "The value you entered within the textBox contained non-numeric characters, all colors will be shown";
-            exceptionController eC = new exceptionController();
+            ExceptionController eC = new ExceptionController();
             eC.setException(exception);
             FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getClassLoader().getResource("resources/exceptionFXML.fxml")));
             loader.setController(eC);
