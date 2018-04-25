@@ -17,11 +17,11 @@ import java.net.URL;
 import java.util.LinkedList;
 import java.util.ResourceBundle;
 
-public class TableController implements Initializable {
+public class ColorViewerController implements Initializable {
 
     private ObservableList<Pixel> pixels;
 
-    public TableController() {
+    public ColorViewerController() {
     }
 
     public void setParameters(LinkedList<Pixel> pixelList) {

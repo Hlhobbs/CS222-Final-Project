@@ -7,7 +7,7 @@ import javafx.scene.control.Label;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class exceptionController implements Initializable {
+public class ExceptionController implements Initializable {
 
     private String exception;
 
