@@ -10,7 +10,7 @@ public class RelatedColors {
     private String[] triad;
     private String[] tetrad;
     private String[] splitcomp;
-    private String[] tetradsquare;
+    private String[] tetradSquare;
 
     public RelatedColors(String s) {
         CalculateRelatedColors calculateRelatedColors = new CalculateRelatedColors(s);
@@ -18,7 +18,7 @@ public class RelatedColors {
         this.triad = calculateRelatedColors.returnTriad();
         this.tetrad = calculateRelatedColors.returnTetrad();
         this.splitcomp = calculateRelatedColors.returnSplitComp();
-        this.tetradsquare = calculateRelatedColors.returnTetradSquare();
+        this.tetradSquare = calculateRelatedColors.returnTetradSquare();
 
 
 
@@ -38,5 +38,5 @@ public class RelatedColors {
 
     public String[] getSplitcomp() { return splitcomp; }
 
-    public String[] getTetradsquare() { return tetradsquare; }
+    public String[] getTetradSquare() { return tetradSquare; }
 }

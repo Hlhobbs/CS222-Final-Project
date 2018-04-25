@@ -105,6 +105,27 @@ public class TableController implements Initializable {
     @FXML
     private Label tetradLabel_4;
 
+    @FXML
+    private Tab tetradSquareTab;
+    @FXML
+    private VBox tetradSquareBox;
+    @FXML
+    private ImageView tetradSquareView_1;
+    @FXML
+    private ImageView tetradSquareView_2;
+    @FXML
+    private ImageView tetradSquareView_3;
+    @FXML
+    private ImageView tetradSquareView_4;
+
+    @FXML
+    private Label tetradSquareLabel_1;
+    @FXML
+    private Label tetradSquareLabel_2;
+    @FXML
+    private Label tetradSquareLabel_3;
+    @FXML
+    private Label tetradSquareLabel_4;
 
 
 
@@ -153,6 +174,24 @@ public class TableController implements Initializable {
         tetradBox.getChildren().clear();
         tetradBox.getChildren().addAll(tetradLabel_1, tetradView_1, tetradLabel_2, tetradView_2, tetradLabel_3, tetradView_3, tetradLabel_4, tetradView_4);
         tetradTab.setContent(tetradBox);
+
+    }
+
+    private void TetradSquareColors() {
+        tetradSquareView_1 = new ImageView(new ThumbnailFromHexValue(relatedColors.getTetradSquare()[0],100,100).returnImage());
+        tetradSquareView_2 = new ImageView(new ThumbnailFromHexValue(relatedColors.getTetradSquare()[1],100,100).returnImage());
+        tetradSquareView_3 = new ImageView(new ThumbnailFromHexValue(relatedColors.getTetradSquare()[2],100,100).returnImage());
+        tetradSquareView_4 = new ImageView(new ThumbnailFromHexValue(relatedColors.getTetradSquare()[3],100,100).returnImage());
+
+        tetradSquareLabel_1 = new Label("Hex Value = " + relatedColors.getTetradSquare()[0]);
+        tetradSquareLabel_2 = new Label("Hex Value = " + relatedColors.getTetradSquare()[1]);
+        tetradSquareLabel_3 = new Label("Hex Value = " + relatedColors.getTetradSquare()[2]);
+        tetradSquareLabel_4 = new Label("Hex Value = " + relatedColors.getTetradSquare()[3]);
+
+
+        tetradSquareBox.getChildren().clear();
+        tetradSquareBox.getChildren().addAll(tetradSquareLabel_1,tetradSquareView_1,tetradSquareLabel_2,tetradSquareView_2,tetradSquareLabel_3,tetradSquareView_3,tetradSquareLabel_4,tetradSquareView_4);
+        tetradSquareTab.setContent(tetradSquareBox);
 
     }
 
