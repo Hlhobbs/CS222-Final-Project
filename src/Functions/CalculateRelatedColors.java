@@ -17,6 +17,7 @@ public class CalculateRelatedColors {
         double[] copyHSL = this.HSL;
         copyHSL[0] = FixHue(copyHSL[0] + 180);
         String hex = new HSLtoHex(copyHSL).returnHex();
+        copyHSL[0] = FixHue(copyHSL[0] - 180);
         return hex;
     }
 
@@ -41,6 +42,8 @@ public class CalculateRelatedColors {
         copyHSL[0] = FixHue(copyHSL[0] - 240);
         hexValue = new HSLtoHex(copyHSL).returnHex();
         paletteHex[2] = hexValue;
+
+        copyHSL[0] = FixHue(copyHSL[0] + 120);
 
         return paletteHex;
     }
