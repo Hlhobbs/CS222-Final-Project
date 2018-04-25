@@ -59,6 +59,8 @@ public class ShowSelectedPicture implements Initializable {
                 //TODO: Deal with no values in boxes/ invalid searches
                 if (xCoor.getText().trim().isEmpty() || yCoor.getText().trim().isEmpty()) {
                     ExceptionLabel.setText("Please enter in coordinates for a pixel");
+                } else if (!(xCoor.getText().matches("^[0-9]+$")) && !(yCoor.getText().matches("^[0-9]+$"))) {
+                    ExceptionLabel.setText("Enter numeric charcters");
                 } else {
                     int x = Integer.valueOf(xCoor.getText());
                     int y = Integer.valueOf(yCoor.getText());
