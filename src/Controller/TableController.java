@@ -70,62 +70,11 @@ public class TableController implements Initializable {
     Tab splitCompTab;
     @FXML
     private VBox splitCompBox;
-    @FXML
-    private ImageView splitCompView_1;
-    @FXML
-    private ImageView splitCompView_2;
-    @FXML
-    private ImageView splitCompView_3;
-    @FXML
-    private Label splitCompLabel_1;
-    @FXML
-    private Label splitCompLabel_2;
-    @FXML
-    private Label splitCompLabel_3;
 
     @FXML
     private Tab tetradTab;
     @FXML
     private VBox tetradBox;
-    @FXML
-    private ImageView tetradView_1;
-    @FXML
-    private ImageView tetradView_2;
-    @FXML
-    private ImageView tetradView_3;
-    @FXML
-    private ImageView tetradView_4;
-
-    @FXML
-    private Label tetradLabel_1;
-    @FXML
-    private Label tetradLabel_2;
-    @FXML
-    private Label tetradLabel_3;
-    @FXML
-    private Label tetradLabel_4;
-
-    @FXML
-    private Tab tetradSquareTab;
-    @FXML
-    private VBox tetradSquareBox;
-    @FXML
-    private ImageView tetradSquareView_1;
-    @FXML
-    private ImageView tetradSquareView_2;
-    @FXML
-    private ImageView tetradSquareView_3;
-    @FXML
-    private ImageView tetradSquareView_4;
-
-    @FXML
-    private Label tetradSquareLabel_1;
-    @FXML
-    private Label tetradSquareLabel_2;
-    @FXML
-    private Label tetradSquareLabel_3;
-    @FXML
-    private Label tetradSquareLabel_4;
 
 
 
@@ -177,35 +126,17 @@ public class TableController implements Initializable {
 
     }
 
-    private void TetradSquareColors() {
-        tetradSquareView_1 = new ImageView(new ThumbnailFromHexValue(relatedColors.getTetradSquare()[0],100,100).returnImage());
-        tetradSquareView_2 = new ImageView(new ThumbnailFromHexValue(relatedColors.getTetradSquare()[1],100,100).returnImage());
-        tetradSquareView_3 = new ImageView(new ThumbnailFromHexValue(relatedColors.getTetradSquare()[2],100,100).returnImage());
-        tetradSquareView_4 = new ImageView(new ThumbnailFromHexValue(relatedColors.getTetradSquare()[3],100,100).returnImage());
-
-        tetradSquareLabel_1 = new Label("Hex Value = " + relatedColors.getTetradSquare()[0]);
-        tetradSquareLabel_2 = new Label("Hex Value = " + relatedColors.getTetradSquare()[1]);
-        tetradSquareLabel_3 = new Label("Hex Value = " + relatedColors.getTetradSquare()[2]);
-        tetradSquareLabel_4 = new Label("Hex Value = " + relatedColors.getTetradSquare()[3]);
-
-
-        tetradSquareBox.getChildren().clear();
-        tetradSquareBox.getChildren().addAll(tetradSquareLabel_1,tetradSquareView_1,tetradSquareLabel_2,tetradSquareView_2,tetradSquareLabel_3,tetradSquareView_3,tetradSquareLabel_4,tetradSquareView_4);
-        tetradSquareTab.setContent(tetradSquareBox);
-
-    }
-
     private void SplitCompColors() {
-        splitCompView_1 = new ImageView(new ThumbnailFromHexValue(relatedColors.getSplitcomp()[0],100,100).returnImage());
-        splitCompView_2 = new ImageView(new ThumbnailFromHexValue(relatedColors.getSplitcomp()[1],100,100).returnImage());
-        splitCompView_3 = new ImageView(new ThumbnailFromHexValue(relatedColors.getSplitcomp()[2],100,100).returnImage());
+        ImageView splitCompView_1 = new ImageView(new ThumbnailFromHexValue(relatedColors.getSplitcomp()[0], 100, 100).returnImage());
+        ImageView splitCompView_2 = new ImageView(new ThumbnailFromHexValue(relatedColors.getSplitcomp()[1], 100, 100).returnImage());
+        ImageView splitCompView_3 = new ImageView(new ThumbnailFromHexValue(relatedColors.getSplitcomp()[2], 100, 100).returnImage());
 
-        splitCompLabel_1 = new Label("Hex Value = " + relatedColors.getSplitcomp()[0]);
-        splitCompLabel_2 = new Label("Hex Value = " + relatedColors.getSplitcomp()[1]);
-        splitCompLabel_3 = new Label("Hex Value = " + relatedColors.getSplitcomp()[2]);
+        Label splitCompLabel_1 = new Label("Hex Value = " + relatedColors.getSplitcomp()[0]);
+        Label splitCompLabel_2 = new Label("Hex Value = " + relatedColors.getSplitcomp()[1]);
+        Label splitCompLabel_3 = new Label("Hex Value = " + relatedColors.getSplitcomp()[2]);
 
         splitCompBox.getChildren().clear();
-        splitCompBox.getChildren().addAll(splitCompLabel_1,splitCompView_1,splitCompLabel_2,splitCompView_2,splitCompLabel_3,splitCompView_3);
+        splitCompBox.getChildren().addAll(splitCompLabel_1, splitCompView_1, splitCompLabel_2, splitCompView_2, splitCompLabel_3, splitCompView_3);
         splitCompTab.setContent(splitCompBox);
     }
 
