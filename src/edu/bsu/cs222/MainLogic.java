@@ -4,11 +4,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.io.InputStream;
 import java.util.LinkedList;
 import java.util.Objects;
@@ -18,17 +17,25 @@ public class MainLogic {
     public MainLogic(String textfield) throws Exception {
 
         InputStream inputStream = new FilePicker().getInputStream();
-
-
         int uses = new MinimumUsesFromTextField(textfield).asInt();
 
         //Checks the validity of the image obtained from the file system and displays it
-        ImageView imageView = null;
+        Image image = null;
         if (inputStream != null) {
-            imageView = new ImageView(new Image(inputStream));
-            ShowSelectedPicture sc = new ShowSelectedPicture(imageView);
-            Stage pictureStage = new Stage();
-            sc.start(pictureStage);
+            ShowSelectedPicture showSelectedPicture = new ShowSelectedPicture();
+            image = new Image(inputStream);
+            showSelectedPicture.setImageView(image);
+
+            FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getClassLoader().getResource("resources/showPictureFXML.fxml")));
+            loader.setController(showSelectedPicture);
+
+            VBox root = loader.load();
+            Stage stage = new Stage();
+            stage.setTitle("image");
+            stage.setScene(new Scene(root));
+            stage.show();
+
+
         } else {
             String exception = "There was an issue with the image chosen";
             exceptionController eC = new exceptionController();
@@ -44,7 +51,7 @@ public class MainLogic {
 
         }
 
-        LinkedList<Pixel> pixelList = new ScanPictureForColors(Objects.requireNonNull(imageView).getImage()).returnPixel();
+        LinkedList<Pixel> pixelList = new ScanPictureForColors(image).returnPixelList();
 
 
         SimplifyNumberOfColors sc = new SimplifyNumberOfColors(pixelList);

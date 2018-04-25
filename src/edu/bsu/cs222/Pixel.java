@@ -78,8 +78,4 @@ public class Pixel implements Serializable {
         count++;
     }
 
-    public String getRgb() {
-        rgb = "Red:" + redValue + " Blue:" + blueValue + " Green:" + greenValue;
-        return rgb;
-    }
 }

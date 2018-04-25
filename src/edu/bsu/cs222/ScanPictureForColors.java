@@ -3,7 +3,6 @@ package edu.bsu.cs222;
 
 import javafx.scene.image.Image;
 import javafx.scene.image.PixelReader;
-
 import java.util.LinkedList;
 
 class ScanPictureForColors {
@@ -13,38 +12,49 @@ of each pixel in the image and populates the list with pixels each with RBG valu
  */
 
     private LinkedList<Pixel> ScannedPixels;
+    private Pixel ScannedPixel;
+    private Image image;
 
-    ScanPictureForColors(Image image) {
-
+    ScanPictureForColors(Image i) {
+        this.image = i;
         ScannedPixels = new LinkedList<>();
 
         double w = image.getWidth();
         double h = image.getHeight();
 
-        for (int i = 0; i < h; i++) {
+        for (int k = 0; k < h; k++) {
             for (int j = 0; j < w; j++) {
-
-                Pixel datapixel = new Pixel();
-                datapixel.setX_Coordinate(j);
-                datapixel.setY_Coordinate(i);
-
-                PixelReader pixelReader = image.getPixelReader();
-                int picturePixel = pixelReader.getArgb(j, i);
-
-                datapixel.setAlphaValue((picturePixel >> 24) & 0xff);
-                datapixel.setRedValue((picturePixel >> 16) & 0xff);
-                datapixel.setGreenValue((picturePixel >> 8) & 0xff);
-                datapixel.setBlueValue((picturePixel) & 0xff);
-                datapixel.setHexValue();
-
-                ScannedPixels.add(datapixel);
-
+                ScannedPixels.add(Scan(j,k));
             }
         }
     }
 
-    LinkedList<Pixel> returnPixel() {
+
+    public ScanPictureForColors(Image i, int x, int y) {
+        this.image = i;
+        this.ScannedPixel = Scan(x,y);
+    }
+
+    LinkedList<Pixel> returnPixelList() {
         return this.ScannedPixels;
+    }
+    Pixel returnPixel() { return this.ScannedPixel;}
+
+    Pixel Scan(int x, int y) {
+        Pixel datapixel = new Pixel();
+        datapixel.setX_Coordinate(x);
+        datapixel.setY_Coordinate(y);
+
+        PixelReader pixelReader = image.getPixelReader();
+        int picturePixel = pixelReader.getArgb(x, y);
+
+        datapixel.setAlphaValue((picturePixel >> 24) & 0xff);
+        datapixel.setRedValue((picturePixel >> 16) & 0xff);
+        datapixel.setGreenValue((picturePixel >> 8) & 0xff);
+        datapixel.setBlueValue((picturePixel) & 0xff);
+        datapixel.setHexValue();
+
+        return datapixel;
     }
 
 }
