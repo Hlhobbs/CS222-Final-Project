@@ -48,6 +48,33 @@ public class CalculateRelatedColors {
         return paletteHex;
     }
 
+    public String[] returnSplitComp()
+    {
+        String[] paletteHex = new String[3];
+
+        double[] copyHSL = this.HSL;
+
+
+        //Original color
+        String hexValue = new HSLtoHex(copyHSL).returnHex();
+        paletteHex[0] = hexValue;
+
+        // Color 2
+        copyHSL[0] = FixHue(copyHSL[0] + 160);
+        hexValue = new HSLtoHex(copyHSL).returnHex();
+        paletteHex[1] = hexValue;
+
+
+        // Color 3
+        copyHSL[0] = FixHue(copyHSL[0] + 40);
+        hexValue = new HSLtoHex(copyHSL).returnHex();
+        paletteHex[2] = hexValue;
+
+        copyHSL[0] = FixHue(copyHSL[0] - 200);
+
+        return paletteHex;
+    }
+
     public String[] returnTetrad()
     {
         String[] paletteHex = new String[4];
@@ -73,9 +100,40 @@ public class CalculateRelatedColors {
         hexValue = new HSLtoHex(copyHSL).returnHex();
         paletteHex[3] = hexValue;
 
+        copyHSL[0] = FixHue(copyHSL[0] - 210);
+
         return paletteHex;
     }
 
+    public String[] returnTetradSquare()
+    {
+        String[] paletteHex = new String[4];
+
+        double[] copyHSL = this.HSL;
+
+
+        String hexValue = new HSLtoHex(copyHSL).returnHex();
+        paletteHex[0] = hexValue;
+
+
+        copyHSL[0] = FixHue(copyHSL[0] + 90);
+        hexValue = new HSLtoHex(copyHSL).returnHex();
+        paletteHex[1] = hexValue;
+
+
+        copyHSL[0] = FixHue(copyHSL[0] + 90);
+        hexValue = new HSLtoHex(copyHSL).returnHex();
+        paletteHex[2] = hexValue;
+
+
+        copyHSL[0] = FixHue(copyHSL[0] + 90);
+        hexValue = new HSLtoHex(copyHSL).returnHex();
+        paletteHex[3] = hexValue;
+
+        copyHSL[0] = FixHue(copyHSL[0] + 90);
+
+        return paletteHex;
+    }
 
     private double FixHue(double hue) {
         if (hue < 0) {
