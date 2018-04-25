@@ -70,13 +70,30 @@ public class TableController implements Initializable {
     private ImageView triadView_2;
     @FXML
     private ImageView triadView_3;
-
     @FXML
     private Label triadLabel_1;
     @FXML
     private Label triadLabel_2;
     @FXML
     private Label triadLabel_3;
+
+    @FXML
+    private
+    Tab splitCompTab;
+    @FXML
+    private VBox splitCompBox;
+    @FXML
+    private ImageView splitCompView_1;
+    @FXML
+    private ImageView splitCompView_2;
+    @FXML
+    private ImageView splitCompView_3;
+    @FXML
+    private Label splitCompLabel_1;
+    @FXML
+    private Label splitCompLabel_2;
+    @FXML
+    private Label splitCompLabel_3;
 
     @FXML
     private Tab tetradTab;
@@ -149,6 +166,20 @@ public class TableController implements Initializable {
         tetradBox.getChildren().addAll(tetradLabel_1,tetradView_1,tetradLabel_2,tetradView_2,tetradLabel_3,tetradView_3,tetradLabel_4,tetradView_4);
         tetradTab.setContent(tetradBox);
 
+    }
+
+    private void SplitCompColors() {
+        splitCompView_1 = new ImageView(new ThumbnailFromHexValue(relatedColors.getSplitcomp()[0],100,100).returnImage());
+        splitCompView_2 = new ImageView(new ThumbnailFromHexValue(relatedColors.getSplitcomp()[1],100,100).returnImage());
+        splitCompView_3 = new ImageView(new ThumbnailFromHexValue(relatedColors.getSplitcomp()[2],100,100).returnImage());
+
+        splitCompLabel_1 = new Label("Hex Value = " + relatedColors.getSplitcomp()[0]);
+        splitCompLabel_2 = new Label("Hex Value = " + relatedColors.getSplitcomp()[1]);
+        splitCompLabel_3 = new Label("Hex Value = " + relatedColors.getSplitcomp()[2]);
+
+        splitCompBox.getChildren().clear();
+        splitCompBox.getChildren().addAll(splitCompLabel_1,splitCompView_1,splitCompLabel_2,splitCompView_2,splitCompLabel_3,splitCompView_3);
+        splitCompTab.setContent(splitCompBox);
     }
 
     private void TriadColors() {
