@@ -1,25 +1,13 @@
-package edu.bsu.cs222;
+package Controller;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+import Main.MainLogic;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.HBox;
-import javafx.stage.Stage;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
 import java.net.URL;
-import java.util.LinkedList;
-import java.util.Objects;
 import java.util.ResourceBundle;
 
 

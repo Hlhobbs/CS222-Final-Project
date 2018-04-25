@@ -1,18 +1,19 @@
-package edu.bsu.cs222;
+package Functions;
 
+import Controller.exceptionController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.util.Objects;
 
-class MinimumUsesFromTextField {
+public class MinimumUsesFromTextField {
 
     private int uses;
 
     //MinimumUsesFromTextField is a method that gets the number from the text field. SimplifyNumberOfColors uses it for DeleteRareColors
 
-    MinimumUsesFromTextField(String stringInTextField) throws Exception {
+    public MinimumUsesFromTextField(String stringInTextField) throws Exception {
 
         //Checks textField for minimumUses, if field is blank assumes 0
         Boolean containsNonDigit = false;
@@ -44,7 +45,7 @@ class MinimumUsesFromTextField {
         }
     }
 
-    int asInt() {
+    public int asInt() {
         return this.uses;
     }
 }

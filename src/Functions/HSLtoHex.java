@@ -1,4 +1,4 @@
-package edu.bsu.cs222;
+package Functions;
 
 public class HSLtoHex {
 

@@ -1,5 +1,9 @@
-package edu.bsu.cs222;
+package Controller;
 
+import Functions.Pixel;
+import Functions.RelatedColors;
+import Functions.ThumbnailClickCellFactory;
+import Functions.ThumbnailFromHexValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
@@ -17,42 +21,43 @@ public class TableController implements Initializable {
 
     private ObservableList<Pixel> pixels;
 
-    TableController() {
+    public TableController() {
     }
 
-    void setParameters(LinkedList<Pixel> pixelList) {
+    public void setParameters(LinkedList<Pixel> pixelList) {
         this.pixels = FXCollections.observableArrayList(pixelList);
     }
 
 
     @FXML
-    private
+    protected
     Label compLabel;
     @FXML
-    private
+    protected
     TableView<Pixel> tableView;
     @FXML
     TableColumn<Pixel, String> hexCol;
     @FXML
-    private
+    protected
     TableColumn thumbnailCol;
     @FXML
     TableColumn<Pixel, Integer> countCol;
     @FXML
-    private
+    protected
     Label totalDistinctColors;
 
 
     @FXML
+    protected
     TabPane tabPane;
 
     @FXML
-    private
+    protected
     Tab compTab;
     @FXML
-    private VBox compBox;
+    protected VBox compBox;
     @FXML
-    private ImageView compView;
+    protected ImageView compView;
 
     @FXML
     private

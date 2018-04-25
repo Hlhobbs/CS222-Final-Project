@@ -1,4 +1,4 @@
-package edu.bsu.cs222;
+package Functions;
 
 
 public class RGBtoHSL {
@@ -7,7 +7,7 @@ public class RGBtoHSL {
     private double S;
     private double L;
 
-    RGBtoHSL(double r, double g, double b) {
+    public RGBtoHSL(double r, double g, double b) {
 
         double rPrime = r/255;
         double gPrime = g/255;

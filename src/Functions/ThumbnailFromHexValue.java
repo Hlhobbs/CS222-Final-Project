@@ -1,11 +1,11 @@
-package edu.bsu.cs222;
+package Functions;
 
 import javafx.scene.image.Image;
 import javafx.scene.image.PixelWriter;
 import javafx.scene.image.WritableImage;
 import javafx.scene.paint.Color;
 
-class ThumbnailFromHexValue {
+public class ThumbnailFromHexValue {
 
     private Image returnImage;
 
@@ -27,7 +27,7 @@ class ThumbnailFromHexValue {
         this.returnImage = wImage;
     }
 
-    ThumbnailFromHexValue(String h, int height, int width) {
+    public ThumbnailFromHexValue(String h, int height, int width) {
         Color color = Color.web(h);
 
         WritableImage wImage = new WritableImage(width, height);
@@ -42,7 +42,7 @@ class ThumbnailFromHexValue {
         this.returnImage = wImage;
     }
 
-    Image returnImage() {
+    public Image returnImage() {
         return returnImage;
     }
 }

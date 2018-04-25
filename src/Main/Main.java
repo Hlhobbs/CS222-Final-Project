@@ -1,6 +1,7 @@
-package edu.bsu.cs222;
+package Main;
 
 
+import Controller.Controller;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

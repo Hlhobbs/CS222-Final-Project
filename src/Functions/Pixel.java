@@ -1,4 +1,4 @@
-package edu.bsu.cs222;
+package Functions;
 
 import javafx.beans.property.SimpleStringProperty;
 import java.io.Serializable;
@@ -22,9 +22,9 @@ public class Pixel implements Serializable {
 
     private SimpleStringProperty hex = new SimpleStringProperty();
     private int count  = 1;
-    private String rgb;
+    protected String rgb;
 
-    Pixel() {}
+    public Pixel() {}
 
     //The X and Y coordinate are not currently in use, but will be for features being implemented in iteration #3, so they have been prepared in advance
     void setX_Coordinate(int xCoordinate) {this.xCoordinate = xCoordinate;}
@@ -43,36 +43,36 @@ public class Pixel implements Serializable {
         return blueValue;
     }
 
-    void setRedValue(double redValue) {
+    public void setRedValue(double redValue) {
         this.redValue = redValue;
     }
-    void setGreenValue(double greenValue) {
+    public void setGreenValue(double greenValue) {
         this.greenValue = greenValue;
     }
-    void setBlueValue(double blueValue) {
+    public void setBlueValue(double blueValue) {
         this.blueValue = blueValue;
     }
 
-    double getAlphaValue() {
+    public double getAlphaValue() {
         return alphaValue;
     }
-    void setAlphaValue(double alphaValue) {
+    public void setAlphaValue(double alphaValue) {
         this.alphaValue = alphaValue;
     }
 
-    String getHexValue() {
+    public String getHexValue() {
         return hex.get();
     }
     //Used by tableView
     public SimpleStringProperty hexProperty() {return hex;}
-    void setHexValue() {
+    public void setHexValue() {
         String h = new ReturnStringHexValue(this).returnStringHexValue();
         hex.set(h);
     }
 
     //needs to be public for the tableView to access it
     public int getCount() {return count;}
-    void setCount(int count) {this.count = count;}
+    public void setCount(int count) {this.count = count;}
 
     public void increaseby1() {
         count++;

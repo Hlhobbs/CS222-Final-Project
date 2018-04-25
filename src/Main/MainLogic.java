@@ -1,5 +1,9 @@
-package edu.bsu.cs222;
+package Main;
 
+import Functions.*;
+import Controller.ShowSelectedPicture;
+import Controller.TableController;
+import Controller.exceptionController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;

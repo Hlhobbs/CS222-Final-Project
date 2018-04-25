@@ -1,4 +1,5 @@
-package edu.bsu.cs222;
+package Functions;
+
 
 public class RelatedColors {
 
@@ -9,7 +10,7 @@ public class RelatedColors {
     private String[] triad;
     private String[] tetrad;
 
-    RelatedColors(String s) {
+    public RelatedColors(String s) {
         CalculateRelatedColors calculateRelatedColors = new CalculateRelatedColors(s);
         this.complementary = calculateRelatedColors.returnCompColor();
         this.triad = calculateRelatedColors.returnTriad();

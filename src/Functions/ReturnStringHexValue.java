@@ -1,18 +1,18 @@
-package edu.bsu.cs222;
+package Functions;
 
 
-class ReturnStringHexValue {
+public class ReturnStringHexValue {
 
 
     private Pixel pixel;
 
-    ReturnStringHexValue(Pixel p) {
+    public ReturnStringHexValue(Pixel p) {
         this.pixel = p;
     }
 
     // ReturnStringHexValue takes a pixel with RBG values and takes the values to return a string with the hex value for the pixel.
 
-    String returnStringHexValue()
+    public String returnStringHexValue()
     {
 
         double redDouble = pixel.getRedValue();
