@@ -11,11 +11,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
-
 import javafx.scene.layout.VBox;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.function.ToDoubleBiFunction;
+
 
 public class ShowSelectedPicture implements Initializable {
 
@@ -39,6 +38,13 @@ public class ShowSelectedPicture implements Initializable {
     @FXML
     private
     VBox imageBox;
+    @FXML
+    private Label hexLabel;
+    @FXML
+    private ImageView thumbView;
+    @FXML
+    private
+    Label ExceptionLabel;
 
 
     @Override
@@ -48,23 +54,29 @@ public class ShowSelectedPicture implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 //TODO: Deal with no values in boxes/ invalid searches
+                if (xCoor.getText().trim().isEmpty() || yCoor.getText().trim().isEmpty()) {
+                    ExceptionLabel.setText("Please enter in coordinates for a pixel");
+                } else {
+                    int x = Integer.valueOf(xCoor.getText());
+                    int y = Integer.valueOf(yCoor.getText());
 
-                imageBox.getChildren().clear();
+                    if (x > image.getWidth() || 0 > x || y > image.getHeight() || 0 > y) {
+                        ExceptionLabel.setText("The coordinates exist outside the pixel's bounds");
+                    } else {
+                        ExceptionLabel.setText("");
+                        ScanPictureForColors scanPictureForColors = new ScanPictureForColors(image, x, y);
+                        Pixel pixel = scanPictureForColors.returnPixel();
+                        thumbnail = new ThumbnailFromHexValue(pixel.getHexValue(),100,100).returnImage();
+                        hex = pixel.getHexValue();
 
-                int x = Integer.valueOf(xCoor.getText());
-                int y = Integer.valueOf(yCoor.getText());
-                ScanPictureForColors scanPictureForColors = new ScanPictureForColors(image, x, y);
-                Pixel pixel = scanPictureForColors.returnPixel();
-                thumbnail = new ThumbnailFromHexValue(pixel.getHexValue(),100,100).returnImage();
-                hex = pixel.getHexValue();
-
-                Label hexLabel = new Label("Hex Value is " + hex);
-                ImageView thumbView = new ImageView(thumbnail);
-
-                imageBox.getChildren().addAll(hexLabel,thumbView);
+                        hexLabel = new Label("Hex Value is " + hex);
+                        thumbView = new ImageView(thumbnail);
 
 
-
+                        imageBox.getChildren().clear();
+                        imageBox.getChildren().addAll(hexLabel,thumbView);
+                    }
+                }
             }
         });
     }
