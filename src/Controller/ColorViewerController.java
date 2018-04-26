@@ -76,6 +76,11 @@ public class ColorViewerController implements Initializable {
     @FXML
     private VBox tetradBox;
 
+    @FXML
+    private Tab tetradSquareTab;
+    @FXML
+    private VBox tetradSquareBox;
+
 
 
     private RelatedColors relatedColors;
@@ -102,6 +107,8 @@ public class ColorViewerController implements Initializable {
                 ComplementaryColors();
                 TriadColors();
                 TetradColors();
+                SplitCompColors();
+                TetradSquareColors();
 
             } catch (IndexOutOfBoundsException ignored) {
             }
@@ -139,6 +146,25 @@ public class ColorViewerController implements Initializable {
         splitCompBox.getChildren().addAll(splitCompLabel_1, splitCompView_1, splitCompLabel_2, splitCompView_2, splitCompLabel_3, splitCompView_3);
         splitCompTab.setContent(splitCompBox);
     }
+
+    private void TetradSquareColors() {
+        ImageView tetradSquareView_1 = new ImageView(new ThumbnailFromHexValue(relatedColors.getTetradSquare()[0],100,100).returnImage());
+        ImageView tetradSquareView_2 = new ImageView(new ThumbnailFromHexValue(relatedColors.getTetradSquare()[1],100,100).returnImage());
+        ImageView tetradSquareView_3 = new ImageView(new ThumbnailFromHexValue(relatedColors.getTetradSquare()[2],100,100).returnImage());
+        ImageView tetradSquareView_4 = new ImageView(new ThumbnailFromHexValue(relatedColors.getTetradSquare()[3],100,100).returnImage());
+
+        Label tetradSquareLabel_1 = new Label("Hex Value = " + relatedColors.getTetradSquare()[0]);
+        Label tetradSquareLabel_2 = new Label("Hex Value = " + relatedColors.getTetradSquare()[1]);
+        Label tetradSquareLabel_3 = new Label("Hex Value = " + relatedColors.getTetradSquare()[2]);
+        Label tetradSquareLabel_4 = new Label("Hex Value = " + relatedColors.getTetradSquare()[3]);
+
+
+        tetradSquareBox.getChildren().clear();
+        tetradSquareBox.getChildren().addAll(tetradSquareLabel_1,tetradSquareView_1,tetradSquareLabel_2,tetradSquareView_2,tetradSquareLabel_3,tetradSquareView_3,tetradSquareLabel_4,tetradSquareView_4);
+        tetradSquareTab.setContent(tetradSquareBox);
+
+    }
+
 
     private void TriadColors() {
         ImageView triadView_1 = new ImageView(new ThumbnailFromHexValue(relatedColors.getTriad()[0], 100, 100).returnImage());
