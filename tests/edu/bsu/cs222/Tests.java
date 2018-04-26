@@ -136,7 +136,7 @@ public class Tests {
         String hex = hsLtoHex.returnHex();
 
         boolean boo = hex.equals("#a09678");
-        Assert.assertEquals(true, boo);
+        Assert.assertTrue(boo);
     }
 
     @Test
@@ -146,7 +146,7 @@ public class Tests {
         String comp = calculateRelatedColors.returnCompColor();
 
         boolean boo = comp.equals("#7882a0");
-        Assert.assertEquals(true, boo);
+        Assert.assertTrue(boo);
 
     }
 
@@ -156,11 +156,11 @@ public class Tests {
         InputStream is = classloader.getResourceAsStream("TestResources/bmp test.bmp");
         Assert.assertNotNull(is);
 
-        ScanPictureForColors scanPictureForColors = new ScanPictureForColors(new Image(is));
-        Pixel pixels = scanPictureForColors.returnPixel();
+        LinkedList<Pixel> pixels = new ScanPictureForColors(new Image(is)).returnPixelList();
 
+        Assert.assertEquals((630 * 354),pixels.size());
 
-
+        
 
     }
 
