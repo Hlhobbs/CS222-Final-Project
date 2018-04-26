@@ -135,6 +135,33 @@ public class CalculateRelatedColors {
         return paletteHex;
     }
 
+    public String[] returnAnalogous()
+    {
+        String[] paletteHex = new String[3];
+
+        double[] copyHSL = HSL;
+
+
+        //Original color
+        String hexValue = new HSLtoHex(copyHSL).returnHex();
+        paletteHex[0] = hexValue;
+
+        // Color 2
+        copyHSL[0] = FixHue(copyHSL[0] + 20);
+        hexValue = new HSLtoHex(copyHSL).returnHex();
+        paletteHex[1] = hexValue;
+
+
+        // Color 3
+        copyHSL[0] = FixHue(copyHSL[0] - 40);
+        hexValue = new HSLtoHex(copyHSL).returnHex();
+        paletteHex[2] = hexValue;
+
+        copyHSL[0] = FixHue(copyHSL[0] + 120);
+
+        return paletteHex;
+    }
+
     private double FixHue(double hue) {
         if (hue < 0) {
             return hue + 360;

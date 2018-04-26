@@ -81,6 +81,11 @@ public class ColorViewerController implements Initializable {
     @FXML
     private VBox tetradSquareBox;
 
+    @FXML
+    private Tab analogousTab;
+    @FXML
+    private VBox analogousBox;
+
 
 
     private RelatedColors relatedColors;
@@ -109,6 +114,7 @@ public class ColorViewerController implements Initializable {
                 TetradColors();
                 SplitCompColors();
                 TetradSquareColors();
+                AnalogousColors();
 
             } catch (IndexOutOfBoundsException ignored) {
             }
@@ -178,6 +184,20 @@ public class ColorViewerController implements Initializable {
         triadBox.getChildren().clear();
         triadBox.getChildren().addAll(triadLabel_1, triadView_1, triadLabel_2, triadView_2, triadLabel_3, triadView_3);
         triadTab.setContent(triadBox);
+    }
+
+    private void AnalogousColors() {
+        ImageView analogousView_1 = new ImageView(new ThumbnailFromHexValue(relatedColors.getAnalogous()[0], 100, 100).returnImage());
+        ImageView analogousView_2 = new ImageView(new ThumbnailFromHexValue(relatedColors.getAnalogous()[1], 100, 100).returnImage());
+        ImageView analogousView_3 = new ImageView(new ThumbnailFromHexValue(relatedColors.getAnalogous()[2], 100, 100).returnImage());
+
+        Label analogousLabel_1 = new Label("Hex Value = " + relatedColors.getAnalogous()[0]);
+        Label analogousLabel_2 = new Label("Hex Value = " + relatedColors.getAnalogous()[1]);
+        Label analogousLabel_3 = new Label("Hex Value = " + relatedColors.getAnalogous()[2]);
+
+        analogousBox.getChildren().clear();
+        analogousBox.getChildren().addAll(analogousLabel_1, analogousView_1, analogousLabel_2, analogousView_2, analogousLabel_3, analogousView_3);
+        analogousTab.setContent(analogousBox);
     }
 
     private void ComplementaryColors() {

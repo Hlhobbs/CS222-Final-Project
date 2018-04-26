@@ -11,6 +11,7 @@ public class RelatedColors {
     private String[] tetrad;
     private String[] splitcomp;
     private String[] tetradSquare;
+    private String[] analogous;
 
     public RelatedColors(String s) {
         CalculateRelatedColors calculateRelatedColors = new CalculateRelatedColors(s);
@@ -19,6 +20,7 @@ public class RelatedColors {
         this.tetrad = calculateRelatedColors.returnTetrad();
         this.splitcomp = calculateRelatedColors.returnSplitComp();
         this.tetradSquare = calculateRelatedColors.returnTetradSquare();
+        this.analogous = calculateRelatedColors.returnAnalogous();
 
 
 
@@ -39,4 +41,6 @@ public class RelatedColors {
     public String[] getSplitcomp() { return splitcomp; }
 
     public String[] getTetradSquare() { return tetradSquare; }
+
+    public String[] getAnalogous() { return analogous; }
 }

@@ -104,6 +104,34 @@
                               </padding>
                            </VBox>
                         </content></Tab>
+                     <Tab fx:id="analogousTab" text="Analogous colors">
+                         <content>
+                             <VBox fx:id="analogousBox">
+                                 <children>
+                                     <Label fx:id="analogousLabel_1" minWidth="100.0" prefWidth="100.0" text="Hex Value:" textAlignment="CENTER">
+                                         <padding>
+                                             <Insets left="10.0" />
+                                         </padding>
+                                     </Label>
+                                     <ImageView fx:id="analogousView_1" fitHeight="100.0" fitWidth="100.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" />
+                                     <Label fx:id="analogousLabel_2" minWidth="100.0" prefWidth="100.0" text="Hex Value:" textAlignment="CENTER">
+                                         <padding>
+                                             <Insets left="10.0" />
+                                         </padding>
+                                     </Label>
+                                     <ImageView fx:id="analogousView_2" fitHeight="100.0" fitWidth="100.0" layoutX="10.0" layoutY="26.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" />
+                                     <Label fx:id="analogousLabel_3" minWidth="100.0" prefWidth="100.0" text="Hex Value:" textAlignment="CENTER">
+                                         <padding>
+                                             <Insets left="10.0" />
+                                         </padding>
+                                     </Label>
+                                     <ImageView fx:id="analogousView_3" fitHeight="100.0" fitWidth="100.0" layoutX="10.0" layoutY="26.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" />
+                                 </children>
+                                 <padding>
+                                     <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                 </padding>
+                             </VBox>
+                         </content></Tab>
 
                      <Tab fx:id="splitCompTab" text="Split Comp colors">
                          <content>
