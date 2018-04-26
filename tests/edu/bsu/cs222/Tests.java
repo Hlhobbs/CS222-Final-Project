@@ -151,6 +151,66 @@ public class Tests {
     }
 
     @Test
+    public void testSplitComp() {
+        String hex = "#a09678";
+        CalculateRelatedColors calculateRelatedColors = new CalculateRelatedColors(hex);
+        String[] splitComp = calculateRelatedColors.returnSplitComp();
+
+        String[] hexValues = {"#a09678","#788fa0","#7b78a0"};
+
+        Assert.assertArrayEquals(hexValues, splitComp);
+
+    }
+
+    @Test
+    public void testTriad() {
+        String hex = "#a09678";
+        CalculateRelatedColors calculateRelatedColors = new CalculateRelatedColors(hex);
+        String[] triad = calculateRelatedColors.returnTriad();
+
+        String[] hexValues = {"#a09678","#78a096","#9678a0"};
+
+        Assert.assertArrayEquals(hexValues, triad);
+
+    }
+
+    @Test
+    public void testAnalogous() {
+        String hex = "#a09678";
+        CalculateRelatedColors calculateRelatedColors = new CalculateRelatedColors(hex);
+        String[] analogous = calculateRelatedColors.returnAnalogous();
+
+        String[] hexValues = {"#a09678","#9da078","#a08978"};
+
+        Assert.assertArrayEquals(hexValues, analogous);
+
+    }
+
+    @Test
+    public void testTetrad() {
+        String hex = "#a09678";
+        CalculateRelatedColors calculateRelatedColors = new CalculateRelatedColors(hex);
+        String[] tetrad = calculateRelatedColors.returnTetrad();
+
+        String[] hexValues = {"#a09678","#7882a0","#96a078", "#8278a0"};
+
+        Assert.assertArrayEquals(hexValues, tetrad);
+
+    }
+
+    @Test
+    public void testTetradSquare() {
+        String hex = "#a09678";
+        CalculateRelatedColors calculateRelatedColors = new CalculateRelatedColors(hex);
+        String[] tetradSquare = calculateRelatedColors.returnTetradSquare();
+
+        String[] hexValues = {"#a09678","#78a082","#7882a0", "#a07896"};
+
+        Assert.assertArrayEquals(hexValues, tetradSquare);
+
+    }
+
+    @Test
     public void testBmpFileFormat() {
         ClassLoader classloader = Thread.currentThread().getContextClassLoader();
         InputStream is = classloader.getResourceAsStream("TestResources/bmp test.bmp");
