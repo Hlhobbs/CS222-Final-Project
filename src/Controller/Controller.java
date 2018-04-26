@@ -40,18 +40,19 @@ public class Controller implements Initializable {
 
                 //Checks the validity of the image obtained from the file system and displays it
 
-                Image image = new Image(inputStream);
 
+                Image image = null;
                 if (inputStream != null) {
+                    image = new Image(inputStream);
                     ShowSelectedPicture showSelectedPicture = new ShowSelectedPicture(image);
+                    LinkedList<Pixel> pixelList = new CreatePixelList(image, uses).returnList();
+                    //Method is used as a model to display the ColorView, which contains the table of colors in the image and the ability to look at related colors
+                    @SuppressWarnings("unused") ColorViewer colorViewer = new ColorViewer(pixelList);
                 } else {
                     ProgramException exception = new ProgramException("There was an issue with the image chosen");
                 }
 
-                LinkedList<Pixel> pixelList = new CreatePixelList(image,uses).returnList();
 
-                //Method is used as a model to display the ColorView, which contains the table of colors in the image and the ability to look at related colors
-                @SuppressWarnings("unused") ColorViewer colorViewer = new ColorViewer(pixelList);
 
             } catch (Exception e) {
                 e.printStackTrace();

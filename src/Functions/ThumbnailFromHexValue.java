@@ -9,7 +9,7 @@ public class ThumbnailFromHexValue {
 
     private Image returnImage;
 
-    ThumbnailFromHexValue(String h) {
+    public ThumbnailFromHexValue(String h) {
 
         Color color = Color.web(h);
 

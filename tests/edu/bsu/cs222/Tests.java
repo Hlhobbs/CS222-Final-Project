@@ -72,7 +72,7 @@ public class Tests {
     }
 
     @Test
-    public void testMinimumUsesFromTextField() throws Exception {
+    public void testSimplifyColors_3() throws Exception {
         MinimumUsesFromTextField minimumUsesFromTextField = new MinimumUsesFromTextField("16");
         int uses = minimumUsesFromTextField.asInt();
 
