@@ -19,14 +19,11 @@ public class Pixel implements Serializable {
     private double blueValue;
     private double alphaValue;
 
-
     private SimpleStringProperty hex = new SimpleStringProperty();
     private int count  = 1;
-    protected String rgb;
 
     public Pixel() {}
 
-    //The X and Y coordinate are not currently in use, but will be for features being implemented in iteration #3, so they have been prepared in advance
     public void setX_Coordinate(int xCoordinate) {this.xCoordinate = xCoordinate;}
     public int getX_Coordinate() {return this.xCoordinate;}
 
@@ -65,7 +62,8 @@ public class Pixel implements Serializable {
     }
     //Used by tableView
     public SimpleStringProperty hexProperty() {return hex;}
-    public void setHexValue() {
+
+    public void setColorCodes() {
         String h = new ReturnStringHexValue(this).returnStringHexValue();
         hex.set(h);
     }
