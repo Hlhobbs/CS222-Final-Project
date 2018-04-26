@@ -224,19 +224,17 @@ public class Tests {
 
     }
 
-    public LinkedList<Pixel> LoadPixelTestArray() {
+    private LinkedList<Pixel> LoadPixelTestArray() {
         ClassLoader classloader = Thread.currentThread().getContextClassLoader();
         InputStream is = classloader.getResourceAsStream("TestResources/smallTest.png");
         ScanPictureForColors scanPictureForColors = new ScanPictureForColors(new Image(is));
-        LinkedList<Pixel> pixels = scanPictureForColors.returnPixelList();
-        return pixels;
+        return scanPictureForColors.returnPixelList();
     }
 
     private LinkedList<Pixel> LoadLargePixelTestArray() {
         ClassLoader classloader = Thread.currentThread().getContextClassLoader();
         InputStream is = classloader.getResourceAsStream("TestResources/Test.jpg");
         ScanPictureForColors scanPictureForColors = new ScanPictureForColors(new Image(is));
-        LinkedList<Pixel> pixels = scanPictureForColors.returnPixelList();
-        return pixels;
+        return scanPictureForColors.returnPixelList();
     }
 }

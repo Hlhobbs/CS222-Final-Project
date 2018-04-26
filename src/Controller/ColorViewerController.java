@@ -30,20 +30,20 @@ public class ColorViewerController implements Initializable {
 
 
     @FXML
-    protected
+    private
     Label compLabel;
     @FXML
-    protected
+    private
     TableView<Pixel> tableView;
     @FXML
     TableColumn<Pixel, String> hexCol;
     @FXML
-    protected
+    private
     TableColumn thumbnailCol;
     @FXML
     TableColumn<Pixel, Integer> countCol;
     @FXML
-    protected
+    private
     Label totalDistinctColors;
 
 
@@ -52,12 +52,12 @@ public class ColorViewerController implements Initializable {
     TabPane tabPane;
 
     @FXML
-    protected
+    private
     Tab compTab;
     @FXML
-    protected VBox compBox;
+    private VBox compBox;
     @FXML
-    protected ImageView compView;
+    private ImageView compView;
 
     @FXML
     private
@@ -95,6 +95,9 @@ public class ColorViewerController implements Initializable {
 
         totalDistinctColors.setText("Total number of distinct colors displayed: " + String.valueOf(pixels.size()));
         ThumbnailClickCellFactory cellFactory = new ThumbnailClickCellFactory(new ClickMouseHandler());
+
+        //Gives warning that thumbnailCol should be generified, which is impossible with the custom cell factory
+        //noinspection unchecked
         thumbnailCol.setCellFactory(cellFactory);
 
 

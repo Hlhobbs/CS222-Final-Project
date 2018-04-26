@@ -40,7 +40,7 @@ of each pixel in the image and populates the list with pixels each with RBG valu
     }
     public Pixel returnPixel() { return this.ScannedPixel;}
 
-    public Pixel Scan(int x, int y) {
+    private Pixel Scan(int x, int y) {
         Pixel datapixel = new Pixel();
         datapixel.setX_Coordinate(x);
         datapixel.setY_Coordinate(y);

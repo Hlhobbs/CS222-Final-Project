@@ -21,36 +21,36 @@ import java.util.ResourceBundle;
 public class Controller implements Initializable {
 
     @FXML
-    public Button FileButton;
+    private Button FileButton;
 
     @FXML
-    public TextField minimumUsesTextField;
+    private TextField minimumUsesTextField;
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        //The button on the first window that pops up
         FileButton.setOnAction(event -> {
             try {
                 InputStream inputStream = new FilePicker().getInputStream();
                 int uses = new MinimumUsesFromTextField(minimumUsesTextField.getText()).asInt();
 
-                //Checks the validity of the image obtained from the file system and displays it
-
-
-                Image image = null;
+                Image image;
                 if (inputStream != null) {
+
                     image = new Image(inputStream);
+
+                    //Displays the selected picture and allows the user to search the picture for the color at a pixel
                     ShowSelectedPicture showSelectedPicture = new ShowSelectedPicture(image);
+
                     LinkedList<Pixel> pixelList = new CreatePixelList(image, uses).returnList();
+
                     //Method is used as a model to display the ColorView, which contains the table of colors in the image and the ability to look at related colors
                     @SuppressWarnings("unused") ColorViewer colorViewer = new ColorViewer(pixelList);
                 } else {
                     ProgramException exception = new ProgramException("There was an issue with the image chosen");
                 }
-
-
-
             } catch (Exception e) {
                 e.printStackTrace();
             }

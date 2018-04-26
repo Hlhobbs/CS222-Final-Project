@@ -12,7 +12,6 @@ public class FilePicker {
     private InputStream inputStream;
 
     //FilePicker is a method that allows the user to browse their files for a picture.
-
     public FilePicker() throws FileNotFoundException {
 
         FileChooser testFileChooser = new FileChooser();

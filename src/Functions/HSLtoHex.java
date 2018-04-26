@@ -4,6 +4,7 @@ public class HSLtoHex {
 
     private String hex;
 
+    //Algorithm for calculating HSL gotten from https://en.wikipedia.org/wiki/HSL_and_HSV#General_approach
     public HSLtoHex(double[] hsl) {
         double chroma = (1 - Math.abs(2*hsl[2]-1)) * hsl[1];
         double x = chroma * (1 - Math.abs(

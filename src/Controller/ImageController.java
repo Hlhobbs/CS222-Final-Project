@@ -75,38 +75,35 @@ public class ImageController implements Initializable {
     }
 
     private void buttonPress() {
-        button.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
+        button.setOnAction(event -> {
 
-                if (xCoor.getText().trim().isEmpty() || yCoor.getText().trim().isEmpty()) {
-                    ExceptionLabel.setText("Please enter in coordinates for a pixel");
-                }
-                
-                else if (!(xCoor.getText().matches("^[0-9]+$")) && !(yCoor.getText().matches("^[0-9]+$"))) {
-                    ExceptionLabel.setText("Enter numeric charcters");
-                }
+            if (xCoor.getText().trim().isEmpty() || yCoor.getText().trim().isEmpty()) {
+                ExceptionLabel.setText("Please enter in coordinates for a pixel");
+            }
 
-                else {
-                    int x = Integer.valueOf(xCoor.getText());
-                    int y = Integer.valueOf(yCoor.getText());
+            else if (!(xCoor.getText().matches("^[0-9]+$")) && !(yCoor.getText().matches("^[0-9]+$"))) {
+                ExceptionLabel.setText("Enter numeric charcters");
+            }
 
-                    if (x > image.getWidth() || 0 > x || y > image.getHeight() || 0 > y) {
-                        ExceptionLabel.setText("The coordinates exist outside the pixel's bounds");
-                    } else {
-                        ExceptionLabel.setText("");
-                        ScanPictureForColors scanPictureForColors = new ScanPictureForColors(image, x, y);
-                        Pixel pixel = scanPictureForColors.returnPixel();
-                        thumbnail = new ThumbnailFromHexValue(pixel.getHexValue(),100,100).returnImage();
-                        hex = pixel.getHexValue();
+            else {
+                int x = Integer.valueOf(xCoor.getText());
+                int y = Integer.valueOf(yCoor.getText());
 
-                        hexLabel = new Label("Hex Value is " + hex);
-                        thumbView = new ImageView(thumbnail);
+                if (x > image.getWidth() || 0 > x || y > image.getHeight() || 0 > y) {
+                    ExceptionLabel.setText("The coordinates exist outside the pixel's bounds");
+                } else {
+                    ExceptionLabel.setText("");
+                    ScanPictureForColors scanPictureForColors = new ScanPictureForColors(image, x, y);
+                    Pixel pixel = scanPictureForColors.returnPixel();
+                    thumbnail = new ThumbnailFromHexValue(pixel.getHexValue(),100,100).returnImage();
+                    hex = pixel.getHexValue();
+
+                    hexLabel = new Label("Hex Value is " + hex);
+                    thumbView = new ImageView(thumbnail);
 
 
-                        imageBox.getChildren().clear();
-                        imageBox.getChildren().addAll(hexLabel,thumbView);
-                    }
+                    imageBox.getChildren().clear();
+                    imageBox.getChildren().addAll(hexLabel,thumbView);
                 }
             }
         });

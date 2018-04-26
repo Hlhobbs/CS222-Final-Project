@@ -1,6 +1,5 @@
 package Functions;
 
-import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
@@ -12,9 +11,9 @@ import javafx.util.Callback;
 
 public class ThumbnailClickCellFactory implements Callback<TableColumn, TableCell> {
 
-    private final EventHandler<Event> click;
+    private final EventHandler<javafx.scene.input.MouseEvent> click;
 
-    public ThumbnailClickCellFactory(EventHandler click) {
+    public ThumbnailClickCellFactory(EventHandler<javafx.scene.input.MouseEvent> click) {
         this.click = click;
     }
 
