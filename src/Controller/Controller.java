@@ -1,23 +1,20 @@
 package Controller;
 
-import Functions.*;
+import Functions.CreatePixelList;
+import Functions.FilePicker;
+import Functions.MinimumUsesFromTextField;
+import Functions.Pixel;
 import Models.ColorViewer;
 import Models.ProgramException;
 import Models.ShowSelectedPicture;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
-import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
-
 import java.io.InputStream;
 import java.net.URL;
 import java.util.LinkedList;
-import java.util.Objects;
 import java.util.ResourceBundle;
 
 
