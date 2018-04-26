@@ -1,7 +1,5 @@
 package Functions;
 
-import Models.ProgramException;
-
 public class MinimumUsesFromTextField {
 
     private int uses;

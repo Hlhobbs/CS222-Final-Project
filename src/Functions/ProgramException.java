@@ -1,4 +1,4 @@
-package Models;
+package Functions;
 
 import Controller.ExceptionController;
 import javafx.fxml.FXMLLoader;
